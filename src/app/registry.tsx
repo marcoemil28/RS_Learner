@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import { EkgModule } from '../modules/ekg/EkgModule';
+import { MedikamenteModule } from '../modules/medikamente/MedikamenteModule';
 
 export interface LearningModule {
   id: string;
@@ -20,8 +21,7 @@ export interface LearningModule {
  */
 export const MODULES: LearningModule[] = [
   { id: 'ekg', title: 'EKG-Trainer', icon: '📈', status: 'available', component: EkgModule },
-  { id: 'saa-bpr', title: 'SAA / BPR Fragenkatalog', icon: '📋', status: 'coming-soon' },
+  { id: 'medikamente', title: 'Medikamente (SAA/BPR)', icon: '💊', status: 'available', component: MedikamenteModule },
   { id: 'algorithmen', title: 'Algorithmen (ABCDE, ALS/BLS)', icon: '🧭', status: 'coming-soon' },
-  { id: 'medikamente', title: 'Medikamente', icon: '💊', status: 'coming-soon' },
   { id: 'anatomie', title: 'Anatomie & Physiologie', icon: '🫀', status: 'coming-soon' },
 ];

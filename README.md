@@ -94,11 +94,44 @@ Hot-Reload sofort übernommen.
 - **Fortschrittsansicht**: Trefferquote pro Rhythmus, lokal gespeichert
   (im Browser-/App-Storage, verlässt nie deinen Rechner).
 
+### ✅ Elektroden-Platzierungstrainer (im EKG-Modul, Tab „Elektroden legen“)
+
+- Interaktiver **SVG-Körper**, auf dem du die Elektroden per Maus/Touch an
+  die richtige Stelle ziehst — kein Foto/Bildmaterial nötig.
+- **Monitoring-EKG (3-/4-Kanal, „Ampelschema“)**: Ganzkörperansicht, 4
+  Positionen am Rumpf.
+- **12-Kanal-EKG**: eigener, gezoomter **Brustkorb-Umriss** mit
+  nummerierten Rippen, schattierten Interkostalraum-Bändern und
+  durchgehenden Leitlinien (Sternal-/Medioklavikular-/Axillarlinien). Bei
+  V1, V2, V4-V6 wird **zweidimensional** geprüft (richtiger
+  Interkostalraum **und** richtige Linie), nicht nur "nah genug" an einem
+  Punkt — trainiert die echte Anlegetechnik ("Rippe zählen, Linie finden").
+- **Lernen**-Modus zeigt alle Positionen beschriftet an, **Üben**-Modus
+  lässt dich die Elektroden platzieren (Sofort-Feedback, Versuchszähler).
+
+### ✅ Medikamente (SAA/BPR) — Nachschlagewerk
+
+- Durchsuchbare Referenz mit **29 Medikamenten** (Wirkstoff, Konzentration,
+  Wirkung, Indikationen, Kontraindikationen, Dosierung, Nebenwirkungen,
+  Besonderheiten), gruppiert nach Kategorie. Die kurze "Wirkung"-Erklärung
+  (was macht das Mittel im Körper) ist allgemeines Pharmakologie-Wissen,
+  ergänzt neben den PDF-Originalfeldern.
+- Inhaltlich extrahiert aus [`docs/saa_bpr_2025.pdf`](docs/saa_bpr_2025.pdf)
+  ("Standard-Arbeitsanweisungen und Behandlungspfade Rettungsdienst 2025",
+  6-Länder-Arbeitsgruppe ÄLRD).
+- ⚠️ **Scope-Hinweis:** Diese SAA/BPR beschreiben delegierbare invasive
+  Maßnahmen und Medikamentengaben für **Notfallsanitäter:innen (NotSan)**
+  mit ärztlicher Delegation — **nicht** den Kompetenzbereich der (kürzeren)
+  Rettungssanitäter-Ausbildung (RS). Das Modul ist bewusst als
+  **Nachschlage-/Kontextwissen** gedacht (verstehen, was NA/NotSan tun und
+  warum), nicht als 1:1-RS-Prüfungsstoff. Die App ist damit auch allgemein
+  als **Kontext-Plattform** angelegt: eigene Quell-PDFs unter `docs/`
+  ablegen und daraus weitere Module/Inhalte extrahieren, siehe
+  [Eigene Inhalte einpflegen](#eigene-inhalte-einpflegen--korrigieren).
+
 ### 🔜 Geplant
 
-- SAA/BPR-Fragenkatalog
-- Algorithmen (ABCDE, BLS/ALS)
-- Medikamente
+- Algorithmen (ABCDE, BLS/ALS, BPR-Krankheitsbilder aus derselben Quelle)
 - Anatomie & Physiologie
 
 Platzhalter für diese Module sind bereits in der Seitenleiste sichtbar
@@ -120,9 +153,25 @@ src/
       QuizMode.tsx         # Multiple-Choice-Quiz
       ProgressView.tsx     # Fortschrittsstatistik
       progress.ts          # localStorage-Persistenz + gewichtete Zufallsauswahl
-      EkgModule.tsx         # Tab-Container (Lernen/Quiz/Fortschritt)
+      EkgModule.tsx         # Tab-Container (Lernen/Elektroden/Quiz/Fortschritt)
+      electrodes/
+        types.ts             # Datenmodell für Elektrodenpunkte/-sets (inkl. ElectrodeHitZone)
+        data.ts               # Monitoring- + 12-Kanal-Set (Positionen, Landmarken, Hit-Zonen)
+        layout.ts              # Label-Platzierung (links/rechts) im SVG
+        BodyOutline.tsx        # SVG-Ganzkörperumriss (fürs Monitoring-Set)
+        ThoraxOutline.tsx       # gezoomter Brustkorb mit ICR-Bändern + Leitlinien (fürs 12-Kanal-Set)
+        ElectrodeStudy.tsx      # Lernen: alle Positionen beschriftet
+        ElectrodePlacement.tsx  # Üben: Drag-and-drop-Platzierung + Zeile/Spalte-Prüfung
+        ElectrodesTab.tsx        # Set-/Modus-Umschalter
+    medikamente/
+      types.ts           # Datenmodell für Medikamente
+      medications.json   # aus docs/saa_bpr_2025.pdf extrahierte Rohdaten
+      wirkung.ts          # ergänzte Kurz-Wirkbeschreibungen (nicht aus dem PDF)
+      data.ts             # lädt/typisiert medications.json + wirkung.ts
+      MedikamenteModule.tsx  # Such-/Filter-UI + Detailansicht
   App.tsx                 # App-Shell mit Sidebar + aktivem Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
+docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden
 ```
 
 ### Eigene Inhalte einpflegen / korrigieren
@@ -130,9 +179,33 @@ src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 - EKG-Rhythmen: `src/modules/ekg/rhythms.ts` — jeder Eintrag hat Merkmale,
   klinische Hinweise und die Parameter für die Kurvengenerierung
   (`gen`-Feld, siehe `types.ts` für die möglichen Rhythmus-Arten).
+- Elektroden-Positionen: `src/modules/ekg/electrodes/data.ts` — Koordinaten
+  beziehen sich auf das `viewBox="0 0 400 750"` des Körperdiagramms in
+  `BodyOutline.tsx`.
+- Medikamente: `src/modules/medikamente/medications.json` direkt anpassen,
+  oder eigene Quell-PDFs unter `docs/` ablegen und wie unten beschrieben neu
+  extrahieren.
 - Wenn du eigene Skripten/Fragenkataloge hast: am besten als eigene
-  Modul-Datenquelle (z. B. `src/modules/saa-bpr/questions.ts`) im gleichen
-  Stil wie `rhythms.ts` anlegen.
+  Modul-Datenquelle im gleichen Stil wie `rhythms.ts`/`medications.json`
+  anlegen.
+
+### Eigene PDFs als Wissensbasis nutzen
+
+Die Medikamente stammen aus `docs/saa_bpr_2025.pdf` und wurden per Skript
+(PyMuPDF) automatisiert in `medications.json` extrahiert, nicht händisch
+abgetippt — das minimiert Übertragungsfehler bei sicherheitsrelevanten
+Dosierungen. Um eigene Unterlagen (z. B. eine andere/aktuellere
+SAA/BPR-Version, ein Fragenkatalog-PDF) als Quelle zu nutzen:
+
+1. PDF unter `docs/` ablegen.
+2. Text extrahieren (z. B. mit `pymupdf`/`pdftotext`) und Struktur/Kapitel
+   sichten.
+3. Passendes Extraktionsskript schreiben (Vorlage: die Parser, die
+   `medications.json` erzeugt haben — nicht Teil des Repos, da einmalig
+   ausgeführt), Ergebnis als JSON/TS in ein neues oder bestehendes Modul
+   einpflegen.
+4. Zahlenwerte (Dosierungen!) stichprobenartig gegen das Original-PDF
+   gegenprüfen, bevor du dich darauf verlässt.
 
 ### Neues Lernmodul hinzufügen (z. B. SAA/BPR)
 

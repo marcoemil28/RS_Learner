@@ -1,0 +1,32 @@
+export interface ElectrodeHitZone {
+  /** Gültiger y-Bereich (Interkostalraum-Band) im SVG-Koordinatensystem. */
+  rowY: [number, number];
+  /** Gültiger x-Bereich (Toleranzband um die vertikale Leitlinie). */
+  colX: [number, number];
+}
+
+export interface ElectrodePoint {
+  id: string;
+  label: string;
+  color: string;
+  /** Referenzposition (für Lernansicht/Beschriftung sowie als Fallback-Ziel). */
+  x: number;
+  y: number;
+  description: string;
+  /**
+   * Wenn gesetzt, wird beim Üben statt eines einfachen Radius-Treffers geprüft,
+   * ob die Elektrode sowohl im richtigen Interkostalraum (rowY) als auch auf der
+   * richtigen vertikalen Linie (colX) liegt — strenger und realitätsnäher als
+   * ein reiner Abstand zu einem Punkt.
+   */
+  hitZone?: ElectrodeHitZone;
+}
+
+export interface ElectrodeSet {
+  id: string;
+  title: string;
+  intro: string;
+  points: ElectrodePoint[];
+  bodyType: 'full' | 'thorax';
+  viewBox: { w: number; h: number };
+}

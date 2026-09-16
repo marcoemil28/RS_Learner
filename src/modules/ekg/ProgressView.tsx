@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { RHYTHMS } from './rhythms';
 import { getProgress, resetProgress } from './progress';
+import { ConfirmButton } from '../../components/ConfirmButton';
 
 export function ProgressView() {
   const [progress, setProgress] = useState(getProgress());
@@ -18,9 +19,7 @@ export function ProgressView() {
   const totalCorrect = Object.values(progress).reduce((sum, s) => sum + s.correct, 0);
 
   function handleReset() {
-    if (confirm('Gesamten EKG-Fortschritt wirklich zurücksetzen?')) {
-      setProgress(resetProgress());
-    }
+    setProgress(resetProgress());
   }
 
   return (
@@ -34,9 +33,7 @@ export function ProgressView() {
           <strong>{totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : '–'}%</strong>
           <span>Trefferquote gesamt</span>
         </div>
-        <button className="secondary" onClick={handleReset}>
-          Zurücksetzen
-        </button>
+        <ConfirmButton label="Zurücksetzen" className="secondary" onConfirm={handleReset} />
       </div>
 
       <table className="progress-table">

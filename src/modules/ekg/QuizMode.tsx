@@ -4,6 +4,7 @@ import { generateTrace } from './waveform';
 import { EkgTrace } from './EkgTrace';
 import { getProgress, pickWeighted, recordAttempt, resetProgress } from './progress';
 import type { Rhythm } from './types';
+import { ConfirmButton } from '../../components/ConfirmButton';
 
 const QUIZ_RHYTHMS = RHYTHMS.filter((r) => r.quizEligible);
 
@@ -41,9 +42,7 @@ export function QuizMode() {
   }
 
   function handleReset() {
-    if (confirm('Fortschritt für den EKG-Quiz wirklich zurücksetzen?')) {
-      setProgress(resetProgress());
-    }
+    setProgress(resetProgress());
   }
 
   const stat = progress[current.id];
@@ -55,9 +54,7 @@ export function QuizMode() {
         <div className="quiz-score">
           Session: {sessionScore.correct}/{sessionScore.total} richtig
         </div>
-        <button className="secondary" onClick={handleReset}>
-          Fortschritt zurücksetzen
-        </button>
+        <ConfirmButton label="Fortschritt zurücksetzen" className="secondary" onConfirm={handleReset} />
       </div>
 
       <EkgTrace trace={trace} />

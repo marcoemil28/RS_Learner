@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { StudyMode } from './StudyMode';
 import { QuizMode } from './QuizMode';
 import { ProgressView } from './ProgressView';
+import { ElectrodesTab } from './electrodes/ElectrodesTab';
 
-type Tab = 'study' | 'quiz' | 'progress';
+type Tab = 'study' | 'electrodes' | 'quiz' | 'progress';
 
 export function EkgModule() {
   const [tab, setTab] = useState<Tab>('study');
@@ -16,6 +17,9 @@ export function EkgModule() {
           <button className={tab === 'study' ? 'active' : ''} onClick={() => setTab('study')}>
             Lernen
           </button>
+          <button className={tab === 'electrodes' ? 'active' : ''} onClick={() => setTab('electrodes')}>
+            Elektroden legen
+          </button>
           <button className={tab === 'quiz' ? 'active' : ''} onClick={() => setTab('quiz')}>
             Quiz
           </button>
@@ -26,6 +30,7 @@ export function EkgModule() {
       </header>
 
       {tab === 'study' && <StudyMode />}
+      {tab === 'electrodes' && <ElectrodesTab />}
       {tab === 'quiz' && <QuizMode />}
       {tab === 'progress' && <ProgressView />}
     </div>
