@@ -1,0 +1,388 @@
+:root {
+  font-family: 'Inter', 'Segoe UI', Avenir, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color-scheme: dark;
+
+  --bg: #14171c;
+  --bg-panel: #1b1f26;
+  --bg-panel-alt: #20252d;
+  --border: #2c323d;
+  --text: #e7e9ec;
+  --text-dim: #9aa3af;
+  --accent: #4da3ff;
+  --accent-strong: #2b7fe0;
+  --good: #3ddc84;
+  --bad: #ff5d5d;
+
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  padding: 0.55em 1em;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background-color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: white;
+}
+
+button.secondary {
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.4em 0;
+}
+
+ul {
+  margin: 0.3em 0;
+  padding-left: 1.2em;
+}
+
+/* ---------- App shell ---------- */
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--bg-panel);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.75rem;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.5em 0.5em 1em 0.5em;
+}
+
+.app-brand-icon {
+  font-size: 1.4em;
+}
+
+.app-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.app-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0.65em 0.7em;
+  border-radius: 8px;
+  color: var(--text-dim);
+}
+
+.app-nav-item:hover:not(.disabled) {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+}
+
+.app-nav-item.active {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.app-nav-item.disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.app-nav-icon {
+  font-size: 1.1em;
+}
+
+.badge {
+  margin-left: auto;
+  font-size: 0.7em;
+  background-color: var(--border);
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  color: var(--text-dim);
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 2rem;
+}
+
+.coming-soon {
+  color: var(--text-dim);
+  padding: 2rem;
+}
+
+/* ---------- Module shell ---------- */
+
+.module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 0.4em;
+}
+
+.tab-bar button.active {
+  background-color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: white;
+}
+
+/* ---------- EKG canvas ---------- */
+
+.ekg-canvas {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Study mode ---------- */
+
+.study-mode {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.rhythm-list {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.rhythm-group h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin: 0.8em 0 0.3em 0.3em;
+}
+
+.rhythm-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rhythm-group button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0.45em 0.6em;
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.rhythm-group button:hover {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+}
+
+.rhythm-group button.active {
+  background-color: var(--bg-panel-alt);
+  color: var(--accent);
+  border-color: var(--border);
+}
+
+.rhythm-detail {
+  flex: 1;
+  min-width: 0;
+}
+
+.rhythm-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.rhythm-en {
+  color: var(--text-dim);
+  font-style: italic;
+  margin: 0;
+}
+
+.rhythm-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+/* ---------- Quiz mode ---------- */
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.quiz-score {
+  font-weight: 600;
+}
+
+.quiz-question {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.6rem;
+  max-width: 760px;
+}
+
+.quiz-option {
+  padding: 0.7em 1em;
+  text-align: left;
+}
+
+.quiz-option.correct {
+  background-color: rgba(61, 220, 132, 0.18);
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.quiz-option.incorrect {
+  background-color: rgba(255, 93, 93, 0.18);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.quiz-feedback {
+  margin-top: 1.25rem;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  max-width: 760px;
+}
+
+.quiz-feedback .clinical-note {
+  color: var(--text-dim);
+}
+
+.quiz-feedback .stat-line {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ---------- Progress view ---------- */
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.progress-summary div {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-summary strong {
+  font-size: 1.6rem;
+}
+
+.progress-summary span {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.progress-table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+}
+
+.progress-table th,
+.progress-table td {
+  text-align: left;
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--border);
+}
+
+.progress-table th {
+  color: var(--text-dim);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.progress-table tr.weak td:last-child {
+  color: var(--bad);
+}
