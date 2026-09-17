@@ -8,6 +8,7 @@ import { MED_VORBEREITUNG } from '../modules/medikamentenvorbereitung/data';
 import { SANITAETSDIENST_THEMEN } from '../modules/sanitaetsdienst/data';
 import { INTERNISTISCHE_NOTFAELLE_THEMEN } from '../modules/internistischenotfaelle/data';
 import { PAEDIATRIE_THEMEN } from '../modules/paediatrie/data';
+import { PSYCHIATRIENOTFAELLE_THEMEN } from '../modules/psychiatrienotfaelle/data';
 import { MODULES } from './registry';
 
 export interface SearchItem {
@@ -136,6 +137,17 @@ const RAW_INDEX: RawSearchItem[] = [
       moduleId: 'paediatrie',
       moduleTitle: 'Pädiatrie & Geburtshilfe',
       icon: '🍼',
+      itemId: t.id,
+      haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
+    })
+  ),
+  ...PSYCHIATRIENOTFAELLE_THEMEN.map(
+    (t): RawSearchItem => ({
+      key: `psychiatrienotfaelle:${t.id}`,
+      title: t.title,
+      moduleId: 'psychiatrienotfaelle',
+      moduleTitle: 'Psychiatrische Notfälle & Kommunikation',
+      icon: '🧠',
       itemId: t.id,
       haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
     })

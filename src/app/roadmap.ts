@@ -52,6 +52,11 @@ export const ROADMAP: Record<ModuleCategory, RoadmapEntry[]> = {
     { moduleId: 'paediatrie', itemId: 'normale-geburt', label: 'Normale Geburt' },
     { moduleId: 'paediatrie', itemId: 'notgeburt-ablauf', label: 'Notgeburt — Ablauf für den Sanitätsdienst' },
     { moduleId: 'paediatrie', itemId: 'neugeborenen-erstversorgung-apgar', label: 'Erstversorgung Neugeborenes & APGAR-Score' },
+    { moduleId: 'psychiatrienotfaelle', itemId: 'erregungszustaende-deeskalation', label: 'Erregungszustände & Deeskalation' },
+    { moduleId: 'psychiatrienotfaelle', itemId: 'suizidalitaet', label: 'Suizidalität' },
+    { moduleId: 'psychiatrienotfaelle', itemId: 'gespraechsfuehrung', label: 'Gesprächsführung mit Patienten & Angehörigen' },
+    { moduleId: 'psychiatrienotfaelle', itemId: 'umgang-sterbende-todesfeststellung', label: 'Umgang mit Sterbenden & Todesfeststellung' },
+    { moduleId: 'psychiatrienotfaelle', itemId: 'psychische-erste-hilfe-manv', label: 'Psychische Erste Hilfe bei Großschadenslagen' },
   ],
   Medikamente: [
     { moduleId: 'medikamentenvorbereitung', label: 'Medikamente vorbereiten & sicher verabreichen' },

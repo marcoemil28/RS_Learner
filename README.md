@@ -271,11 +271,23 @@ relevant.
   Der APGAR-Rechner selbst bleibt im Werkzeuge-Modul, hier nur der
   fachliche Hintergrund und Verweis darauf.
 
+### ✅ Psychiatrische Notfälle & Kommunikation
+
+- 5 Themen in 4 Kategorien: **Psychiatrische Notfälle** (Erregungszustände
+  & Deeskalation, Suizidalität), **Kommunikation** (Gesprächsführung mit
+  Patienten & Angehörigen), **Sterben & Todesfeststellung** (sichere/
+  unsichere Todeszeichen, rechtlicher Rahmen der Todesfeststellung als
+  RS), **Großschadenslagen** (Psychische Erste Hilfe / PSNV-
+  Grundprinzipien).
+- Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+  Bundeslandspezifische rechtliche Rahmenbedingungen (Unterbringung gegen
+  den eigenen Willen, Todesfeststellung) sind je Eintrag vermerkt.
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
-für weitere Ideen (Psychiatrische Notfälle, Rettungstechnik & Gerätekunde,
-Rechtliche Grundlagen, generalisierter Quiz-Modus, …).
+für weitere Ideen (Rettungstechnik & Gerätekunde, Rechtliche Grundlagen,
+generalisierter Quiz-Modus, …).
 
 ## Architektur
 
@@ -354,6 +366,11 @@ src/
       data.ts             # 4 Themen: Pädiatrie (Besonderheiten), Geburtshilfe (Geburt,
                           #   Notgeburt, Neugeborenen-Erstversorgung & APGAR)
       PaediatrieModule.tsx  # Detailansicht mit Fakten je Sektion
+    psychiatrienotfaelle/
+      types.ts           # Datenmodell (PsychiatrieNotfaelleTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 5 Themen: Psychiatrische Notfälle, Kommunikation,
+                          #   Sterben & Todesfeststellung, Großschadenslagen
+      PsychiatrieNotfaelleModule.tsx  # Detailansicht mit Fakten je Sektion
   App.tsx                 # App-Shell: nach Thema gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

@@ -9,6 +9,7 @@ import { MedikamentenvorbereitungModule } from '../modules/medikamentenvorbereit
 import { SanitaetsdienstModule } from '../modules/sanitaetsdienst/SanitaetsdienstModule';
 import { InternistischeNotfaelleModule } from '../modules/internistischenotfaelle/InternistischeNotfaelleModule';
 import { PaediatrieModule } from '../modules/paediatrie/PaediatrieModule';
+import { PsychiatrieNotfaelleModule } from '../modules/psychiatrienotfaelle/PsychiatrieNotfaelleModule';
 
 /**
  * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
@@ -135,6 +136,14 @@ export const MODULES: LearningModule[] = [
     icon: '🍼',
     status: 'available',
     component: PaediatrieModule,
+    category: 'Krankheitsbilder & Algorithmen',
+  },
+  {
+    id: 'psychiatrienotfaelle',
+    title: 'Psychiatrische Notfälle & Kommunikation',
+    icon: '🧠',
+    status: 'available',
+    component: PsychiatrieNotfaelleModule,
     category: 'Krankheitsbilder & Algorithmen',
   },
 ];

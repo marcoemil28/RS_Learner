@@ -11,6 +11,23 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.18.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Psychiatrische Notfälle & Kommunikation"** (aus
+  `docs/vorgaben_und_inhalte.txt` Abschnitt 2), erscheint in der Sidebar
+  unter „Krankheitsbilder & Algorithmen": 5 Themen in 4 Kategorien —
+  - Psychiatrische Notfälle: Erregungszustände & Deeskalation, Suizidalität
+  - Kommunikation: Gesprächsführung mit Patienten & Angehörigen
+  - Sterben & Todesfeststellung: sichere/unsichere Todeszeichen,
+    rechtlicher Rahmen der Todesfeststellung als RS
+  - Großschadenslagen: Psychische Erste Hilfe (PSNV-Grundprinzipien)
+  - Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+    Bundeslandspezifische rechtliche Rahmenbedingungen (Unterbringung,
+    Todesfeststellung) sind je Eintrag vermerkt.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+
 ## [0.17.1] – 2026-09-17
 
 ### Hinzugefügt
