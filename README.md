@@ -142,6 +142,49 @@ Hot-Reload sofort übernommen.
 - Einstellung wird per `localStorage` gespeichert und bleibt über
   Neustarts erhalten.
 
+### ✅ Prüfungsvorbereitung (Quiz)
+
+- Fest angepinntes Modul mit Multiple-Choice-Fragen über fast alle
+  Themenmodule hinweg (Algorithmen, Anatomie, Traumatologie, Medikamente,
+  Medikamente vorbereiten & verabreichen, Sanitätsdienst, Internistische
+  Notfälle, Pädiatrie & Geburtshilfe, Psychiatrische Notfälle,
+  Rettungstechnik, Rechtliche Grundlagen, Glossar).
+- Modul-Filter ("Alle Module" oder ein einzelnes), gewichtete
+  Zufallsauswahl nach demselben Prinzip wie beim EKG-Quiz (Fragen mit
+  wenig Übung/niedriger Trefferquote erscheinen häufiger), Sofort-Feedback
+  mit Erklärung, "Zum Eintrag springen" führt direkt zurück ins
+  Quellmodul.
+- Startbestand von 45 kuratierten Fragen — kein Anspruch auf vollständige
+  Abdeckung jedes Eintrags, wachsender Fragenpool
+  (`src/app/quiz/questions.ts`).
+- Das EKG-Quiz (visuelle Rhythmuserkennung an der Kurve) bleibt als
+  eigenständiges Feature bestehen — konzeptionell verschieden von
+  Text-Multiple-Choice.
+
+### ✅ Checklisten
+
+- Fest angepinntes Modul mit 5 abhakbaren Checklisten für den echten
+  Dienst: Notfallrucksack-Check (Dienstbeginn), Reanimation Erwachsene —
+  Ablauf (BLS), MANV — Sichtungsablauf, Notgeburt — Ablauf-Checkliste,
+  Übergabe (SINNHAFT) — Checkliste.
+- Alle Punkte sind aus den jeweiligen Themenmodulen abgeleitet (mit
+  Verweis darauf dort), nicht neu erfunden.
+- Haken werden pro Checkliste in `localStorage` gespeichert und bleiben
+  bis zum manuellen Zurücksetzen erhalten — auch für den echten Einsatz
+  gedacht, nicht nur zum Lernen.
+
+### ✅ Cheat-Sheet
+
+- Fest angepinntes Modul mit 8 stark verkürzten, großformatigen
+  Merkzetteln: Reanimation Erwachsene, Reanimation Kinder, ABCDE-Schema,
+  Anaphylaxie, MANV-Sichtung, Schlaganfall (FAST), Verbrennungen,
+  Hypoglykämie.
+- Jede Karte verlinkt per "Mehr Details →" zurück ins ausführliche
+  Quellmodul.
+- Druckbar über einen 🖨️-Button; eigenes `@media print`-Stylesheet blendet
+  Sidebar/Buttons aus und stellt auf schwarz-auf-weiß um, unabhängig vom
+  Hoher-Kontrast-Modus.
+
 ### ✅ EKG-Trainer (v1)
 
 - **18 Rhythmen** über alle für die RS-Ausbildung relevanten Kategorien:
@@ -347,9 +390,7 @@ Ebenfalls fest oben in der Sidebar angepinnt.
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen. Aus `docs/vorgaben_und_inhalte.txt`
-bleibt noch der generalisierte Quiz-Modus (Abschnitt 6) sowie
-cross-cutting Features aus Abschnitt 3 (eigene Notizen zu Einträgen,
-Checklisten-Modus, Cheat-Sheet-Ansicht).
+bleibt noch aus Abschnitt 3: eigene Notizen zu Einträgen.
 
 ## Architektur
 
@@ -363,7 +404,22 @@ src/
     GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
     roadmap.ts                # kuratierter "Fahrplan" je Themenkategorie (nur Links, keine Inhalte)
     favorites.ts               # Favoriten-Store (localStorage + Pub/Sub, kein React-Context)
+    formatDate.ts               # Formatiert CONTENT_STAND (ISO-Datum) als TT.MM.JJJJ
     HomePage.tsx               # Startseite: Modul-Karten + Favoriten + Fahrplan + EKG-Fortschritt
+    quiz/
+      types.ts                  # QuizQuestion-Datenmodell
+      questions.ts                # Fragenpool über fast alle Module hinweg
+      progress.ts                  # Fortschritt + gewichtete Auswahl (analog modules/ekg/progress.ts)
+      QuizModule.tsx                # Generalisierter Quiz-Modus (Modul-Filter, Sofort-Feedback)
+    checklisten/
+      types.ts                  # Datenmodell (Checklist/ChecklistItem)
+      data.ts                     # 5 abhakbare Checklisten, aus Themenmodulen abgeleitet
+      state.ts                     # Checked-Status je Checkliste (localStorage)
+      ChecklistenModule.tsx          # Liste + abhakbare Checkliste mit Fortschrittsanzeige
+    cheatsheet/
+      types.ts                  # Datenmodell (CheatSheetCard)
+      data.ts                     # 8 großformatige Merkzettel-Karten, aus Themenmodulen verdichtet
+      CheatSheetModule.tsx          # Karten-Grid, druckbar (@media print in App.css)
   components/
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
     FavoriteButton.tsx      # ☆/★-Stern-Button, verwendet in den meisten Modul-Detailansichten
@@ -468,6 +524,24 @@ docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert w
 - Wenn du eigene Skripten/Fragenkataloge hast: am besten als eigene
   Modul-Datenquelle im gleichen Stil wie `rhythms.ts`/`medications.json`
   anlegen.
+
+### Quellenangabe & Stand pro Modul
+
+Jedes Themenmodul (Algorithmen, Anatomie, Traumatologie, Medikamente,
+Medikamente vorbereiten & verabreichen, Sanitätsdienst, Internistische
+Notfälle, Pädiatrie & Geburtshilfe, Psychiatrische Notfälle,
+Rettungstechnik, Rechtliche Grundlagen) exportiert in seiner `data.ts`
+eine Konstante `CONTENT_STAND` (ISO-Datum, z. B. `'2026-09-17'`) — das
+Datum, an dem der Inhalt zuletzt inhaltlich geprüft/aktualisiert wurde.
+Sie wird über `src/app/formatDate.ts` (`formatStand`) im
+Disclaimer-Banner des jeweiligen Moduls als "Inhaltlicher Stand:
+TT.MM.JJJJ" angezeigt. Das ist unabhängig vom Datum der Originalquelle
+selbst (z. B. steht das SAA/BPR-Dokument mit seinem eigenen Stand
+gesondert im Quellenhinweis).
+
+**Beim Anlegen oder inhaltlichen Ändern eines Moduls**: `CONTENT_STAND` in
+der `data.ts` auf das aktuelle Datum setzen, damit erkennbar bleibt, was
+ggf. veraltet ist.
 
 ### Eigene PDFs als Wissensbasis nutzen
 

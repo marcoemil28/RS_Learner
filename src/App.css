@@ -454,6 +454,30 @@ ul {
   color: var(--text-dim);
 }
 
+.quiz-module-select {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5em 0.6em;
+  font-size: 0.88rem;
+}
+
+.quiz-question-tag {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin-bottom: 0.3em;
+}
+
+.quiz-feedback-actions {
+  display: flex;
+  gap: 0.6em;
+  margin-top: 0.8em;
+}
+
 /* ---------- Progress view ---------- */
 
 .progress-summary {
@@ -1414,4 +1438,108 @@ ul {
 .home-favorites-empty {
   color: var(--text-dim);
   font-size: 0.9rem;
+}
+
+.checklist-progress {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist-items label {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.6em 0.8em;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checklist-items label.checked {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  border-color: var(--good);
+}
+
+.checklist-items input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--good);
+}
+
+.cheatsheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.cheatsheet-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  break-inside: avoid;
+}
+
+.cheatsheet-card h2 {
+  margin: 0 0 0.6em 0;
+  font-size: 1.3rem;
+}
+
+.cheatsheet-card ul {
+  margin: 0 0 0.8em 0;
+  padding-left: 1.2em;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.cheatsheet-link {
+  font-size: 0.85rem;
+}
+
+@media print {
+  .app-sidebar,
+  .cheatsheet-header button,
+  .cheatsheet-disclaimer,
+  .cheatsheet-link {
+    display: none !important;
+  }
+
+  .app-shell,
+  .app-content {
+    height: auto;
+    overflow: visible;
+    display: block;
+  }
+
+  .app-shell {
+    --bg: #ffffff;
+    --bg-panel: #ffffff;
+    --text: #000000;
+    --border: #000000;
+  }
+
+  .cheatsheet-card {
+    border: 1px solid #000;
+    color: #000;
+  }
 }

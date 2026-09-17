@@ -4,6 +4,9 @@ const GENERAL_SOURCE_NOTE =
   'Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). ' +
   'Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const ANATOMIE_THEMEN: AnatomieTopic[] = [
   {
     id: 'herz-kreislauf',

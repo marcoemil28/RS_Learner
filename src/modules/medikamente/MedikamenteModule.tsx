@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { MEDIKAMENTE } from './data';
+import { MEDIKAMENTE, CONTENT_STAND } from './data';
 import type { Medikament, MedikamentKategorie } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: MedikamentKategorie[] = [
   'Analgesie & Sedierung',
@@ -94,7 +95,7 @@ export function MedikamenteModule() {
         (RS). Als RS gibst du diese Medikamente nicht eigenständig. Nutze diesen Bereich als{' '}
         <strong>Nachschlagewerk/Kontextwissen</strong>, nicht als RS-Prüfungsstoff. Es gilt immer deine aktuelle,
         lokale Dienstanweisung. Der Abschnitt „Wirkung“ ist zusätzliches, allgemeines Pharmakologie-Wissen und steht
-        <em> nicht</em> im Original-PDF.
+        <em> nicht</em> im Original-PDF. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

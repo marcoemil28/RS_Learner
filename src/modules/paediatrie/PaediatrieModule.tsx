@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { PAEDIATRIE_THEMEN } from './data';
+import { PAEDIATRIE_THEMEN, CONTENT_STAND } from './data';
 import type { PaediatrieCategory, PaediatrieTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: PaediatrieCategory[] = ['Pädiatrie', 'Geburtshilfe'];
 
@@ -78,7 +79,7 @@ export function PaediatrieModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zu pädiatrischen Notfällen und Geburtshilfe — keine
         SAA/BPR-Quelle. Der APGAR-Rechner findet sich im Werkzeuge-Modul, die Kinderreanimation im
-        Algorithmen-Modul.
+        Algorithmen-Modul. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

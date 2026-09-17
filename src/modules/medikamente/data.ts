@@ -19,6 +19,10 @@ import { WIRKUNG } from './wirkung';
  * Rettungsdienstbereichen und Bundesländern unterscheiden — im Zweifel zählt
  * immer die eigene, aktuell gültige Dienstanweisung.
  */
+
+/** Zuletzt inhaltlich geprüft/aktualisiert (App-Stand, nicht das Datum der Quelle oben). */
+export const CONTENT_STAND = '2026-09-17';
+
 export const MEDIKAMENTE: Medikament[] = (medicationsJson as Omit<Medikament, 'wirkung' | 'minLevel'>[]).map((m) => ({
   ...m,
   wirkung: WIRKUNG[m.id] ?? null,

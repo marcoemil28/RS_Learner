@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { TRAUMA_THEMEN } from './data';
+import { TRAUMA_THEMEN, CONTENT_STAND } from './data';
 import type { TraumaCategory, TraumaTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: TraumaCategory[] = [
   'Frakturen & Wunden',
@@ -99,7 +100,7 @@ export function TraumatologieModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zu Frakturen, Wundversorgung, Verbandstechniken und
         schweren Verletzungen — keine SAA/BPR-Quelle. Konkrete Vorgehensweisen können je nach
-        Rettungsdienstbereich/aktueller Leitlinie variieren.
+        Rettungsdienstbereich/aktueller Leitlinie variieren. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

@@ -6,6 +6,9 @@ const GENERAL_SOURCE_NOTE =
   'eigenen Willen, Todesfeststellung) sind bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale ' +
   'Dienstanweisung bzw. Gesetzeslage.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const PSYCHIATRIENOTFAELLE_THEMEN: PsychiatrieNotfaelleTopic[] = [
   {
     id: 'erregungszustaende-deeskalation',

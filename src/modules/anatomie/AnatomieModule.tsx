@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ANATOMIE_THEMEN } from './data';
+import { ANATOMIE_THEMEN, CONTENT_STAND } from './data';
 import type { AnatomieCategory, AnatomieTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: AnatomieCategory[] = ['Herz-Kreislauf', 'Atmung', 'Skelett & Muskulatur', 'Nervensystem', 'Vitalparameter'];
 
@@ -79,7 +80,7 @@ export function AnatomieModule() {
         ℹ️ Grundlagenwissen zu Aufbau und Funktion des Körpers — als Verständnisbasis für andere Module (z. B.
         Erregungsleitungssystem fürs EKG, vegetatives Nervensystem für Medikamentenwirkungen). Allgemeines
         anatomisch-physiologisches Wissen, keine bestimmte Quelle wie beim SAA/BPR-PDF — für Prüfungsdetails gilt
-        dein Kurs-Lehrbuch/Skript.
+        dein Kurs-Lehrbuch/Skript. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

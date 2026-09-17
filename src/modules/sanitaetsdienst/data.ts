@@ -5,6 +5,9 @@ const GENERAL_SOURCE_NOTE =
   '(Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; ' +
   'es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const SANITAETSDIENST_THEMEN: SanitaetsdienstTopic[] = [
   {
     id: 'wachdienst-organisation',

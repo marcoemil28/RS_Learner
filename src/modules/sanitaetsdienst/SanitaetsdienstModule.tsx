@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { SANITAETSDIENST_THEMEN } from './data';
+import { SANITAETSDIENST_THEMEN, CONTENT_STAND } from './data';
 import type { SanitaetsdienstCategory, SanitaetsdienstTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: SanitaetsdienstCategory[] = ['Einsatzorganisation', 'Kommunikation', 'Medizinische Besonderheiten'];
 
@@ -88,7 +89,8 @@ export function SanitaetsdienstModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines Grundlagenwissen zu Wachdienst-Organisation, MANV/Sichtung, Funkdisziplin und Hygiene bei
         Veranstaltungen — keine SAA/BPR-Quelle. Konkrete Abläufe (Kanäle/Rufnamen, Sichtungsschema,
-        Hygieneplan) sind organisations- und bundeslandspezifisch geregelt.
+        Hygieneplan) sind organisations- und bundeslandspezifisch geregelt. Inhaltlicher Stand:{' '}
+        {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

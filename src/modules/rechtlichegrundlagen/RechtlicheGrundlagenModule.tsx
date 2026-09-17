@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { RECHTLICHEGRUNDLAGEN_THEMEN } from './data';
+import { RECHTLICHEGRUNDLAGEN_THEMEN, CONTENT_STAND } from './data';
 import type { RechtlicheGrundlagenCategory, RechtlicheGrundlagenTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: RechtlicheGrundlagenCategory[] = ['Grundrechte & Pflichten', 'Delegation & Kompetenz', 'Dokumentation'];
 
@@ -87,7 +88,8 @@ export function RechtlicheGrundlagenModule() {
 
       <div className="med-disclaimer">
         ℹ️ Allgemeines rechtliches Grundlagenwissen für den Rettungsdienst — keine SAA/BPR-Quelle und keine
-        Rechtsberatung. Konkrete Rechtsvorschriften sind bundeslandspezifisch geregelt.
+        Rechtsberatung. Konkrete Rechtsvorschriften sind bundeslandspezifisch geregelt. Inhaltlicher Stand:{' '}
+        {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

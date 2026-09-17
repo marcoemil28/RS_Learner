@@ -33,7 +33,7 @@ export const GLOSSAR: GlossaryEntry[] = [
   { id: 'psychkg', abbr: 'PsychKG', meaning: 'Gesetz über Hilfen und Schutzmaßnahmen bei psychischen Krankheiten', description: 'Regelt u. a. die Unterbringung gegen den eigenen Willen — Bezeichnung ist bundeslandspezifisch unterschiedlich.' },
   { id: 'psnv', abbr: 'PSNV', meaning: 'Psychosoziale Notfallversorgung', description: 'Betreuung von Betroffenen und Einsatzkräften nach belastenden Ereignissen.' },
   { id: 'rh', abbr: 'RH', meaning: 'Rettungshelfer:in', description: 'Ähnlicher Kompetenzumfang wie Rettungssanitäter — in dieser App unter „RS" zusammengefasst.' },
-  { id: 'ros c', abbr: 'ROSC', meaning: 'Return of Spontaneous Circulation', description: 'Wiedereinsetzen des Spontankreislaufs nach Reanimation.' },
+  { id: 'rosc', abbr: 'ROSC', meaning: 'Return of Spontaneous Circulation', description: 'Wiedereinsetzen des Spontankreislaufs nach Reanimation.' },
   { id: 'rs', abbr: 'RS', meaning: 'Rettungssanitäter:in' },
   { id: 'rth', abbr: 'RTH', meaning: 'Rettungshubschrauber' },
   { id: 'rtw', abbr: 'RTW', meaning: 'Rettungswagen' },

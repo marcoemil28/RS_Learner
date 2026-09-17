@@ -12,6 +12,10 @@ import type { AlgorithmEntry } from './types';
  * Kompetenzzuordnung — es gilt immer deine eigene, aktuell gültige
  * Ausbildungs-/Dienstordnung.
  */
+
+/** Zuletzt inhaltlich geprüft/aktualisiert (App-Stand, nicht das Datum der Quelle oben). */
+export const CONTENT_STAND = '2026-09-17';
+
 export const ALGORITHMEN: AlgorithmEntry[] = [
   {
     id: 'abcde-herangehensweise',

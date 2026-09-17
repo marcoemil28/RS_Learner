@@ -107,7 +107,7 @@ function AppShell() {
         {activeId === 'home' ? (
           <HomePage onNavigateModule={setActiveId} />
         ) : ActiveComponent ? (
-          <ActiveComponent />
+          <ActiveComponent onNavigateModule={setActiveId} />
         ) : (
           <div className="coming-soon">Dieses Modul ist noch nicht verfügbar.</div>
         )}

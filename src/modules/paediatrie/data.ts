@@ -4,6 +4,9 @@ const GENERAL_SOURCE_NOTE =
   'Allgemeines rettungsdienstliches Grundlagenwissen zu pädiatrischen Notfällen und Geburtshilfe — keine ' +
   'SAA/BPR-Quelle. Konkrete Vorgehensweisen können je nach Ausbildungsstand/lokaler Vorgabe variieren.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const PAEDIATRIE_THEMEN: PaediatrieTopic[] = [
   {
     id: 'kindernotfaelle-besonderheiten',

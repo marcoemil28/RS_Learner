@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ALGORITHMEN } from './data';
+import { ALGORITHMEN, CONTENT_STAND } from './data';
 import type { AlgorithmCategory, AlgorithmEntry } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: AlgorithmCategory[] = [
   'Herangehensweise & Einschätzung',
@@ -85,7 +86,7 @@ export function AlgorithmenModule() {
         ℹ️ Diese Algorithmen fassen die <strong>Herangehensweise- und Kreislaufstillstand-Behandlungspfade</strong>{' '}
         aus den Standard-Arbeitsanweisungen und Behandlungspfaden (SAA/BPR) 2025 zusammen — ergänzt um allgemeines
         Basiswissen (z. B. Laien-Basismaßnahmen bei der Reanimation), das nicht aus dem PDF stammt (siehe
-        Quellenhinweis je Eintrag).
+        Quellenhinweis je Eintrag). Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

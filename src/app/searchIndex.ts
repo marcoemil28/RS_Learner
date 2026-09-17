@@ -12,6 +12,7 @@ import { PSYCHIATRIENOTFAELLE_THEMEN } from '../modules/psychiatrienotfaelle/dat
 import { RETTUNGSTECHNIK_THEMEN } from '../modules/rettungstechnik/data';
 import { RECHTLICHEGRUNDLAGEN_THEMEN } from '../modules/rechtlichegrundlagen/data';
 import { GLOSSAR } from '../modules/glossar/data';
+import { CHECKLISTEN } from '../modules/checklisten/data';
 import { MODULES } from './registry';
 
 export interface SearchItem {
@@ -186,6 +187,17 @@ const RAW_INDEX: RawSearchItem[] = [
       icon: '📖',
       itemId: e.id,
       haystack: [e.abbr, e.meaning, e.description].filter(Boolean).join(' ').toLowerCase(),
+    })
+  ),
+  ...CHECKLISTEN.map(
+    (c): RawSearchItem => ({
+      key: `checklisten:${c.id}`,
+      title: c.title,
+      moduleId: 'checklisten',
+      moduleTitle: 'Checklisten',
+      icon: '✅',
+      itemId: c.id,
+      haystack: [c.title, c.description, ...c.items.map((i) => i.text)].join(' ').toLowerCase(),
     })
   ),
 ];

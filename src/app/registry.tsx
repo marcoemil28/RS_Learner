@@ -13,6 +13,9 @@ import { PsychiatrieNotfaelleModule } from '../modules/psychiatrienotfaelle/Psyc
 import { RettungstechnikModule } from '../modules/rettungstechnik/RettungstechnikModule';
 import { RechtlicheGrundlagenModule } from '../modules/rechtlichegrundlagen/RechtlicheGrundlagenModule';
 import { GlossarModule } from '../modules/glossar/GlossarModule';
+import { QuizModule } from './quiz/QuizModule';
+import { ChecklistenModule } from '../modules/checklisten/ChecklistenModule';
+import { CheatSheetModule } from '../modules/cheatsheet/CheatSheetModule';
 
 /**
  * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
@@ -35,12 +38,21 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
   'Einsatz & Organisation',
 ];
 
+/**
+ * Optionale Props, die jede Modul-Hauptkomponente erhalten kann. Module, die
+ * keinen modulübergreifenden Wechsel benötigen, ignorieren `onNavigateModule`
+ * einfach (z. B. indem sie gar keine Props deklarieren).
+ */
+export interface ModuleProps {
+  onNavigateModule?: (moduleId: string) => void;
+}
+
 export interface LearningModule {
   id: string;
   title: string;
   icon: string;
   status: 'available' | 'coming-soon';
-  component?: ComponentType;
+  component?: ComponentType<ModuleProps>;
   /** Thematische Kategorie für die Sidebar-Gruppierung. Wird bei `pinned: true` ignoriert. */
   category: ModuleCategory;
   /**
@@ -171,6 +183,33 @@ export const MODULES: LearningModule[] = [
     icon: '📖',
     status: 'available',
     component: GlossarModule,
+    category: 'Diagnostik & Training',
+    pinned: true,
+  },
+  {
+    id: 'quiz',
+    title: 'Prüfungsvorbereitung (Quiz)',
+    icon: '❓',
+    status: 'available',
+    component: QuizModule,
+    category: 'Diagnostik & Training',
+    pinned: true,
+  },
+  {
+    id: 'checklisten',
+    title: 'Checklisten',
+    icon: '✅',
+    status: 'available',
+    component: ChecklistenModule,
+    category: 'Einsatz & Organisation',
+    pinned: true,
+  },
+  {
+    id: 'cheatsheet',
+    title: 'Cheat-Sheet',
+    icon: '🗒️',
+    status: 'available',
+    component: CheatSheetModule,
     category: 'Diagnostik & Training',
     pinned: true,
   },

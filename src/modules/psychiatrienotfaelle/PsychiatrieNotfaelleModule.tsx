@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { PSYCHIATRIENOTFAELLE_THEMEN } from './data';
+import { PSYCHIATRIENOTFAELLE_THEMEN, CONTENT_STAND } from './data';
 import type { PsychiatrieNotfaelleCategory, PsychiatrieNotfaelleTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: PsychiatrieNotfaelleCategory[] = [
   'Psychiatrische Notfälle',
@@ -93,7 +94,7 @@ export function PsychiatrieNotfaelleModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zu psychiatrischen Notfällen, Gesprächsführung und
         Sterbebegleitung — keine SAA/BPR-Quelle. Rechtliche Rahmenbedingungen (Unterbringung,
-        Todesfeststellung) sind bundeslandspezifisch geregelt.
+        Todesfeststellung) sind bundeslandspezifisch geregelt. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

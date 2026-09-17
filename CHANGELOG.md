@@ -11,6 +11,91 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.27.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Quellenangabe/Stand pro Modul** (aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 3, „Content-Pipeline"): jedes Themenmodul (Algorithmen,
+  Anatomie, Traumatologie, Medikamente, Medikamente vorbereiten &
+  verabreichen, Sanitätsdienst, Internistische Notfälle, Pädiatrie &
+  Geburtshilfe, Psychiatrische Notfälle, Rettungstechnik, Rechtliche
+  Grundlagen) exportiert jetzt eine `CONTENT_STAND`-Konstante
+  (ISO-Datum), die im Disclaimer-Banner als „Inhaltlicher Stand:
+  TT.MM.JJJJ" angezeigt wird (`src/app/formatDate.ts`) — unabhängig vom
+  Stand der jeweiligen Originalquelle (z. B. SAA/BPR-Dokument). Macht auf
+  einen Blick erkennbar, was ggf. veraltet sein könnte.
+  - Konvention in README dokumentiert: `CONTENT_STAND` beim Anlegen oder
+    inhaltlichen Ändern eines Moduls aktualisieren.
+  - Die eigentliche Content-Pipeline-Erweiterung (weitere Quell-PDFs
+    unter `docs/`) bleibt offen, bis entsprechende Dokumente vorliegen —
+    der Extraktionsworkflow dafür ist bereits in der README beschrieben.
+
+## [0.26.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Cheat-Sheet-Ansicht** (aus `docs/vorgaben_und_inhalte.txt` Abschnitt 3,
+  „Praxisnähe"): neues, fest angepinntes Modul mit 8 stark verkürzten,
+  großformatigen Merkzetteln für den Einsatzfall — Reanimation
+  Erwachsene, Reanimation Kinder, ABCDE-Schema, Anaphylaxie, MANV-
+  Sichtung, Schlaganfall (FAST), Verbrennungen, Hypoglykämie. Jede Karte
+  verlinkt per "Mehr Details →" zurück ins ausführliche Quellmodul.
+  - Druckbar über einen 🖨️-Button (`window.print()`); eigenes
+    `@media print`-Stylesheet blendet Sidebar/Buttons aus und stellt auf
+    schwarz-auf-weiß um, unabhängig vom aktuell aktiven Hoher-Kontrast-
+    Modus.
+
+## [0.25.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Checklisten-Modus** (aus `docs/vorgaben_und_inhalte.txt` Abschnitt 3,
+  „Praxisnähe"): neues, fest angepinntes Modul mit 5 abhakbaren
+  Checklisten für den echten Dienst — Notfallrucksack-Check
+  (Dienstbeginn), Reanimation Erwachsene — Ablauf (BLS), MANV —
+  Sichtungsablauf, Notgeburt — Ablauf-Checkliste, Übergabe (SINNHAFT) —
+  Checkliste. Alle Punkte sind aus den jeweiligen Themenmodulen abgeleitet
+  (mit Verweis darauf), nicht neu erfunden.
+  - Haken werden pro Checkliste in `localStorage` gespeichert
+    (`src/modules/checklisten/state.ts`) und bleiben bis zum manuellen
+    Zurücksetzen erhalten — nützlich auch während des Diensts, nicht nur
+    zum Lernen.
+  - Checklisten sind über die globale Suche erreichbar.
+
+## [0.24.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Generalisierter Quiz-Modus** (aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 3/6, letzter Punkt der Priorisierung): neues, fest angepinntes
+  Modul „Prüfungsvorbereitung (Quiz)" mit Multiple-Choice-Fragen über fast
+  alle Themenmodule hinweg (Algorithmen, Anatomie, Traumatologie,
+  Medikamente, Medikamente vorbereiten & verabreichen, Sanitätsdienst,
+  Internistische Notfälle, Pädiatrie & Geburtshilfe, Psychiatrische
+  Notfälle, Rettungstechnik, Rechtliche Grundlagen, Glossar).
+  - Gewichtete Zufallsauswahl nach demselben Prinzip wie beim
+    EKG-Quiz (`src/app/quiz/progress.ts`, angelehnt an
+    `modules/ekg/progress.ts`) — Fragen mit wenig Übung/niedriger
+    Trefferquote erscheinen häufiger.
+  - Modul-Filter ("Alle Module" oder ein einzelnes), Sofort-Feedback mit
+    Erklärung, "Zum Eintrag springen" verlinkt direkt zurück ins
+    Quellmodul.
+  - Startbestand von 45 kuratierten Fragen (`src/app/quiz/questions.ts`)
+    — kein Anspruch auf vollständige Abdeckung jedes Eintrags, wachsender
+    Fragenpool.
+  - Das bestehende EKG-Quiz (visuelle Rhythmuserkennung) bleibt als
+    eigenständiges Feature unverändert bestehen, da es sich konzeptionell
+    unterscheidet (Kurvenerkennung statt Text-Multiple-Choice).
+  - `LearningModule.component` akzeptiert jetzt optional
+    `onNavigateModule` (`ModuleProps` in `registry.tsx`) für
+    modulübergreifende Sprünge außerhalb der Startseite.
+
+### Behoben
+
+- Tippfehler in der Glossar-ID für „ROSC" (`'ros c'` statt `'rosc'`)
+  korrigiert.
+
 ## [0.23.1] – 2026-09-17
 
 ### Behoben

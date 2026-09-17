@@ -1,5 +1,8 @@
 import type { MedVorbereitungEntry } from './types';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const MED_VORBEREITUNG: MedVorbereitungEntry[] = [
   {
     id: 'medikamentenvorbereitung',

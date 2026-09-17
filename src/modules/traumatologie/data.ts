@@ -8,6 +8,9 @@ const GENERAL_SOURCE_NOTE =
   'Konkrete Vorgehensweisen (z. B. Immobilisationsumfang, Tourniquet-Freigabe) können je nach ' +
   'Rettungsdienstbereich/aktueller Leitlinie variieren — es gilt deine lokale Ausbildungs-/Dienstordnung.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const TRAUMA_THEMEN: TraumaTopic[] = [
   {
     id: 'frakturlehre',

@@ -6,6 +6,9 @@ const GENERAL_SOURCE_NOTE =
   'Dokumentationsvorgaben) sind bundeslandspezifisch geregelt; im Einzelfall zählt immer die aktuelle ' +
   'Gesetzeslage bzw. lokale Dienstanweisung.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const RECHTLICHEGRUNDLAGEN_THEMEN: RechtlicheGrundlagenTopic[] = [
   {
     id: 'garantenstellung-hilfeleistung',

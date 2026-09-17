@@ -1,4 +1,5 @@
-import { MED_VORBEREITUNG } from './data';
+import { MED_VORBEREITUNG, CONTENT_STAND } from './data';
+import { formatStand } from '../../app/formatDate';
 
 export function MedikamentenvorbereitungModule() {
   const entry = MED_VORBEREITUNG[0];
@@ -12,7 +13,7 @@ export function MedikamentenvorbereitungModule() {
       <div className="med-disclaimer">
         ℹ️ Die 6-R-Regel, Sicherheitsprinzipien und das Standardvorgehen bei Medikamentengabe aus den
         Standard-Arbeitsanweisungen und Behandlungspfaden (SAA/BPR) 2025 — ergänzt um die allgemeine
-        Verdünnungsformel (siehe Quellenhinweis).
+        Verdünnungsformel (siehe Quellenhinweis). Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="algo-detail">

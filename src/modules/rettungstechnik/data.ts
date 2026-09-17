@@ -5,6 +5,9 @@ const GENERAL_SOURCE_NOTE =
   '— keine SAA/BPR-Quelle. Konkrete Geräte, Ausstattung und Checklisten können je nach Organisation/Fahrzeugtyp ' +
   'abweichen.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const RETTUNGSTECHNIK_THEMEN: RettungstechnikTopic[] = [
   {
     id: 'trageformen',

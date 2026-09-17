@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { RETTUNGSTECHNIK_THEMEN } from './data';
+import { RETTUNGSTECHNIK_THEMEN, CONTENT_STAND } from './data';
 import type { RettungstechnikCategory, RettungstechnikTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: RettungstechnikCategory[] = ['Transport & Trageformen', 'Lagerungsarten', 'Atemwege & Beatmung', 'Gerätekunde'];
 
@@ -88,7 +89,7 @@ export function RettungstechnikModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zu Trageformen, Lagerung, Atemwegshilfen und
         Gerätekunde — keine SAA/BPR-Quelle. Konkrete Geräte und Checklisten können je nach
-        Organisation/Fahrzeugtyp abweichen.
+        Organisation/Fahrzeugtyp abweichen. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">

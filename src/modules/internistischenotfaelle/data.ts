@@ -6,6 +6,9 @@ const GENERAL_SOURCE_NOTE =
   'Hypoglykämie, Adrenalin bei Anaphylaxie, Naloxon bei Opioid-Überdosierung) ist, sofern invasiv oder ' +
   'verschreibungspflichtig, ärztlich delegierte NotSan-Kompetenz — siehe Medikamente-Modul.';
 
+/** Zuletzt inhaltlich geprüft/aktualisiert. */
+export const CONTENT_STAND = '2026-09-17';
+
 export const INTERNISTISCHE_NOTFAELLE_THEMEN: InternistischeNotfaelleTopic[] = [
   {
     id: 'herzinfarkt-acs',

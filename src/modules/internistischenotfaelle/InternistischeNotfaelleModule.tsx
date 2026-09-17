@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { INTERNISTISCHE_NOTFAELLE_THEMEN } from './data';
+import { INTERNISTISCHE_NOTFAELLE_THEMEN, CONTENT_STAND } from './data';
 import type { InternistischeNotfaelleCategory, InternistischeNotfaelleTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 import { FavoriteButton } from '../../components/FavoriteButton';
+import { formatStand } from '../../app/formatDate';
 
 const CATEGORY_ORDER: InternistischeNotfaelleCategory[] = [
   'Herz & Kreislauf',
@@ -94,7 +95,7 @@ export function InternistischeNotfaelleModule() {
       <div className="med-disclaimer">
         ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zur Erkennung und Erstversorgung internistischer
         Notfälle — keine SAA/BPR-Quelle. Ärztlich delegierte Maßnahmen (z. B. Medikamentengabe) sind gesondert
-        gekennzeichnet, siehe Medikamente-Modul.
+        gekennzeichnet, siehe Medikamente-Modul. Inhaltlicher Stand: {formatStand(CONTENT_STAND)}.
       </div>
 
       <div className="med-layout">
