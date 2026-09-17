@@ -81,30 +81,29 @@ Hot-Reload sofort übernommen.
 ### ✅ Startseite
 
 - Landet man beim App-Start: Modul-Karten-Übersicht + **"Dein Fahrplan"**
-  — kuratierte Verlinkung in die relevanten Abschnitte aller Module,
-  gruppiert nach Qualifikationsstufe (kein eigenes Modul mit eigenen
-  Inhalten, nur Navigation, siehe `docs/vorgaben_und_inhalte.txt`
-  Abschnitt 5).
+  — kuratierte Verlinkung in ausgewählte Abschnitte aller Module, gruppiert
+  nach Thema (kein eigenes Modul mit eigenen Inhalten, nur Navigation,
+  siehe `docs/vorgaben_und_inhalte.txt` Abschnitt 5).
 - Zeigt eine EKG-Fortschritts-Kachel, sobald erste Quiz-Versuche vorliegen.
 - Die App-Version steht sichtbar neben dem Logo in der Sidebar (z. B.
   "v0.10.0") — automatisch aus `package.json` übernommen, keine doppelte
   Pflege nötig (`vite.config.ts` → `__APP_VERSION__`).
 
-### ✅ Qualifikationsstufen (SanH/RS/NotSan) — modulübergreifend
+### ✅ Themen-Gruppierung (statt Qualifikationsstufen)
 
-- Drei Stufen: **Sanitätshelfer (SanH)**, **Rettungssanitäter (RS)**
-  (deckt auch Rettungshelfer mit ab — sehr ähnlicher Kompetenzumfang, daher
-  bewusst nicht separat), **Notfallsanitäter (NotSan)**.
-- Module in der Sidebar sind nach Einstiegsstufe gruppiert (rein zur
-  Orientierung). Es gibt **keine** personalisierte Auswahl/Filterung der
-  eigenen Qualifikation mehr, und entsprechend auch keine "ab \<Stufe\>"-
-  Badges oder Abblendung einzelner Inhalte (entfernt in 0.14.0, siehe
-  CHANGELOG) — alle Inhalte werden für alle gleich angezeigt.
-- Datenmodell: `src/app/levels.ts`. Inhalte tragen weiterhin ein
-  `minLevel`-Feld statt eigener Stufen-Module — vermeidet
-  Content-Duplizierung, siehe `docs/vorgaben_und_inhalte.txt`. Es steuert
-  nur noch die Sidebar-/Fahrplan-Gruppierung, keine Anzeige mehr pro
-  Einzelinhalt.
+- Sidebar und Fahrplan gruppieren Module nach fünf Themenkategorien statt
+  nach Kompetenzstufe: **Grundlagenwissen**, **Krankheitsbilder &
+  Algorithmen**, **Medikamente**, **Diagnostik & Training**, **Einsatz &
+  Organisation** (`ModuleCategory` in `src/app/registry.tsx`). Werkzeuge &
+  Scores bleibt als einziges Modul fest oben angepinnt (`pinned: true`),
+  alle anderen erscheinen in ihrer Kategorie.
+- Ursprünglich gab es hier drei Qualifikationsstufen (SanH/RS/NotSan) als
+  Navigationsachse — nach Rückmeldung war das unnötig komplex, da Inhalte
+  ohnehin für alle einsehbar sind. Umgestellt in 0.17.0, siehe CHANGELOG.
+- `QualificationLevel` (`src/app/levels.ts`) existiert weiterhin als
+  internes `minLevel`-Feld auf einzelnen Inhalten (Datenmodell-Altlast aus
+  der früheren Stufen-Idee), hat aber aktuell **keine** Auswirkung auf
+  Anzeige, Gruppierung oder Suche.
 
 ### ✅ Globale Suche
 
@@ -246,24 +245,49 @@ relevant.
   SAA/BPR-Quelle — organisations- und bundeslandspezifische Abweichungen
   (Sichtungsschema, Funkkanäle, Hygieneplan) sind je Eintrag vermerkt.
 
+### ✅ Internistische Notfälle
+
+- 10 Themen in 5 Kategorien: **Herz & Kreislauf** (Herzinfarkt/ACS,
+  Lungenödem), **Neurologisch** (Schlaganfall mit FAST-Test,
+  Krampfanfall/Epilepsie), **Stoffwechsel & Allergie** (diabetische
+  Notfälle, Allergie/Anaphylaxie), **Abdomen & Vergiftungen** (akutes
+  Abdomen, Intoxikationen inkl. Alkohol/Drogen), **Umweltbedingte
+  Notfälle** (Hitzenotfälle, Unterkühlung & Erfrierung).
+- Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+  Ärztlich delegierte Maßnahmen (z. B. ASS/Nitro, Glucose i.v., Adrenalin,
+  Naloxon) sind je Eintrag markiert und verweisen auf das
+  Medikamente-Modul.
+
+### ✅ Pädiatrie & Geburtshilfe
+
+- 4 Themen in 2 Kategorien: **Pädiatrie** (Besonderheiten pädiatrischer
+  Notfälle — Anatomie/Physiologie, altersabhängige Vitalwerte (Verweis auf
+  Anatomie-Modul), Dosierungsbesonderheiten (bewusst ohne Zahlenwerte,
+  Verweis auf Medikamente-Modul), Kommunikation, Gewichtsschätzung, Verweis
+  auf die Kinderreanimation im Algorithmen-Modul), **Geburtshilfe**
+  (Normale Geburt, Notgeburt-Ablauf für den Sanitätsdienst, Erstversorgung
+  Neugeborenes & APGAR-Score).
+- Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+  Der APGAR-Rechner selbst bleibt im Werkzeuge-Modul, hier nur der
+  fachliche Hintergrund und Verweis darauf.
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
-für weitere Ideen (Internistische Notfälle, Pädiatrie & Geburtshilfe,
-Psychiatrische Notfälle, Rettungstechnik & Gerätekunde, Rechtliche
-Grundlagen, generalisierter Quiz-Modus, …).
+für weitere Ideen (Psychiatrische Notfälle, Rettungstechnik & Gerätekunde,
+Rechtliche Grundlagen, generalisierter Quiz-Modus, …).
 
 ## Architektur
 
 ```
 src/
   app/
-    registry.tsx         # zentrale Liste aller Lernmodule (Sidebar-Einträge, inkl. minLevel)
-    levels.ts             # Qualifikationsstufen-Typ, Reihenfolge (nur noch für Gruppierung)
+    registry.tsx         # zentrale Liste aller Lernmodule + ModuleCategory (Sidebar-Gruppierung)
+    levels.ts             # QualificationLevel-Typ (nur noch inertes minLevel-Datenfeld je Inhalt)
     NavigationContext.tsx    # modulübergreifende "spring zu Modul X, Eintrag Y"-Anfrage
     searchIndex.ts            # durchsuchbarer Index über alle Module
     GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
-    roadmap.ts                # kuratierter "Fahrplan" je Stufe (nur Links, keine Inhalte)
+    roadmap.ts                # kuratierter "Fahrplan" je Themenkategorie (nur Links, keine Inhalte)
     HomePage.tsx               # Startseite: Modul-Karten + Fahrplan + EKG-Fortschritt
   components/
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
@@ -320,7 +344,17 @@ src/
       data.ts             # 5 Themen: Wachdienst-Organisation, MANV/Sichtung, Funkalphabet,
                           #   Veranstaltungs-Verletzungsmuster, Hygiene & Infektionsschutz
       SanitaetsdienstModule.tsx  # Detailansicht mit Fakten je Sektion
-  App.tsx                 # App-Shell: nach Stufe gruppierte Sidebar, globale Suche, aktives Modul
+    internistischenotfaelle/
+      types.ts           # Datenmodell (InternistischeNotfaelleTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 10 Themen: Herz & Kreislauf, Neurologisch, Stoffwechsel & Allergie,
+                          #   Abdomen & Vergiftungen, Umweltbedingte Notfälle
+      InternistischeNotfaelleModule.tsx  # Detailansicht mit Fakten je Sektion
+    paediatrie/
+      types.ts           # Datenmodell (PaediatrieTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 4 Themen: Pädiatrie (Besonderheiten), Geburtshilfe (Geburt,
+                          #   Notgeburt, Neugeborenen-Erstversorgung & APGAR)
+      PaediatrieModule.tsx  # Detailansicht mit Fakten je Sektion
+  App.tsx                 # App-Shell: nach Thema gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden
 ```

@@ -11,6 +11,83 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.17.1] – 2026-09-17
+
+### Hinzugefügt
+
+- **Dosierungsbesonderheiten bei Kindern** als eigener Abschnitt im
+  Pädiatrie-Modul ergänzt (Thema „Besonderheiten pädiatrischer Notfälle")
+  — bewusst ohne konkrete Zahlenwerte (Verweis auf Medikamente-Modul/SAA-
+  BPR), da eine gewichtsbasierte Kinderdosierung zu hochsensibel für eine
+  auswendig gelernte Faustregel ist (analog zur bestehenden
+  Dosisrechner-Entscheidung, siehe CHANGELOG 0.8.0). Ergänzt den bereits
+  vorhandenen Verweis auf die altersabhängigen Vitalwerte im
+  Anatomie-Modul.
+
+## [0.17.0] – 2026-09-17
+
+### Geändert
+
+- **Sidebar-/Fahrplan-Gruppierung von Qualifikationsstufe auf Thema
+  umgestellt**: Statt „Sanitätshelfer/Rettungssanitäter/Notfallsanitäter"
+  gruppieren Sidebar und Startseiten-Fahrplan jetzt nach fünf
+  Themenkategorien — **Grundlagenwissen**, **Krankheitsbilder &
+  Algorithmen**, **Medikamente**, **Diagnostik & Training**, **Einsatz &
+  Organisation** (neues `ModuleCategory`-Feld in `registry.tsx`, ersetzt
+  `minLevel` auf Modulebene). Grund: drei Kompetenzstufen als
+  Navigationsachse waren unnötig komplex, wenn Inhalte ohnehin für alle
+  einsehbar sind — Gruppierung nach Thema ist einfacher zu überblicken.
+  Die globale Suche zeigt entsprechend die Themenkategorie statt der
+  Stufe an.
+- `QualificationLevel` bleibt als internes `minLevel`-Datenfeld auf
+  einzelnen Inhalten bestehen (aktuell ohne Anzeige-Auswirkung), wird aber
+  nicht mehr für Navigation/Gruppierung verwendet.
+
+### Hinzugefügt
+
+- **Neues Modul „Pädiatrie & Geburtshilfe"** (aus
+  `docs/vorgaben_und_inhalte.txt` Abschnitt 2), erscheint in der Sidebar
+  unter „Krankheitsbilder & Algorithmen": 4 Themen in 2 Kategorien —
+  - Pädiatrie: Besonderheiten pädiatrischer Notfälle (Anatomie/Physiologie,
+    Kommunikation, Gewichtsschätzung, Verweis auf Kinderreanimation im
+    Algorithmen-Modul)
+  - Geburtshilfe: Normale Geburt, Notgeburt-Ablauf für den Sanitätsdienst,
+    Erstversorgung Neugeborenes & APGAR-Score (Verweis auf den
+    APGAR-Rechner im Werkzeuge-Modul)
+  - Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+
+## [0.16.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Internistische Notfälle"** (aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 2), erscheint in der Sidebar unter „Sanitätshelfer": 10 Themen
+  in 5 Kategorien —
+  - Herz & Kreislauf: Herzinfarkt (ACS), Lungenödem
+  - Neurologisch: Schlaganfall (FAST-Test), Krampfanfall/Epilepsie
+  - Stoffwechsel & Allergie: Diabetische Notfälle, Allergie/Anaphylaxie
+  - Abdomen & Vergiftungen: Akutes Abdomen, Intoxikationen
+    (Alkohol/Drogen)
+  - Umweltbedingte Notfälle: Hitzenotfälle, Unterkühlung & Erfrierung
+  - Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+    Ärztlich delegierte Maßnahmen (ASS/Nitro, Glucose i.v., Adrenalin,
+    Naloxon) sind als solche markiert und verweisen auf das
+    Medikamente-Modul.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+
+## [0.15.1] – 2026-09-17
+
+### Behoben
+
+- **Sprechfunk-Ablauf im Sanitätsdienst-Modul korrigiert**: Reihenfolge war
+  falsch angegeben (eigener Rufname zuerst) — korrekt ist erst die
+  Gegenstelle, dann "von", dann der eigene Rufname (z. B. "Wachleitung von
+  Sani 3"). Außerdem klargestellt, dass "kommen" nur die Übergabe an die
+  Gegenstelle markiert und nicht bei jeder einzelnen Durchsage innerhalb
+  eines laufenden Gesprächs wiederholt werden muss — "Ende" beendet den
+  gesamten Sprechfunkverkehr.
+
 ## [0.15.0] – 2026-09-17
 
 ### Hinzugefügt

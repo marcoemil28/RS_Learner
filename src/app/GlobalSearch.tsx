@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { searchAll } from './searchIndex';
 import { useNavigation } from './NavigationContext';
-import { LEVEL_LABELS } from './levels';
 
 export function GlobalSearch({ onNavigate }: { onNavigate: (moduleId: string) => void }) {
   const [query, setQuery] = useState('');
@@ -39,7 +38,7 @@ export function GlobalSearch({ onNavigate }: { onNavigate: (moduleId: string) =>
               <span className="global-search-text">
                 <span className="global-search-title">{r.title}</span>
                 <span className="global-search-module">
-                  {r.moduleTitle} · {LEVEL_LABELS[r.minLevel]}
+                  {r.moduleTitle} · {r.category}
                 </span>
               </span>
             </button>

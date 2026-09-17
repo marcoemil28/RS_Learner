@@ -122,8 +122,10 @@ export const SANITAETSDIENST_THEMEN: SanitaetsdienstTopic[] = [
         heading: 'Grundregeln der Funkdisziplin',
         facts: [
           { text: 'Kurz und präzise sprechen — kein unnötiges "Füllwort"-Geplauder auf dem Kanal' },
-          { text: 'Eigenen Rufnamen zuerst nennen, dann die Gegenstelle' },
-          { text: 'Nachricht mit "kommen" abschließen, wenn eine Antwort erwartet wird, sonst "Ende"' },
+          { text: 'Erst die Gegenstelle nennen, dann "von", dann den eigenen Rufnamen (z. B. "Wachleitung von Sani 3")' },
+          {
+            text: '"Kommen" markiert nur die Übergabe an die Gegenstelle, nicht jede einzelne Durchsage — innerhalb eines laufenden Gesprächs muss es nicht jedes Mal wiederholt werden, "Ende" beendet den gesamten Sprechfunkverkehr',
+          },
           { text: 'Mithören durch Dritte bedenken — keine sensiblen Patientendaten im Klartext' },
           { text: 'Kanal nach der Durchsage sofort wieder freigeben' },
         ],
@@ -131,7 +133,7 @@ export const SANITAETSDIENST_THEMEN: SanitaetsdienstTopic[] = [
       {
         heading: 'Standard-Sprechfunkverkehr-Ablauf',
         facts: [
-          { text: 'Rufname der Gegenstelle → eigener Rufname → Nachricht → "kommen"' },
+          { text: 'Rufname der Gegenstelle → "von" → eigener Rufname → Nachricht' },
           { text: 'Wichtige Angaben (Ort, Anzahl Patienten, Zustand) in fester Reihenfolge durchgeben' },
         ],
       },

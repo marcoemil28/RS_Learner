@@ -7,7 +7,29 @@ import { WerkzeugeModule } from '../modules/werkzeuge/WerkzeugeModule';
 import { TraumatologieModule } from '../modules/traumatologie/TraumatologieModule';
 import { MedikamentenvorbereitungModule } from '../modules/medikamentenvorbereitung/MedikamentenvorbereitungModule';
 import { SanitaetsdienstModule } from '../modules/sanitaetsdienst/SanitaetsdienstModule';
-import type { QualificationLevel } from './levels';
+import { InternistischeNotfaelleModule } from '../modules/internistischenotfaelle/InternistischeNotfaelleModule';
+import { PaediatrieModule } from '../modules/paediatrie/PaediatrieModule';
+
+/**
+ * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
+ * Gruppierung nach Qualifikationsstufe (SanH/RS/NotSan) — die Inhalte
+ * bleiben für alle einsehbar, die Navigation richtet sich jetzt nach Thema
+ * statt nach Kompetenzstufe.
+ */
+export type ModuleCategory =
+  | 'Grundlagenwissen'
+  | 'Krankheitsbilder & Algorithmen'
+  | 'Medikamente'
+  | 'Diagnostik & Training'
+  | 'Einsatz & Organisation';
+
+export const MODULE_CATEGORIES: ModuleCategory[] = [
+  'Grundlagenwissen',
+  'Krankheitsbilder & Algorithmen',
+  'Medikamente',
+  'Diagnostik & Training',
+  'Einsatz & Organisation',
+];
 
 export interface LearningModule {
   id: string;
@@ -15,16 +37,11 @@ export interface LearningModule {
   icon: string;
   status: 'available' | 'coming-soon';
   component?: ComponentType;
-  /**
-   * Ab welcher Stufe dieses Modul überhaupt relevant wird (niedrigster
-   * Einstiegspunkt) — dient nur der Sidebar-Gruppierung. Enthält ein Modul
-   * intern Inhalte für mehrere Stufen, zählt hier die niedrigste. Wird bei
-   * `pinned: true` ignoriert.
-   */
-  minLevel: QualificationLevel;
+  /** Thematische Kategorie für die Sidebar-Gruppierung. Wird bei `pinned: true` ignoriert. */
+  category: ModuleCategory;
   /**
    * Erscheint fest oben in der Sidebar (direkt unter der Startseite) statt
-   * in einer Stufen-Gruppe — für Module, die stufenübergreifend gleich
+   * in einer Themen-Gruppe — für Module, die kategorieübergreifend gleich
    * relevant sind (z. B. Werkzeuge & Scores).
    */
   pinned?: boolean;
@@ -39,14 +56,21 @@ export interface LearningModule {
  * 3. Hier einen Eintrag mit status: 'available' und component hinzufügen.
  */
 export const MODULES: LearningModule[] = [
-  { id: 'ekg', title: 'EKG-Trainer', icon: '📈', status: 'available', component: EkgModule, minLevel: 'RS' },
+  {
+    id: 'ekg',
+    title: 'EKG-Trainer',
+    icon: '📈',
+    status: 'available',
+    component: EkgModule,
+    category: 'Diagnostik & Training',
+  },
   {
     id: 'algorithmen',
     title: 'Algorithmen (ABCDE, BLS/ALS)',
     icon: '🧭',
     status: 'available',
     component: AlgorithmenModule,
-    minLevel: 'SanH',
+    category: 'Krankheitsbilder & Algorithmen',
   },
   {
     id: 'medikamente',
@@ -54,7 +78,7 @@ export const MODULES: LearningModule[] = [
     icon: '💊',
     status: 'available',
     component: MedikamenteModule,
-    minLevel: 'NotSan',
+    category: 'Medikamente',
   },
   {
     id: 'anatomie',
@@ -62,7 +86,7 @@ export const MODULES: LearningModule[] = [
     icon: '🫀',
     status: 'available',
     component: AnatomieModule,
-    minLevel: 'SanH',
+    category: 'Grundlagenwissen',
   },
   {
     id: 'werkzeuge',
@@ -70,7 +94,7 @@ export const MODULES: LearningModule[] = [
     icon: '🧮',
     status: 'available',
     component: WerkzeugeModule,
-    minLevel: 'SanH',
+    category: 'Diagnostik & Training',
     pinned: true,
   },
   {
@@ -79,7 +103,7 @@ export const MODULES: LearningModule[] = [
     icon: '🩹',
     status: 'available',
     component: TraumatologieModule,
-    minLevel: 'SanH',
+    category: 'Krankheitsbilder & Algorithmen',
   },
   {
     id: 'medikamentenvorbereitung',
@@ -87,7 +111,7 @@ export const MODULES: LearningModule[] = [
     icon: '💉',
     status: 'available',
     component: MedikamentenvorbereitungModule,
-    minLevel: 'RS',
+    category: 'Medikamente',
   },
   {
     id: 'sanitaetsdienst',
@@ -95,6 +119,22 @@ export const MODULES: LearningModule[] = [
     icon: '🎪',
     status: 'available',
     component: SanitaetsdienstModule,
-    minLevel: 'SanH',
+    category: 'Einsatz & Organisation',
+  },
+  {
+    id: 'internistischenotfaelle',
+    title: 'Internistische Notfälle',
+    icon: '🩺',
+    status: 'available',
+    component: InternistischeNotfaelleModule,
+    category: 'Krankheitsbilder & Algorithmen',
+  },
+  {
+    id: 'paediatrie',
+    title: 'Pädiatrie & Geburtshilfe',
+    icon: '🍼',
+    status: 'available',
+    component: PaediatrieModule,
+    category: 'Krankheitsbilder & Algorithmen',
   },
 ];

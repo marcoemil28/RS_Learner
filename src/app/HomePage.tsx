@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
-import { MODULES } from './registry';
-import { LEVELS, LEVEL_LABELS, type QualificationLevel } from './levels';
+import { MODULES, MODULE_CATEGORIES, type ModuleCategory } from './registry';
 import { ROADMAP } from './roadmap';
 import { useNavigation } from './NavigationContext';
 import { getProgress } from '../modules/ekg/progress';
@@ -60,15 +59,14 @@ export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: st
 
       <h2 className="home-section-title">Dein Fahrplan</h2>
       <p className="home-intro">
-        Kein eigenes Modul, sondern eine Verlinkung in die relevanten Abschnitte — jede Stufe baut auf der
-        vorherigen auf.
+        Kein eigenes Modul, sondern eine Verlinkung in ausgewählte Abschnitte, gruppiert nach Thema.
       </p>
 
-      {LEVELS.map((roadmapLevel: QualificationLevel) => (
-        <div key={roadmapLevel} className="home-roadmap-group">
-          <h4>{LEVEL_LABELS[roadmapLevel]}</h4>
+      {MODULE_CATEGORIES.map((category: ModuleCategory) => (
+        <div key={category} className="home-roadmap-group">
+          <h4>{category}</h4>
           <ul>
-            {ROADMAP[roadmapLevel].map((entry, i) => (
+            {ROADMAP[category].map((entry, i) => (
               <li key={i}>
                 <button onClick={() => handleRoadmapClick(entry.moduleId, entry.itemId)}>{entry.label}</button>
               </li>

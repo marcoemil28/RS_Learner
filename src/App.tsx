@@ -1,9 +1,8 @@
 import { useMemo, useState } from 'react';
-import { MODULES, type LearningModule } from './app/registry';
+import { MODULES, MODULE_CATEGORIES, type LearningModule } from './app/registry';
 import { NavigationProvider } from './app/NavigationContext';
 import { GlobalSearch } from './app/GlobalSearch';
 import { HomePage } from './app/HomePage';
-import { LEVELS, LEVEL_LABELS } from './app/levels';
 import './App.css';
 
 function AppShell() {
@@ -15,12 +14,14 @@ function AppShell() {
 
   const groups = useMemo(() => {
     const map = new Map<string, LearningModule[]>();
-    for (const level of LEVELS) map.set(level, []);
+    for (const category of MODULE_CATEGORIES) map.set(category, []);
     for (const m of MODULES) {
       if (m.pinned) continue;
-      map.get(m.minLevel)!.push(m);
+      map.get(m.category)!.push(m);
     }
-    return LEVELS.map((level) => ({ level, modules: map.get(level)! })).filter((g) => g.modules.length > 0);
+    return MODULE_CATEGORIES.map((category) => ({ category, modules: map.get(category)! })).filter(
+      (g) => g.modules.length > 0
+    );
   }, []);
 
   return (
@@ -52,8 +53,8 @@ function AppShell() {
           ))}
 
           {groups.map((g) => (
-            <div key={g.level} className="app-nav-group">
-              <h4>{LEVEL_LABELS[g.level]}</h4>
+            <div key={g.category} className="app-nav-group">
+              <h4>{g.category}</h4>
               {g.modules.map((m) => (
                 <button
                   key={m.id}
