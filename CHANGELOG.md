@@ -11,6 +11,29 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.20.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Rechtliche & organisatorische Grundlagen"** (aus
+  `docs/vorgaben_und_inhalte.txt` Abschnitt 2), letztes offenes
+  Themenmodul aus der Liste — erscheint in der Sidebar unter „Einsatz &
+  Organisation": 5 Themen in 3 Kategorien —
+  - Grundrechte & Pflichten: Garantenstellung & unterlassene Hilfeleistung,
+    Schweigepflicht, Patientenverfügung/-wille & mutmaßlicher Wille
+  - Delegation & Kompetenz: Delegation ärztlicher Maßnahmen — Abgrenzung
+    RS vs. NotSan
+  - Dokumentation: Einsatzprotokoll & DIVI-Protokoll
+  - Allgemeines rechtliches Grundlagenwissen, keine SAA/BPR-Quelle und
+    keine Rechtsberatung — bundeslandspezifische Abweichungen sind je
+    Eintrag vermerkt.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+- Damit sind alle Themenmodule aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 2 umgesetzt. Offen bleibt aus der Priorisierung (Abschnitt 6)
+  noch der generalisierte Quiz-Modus sowie die cross-cutting Features aus
+  Abschnitt 3 (Glossar, Favoriten/Notizen, Checklisten-Modus, Cheat-Sheet,
+  Dark Mode/High-Contrast).
+
 ## [0.19.0] – 2026-09-17
 
 ### Hinzugefügt

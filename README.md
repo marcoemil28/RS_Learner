@@ -295,10 +295,25 @@ relevant.
   Konkrete Geräte und Checklisten können je nach Organisation/Fahrzeugtyp
   abweichen.
 
+### ✅ Rechtliche & organisatorische Grundlagen
+
+- 5 Themen in 3 Kategorien: **Grundrechte & Pflichten** (Garantenstellung
+  & unterlassene Hilfeleistung, Schweigepflicht, Patientenverfügung/
+  -wille & mutmaßlicher Wille), **Delegation & Kompetenz** (Delegation
+  ärztlicher Maßnahmen — Abgrenzung RS vs. NotSan), **Dokumentation**
+  (Einsatzprotokoll & DIVI-Protokoll).
+- Allgemeines rechtliches Grundlagenwissen, keine SAA/BPR-Quelle und keine
+  Rechtsberatung. Bundeslandspezifische Abweichungen sind je Eintrag
+  vermerkt.
+- Damit sind alle Themenmodule aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 2 umgesetzt.
+
 ### 🔜 Geplant
 
-Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
-für weitere Ideen (Rechtliche Grundlagen, generalisierter Quiz-Modus, …).
+Aktuell keine Platzhalter-Module offen. Aus `docs/vorgaben_und_inhalte.txt`
+bleibt noch der generalisierte Quiz-Modus (Abschnitt 6) sowie
+cross-cutting Features aus Abschnitt 3 (Glossar, Favoriten/Notizen,
+Checklisten-Modus, Cheat-Sheet, Dark Mode/High-Contrast).
 
 ## Architektur
 
@@ -387,6 +402,11 @@ src/
       data.ts             # 6 Themen: Trageformen, Lagerungsarten, Atemwege & Beatmung,
                           #   Gerätekunde (Notfallrucksack)
       RettungstechnikModule.tsx  # Detailansicht mit Fakten je Sektion
+    rechtlichegrundlagen/
+      types.ts           # Datenmodell (RechtlicheGrundlagenTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 5 Themen: Grundrechte & Pflichten, Delegation & Kompetenz,
+                          #   Dokumentation
+      RechtlicheGrundlagenModule.tsx  # Detailansicht mit Fakten je Sektion
   App.tsx                 # App-Shell: nach Thema gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

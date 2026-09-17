@@ -11,6 +11,7 @@ import { InternistischeNotfaelleModule } from '../modules/internistischenotfaell
 import { PaediatrieModule } from '../modules/paediatrie/PaediatrieModule';
 import { PsychiatrieNotfaelleModule } from '../modules/psychiatrienotfaelle/PsychiatrieNotfaelleModule';
 import { RettungstechnikModule } from '../modules/rettungstechnik/RettungstechnikModule';
+import { RechtlicheGrundlagenModule } from '../modules/rechtlichegrundlagen/RechtlicheGrundlagenModule';
 
 /**
  * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
@@ -154,5 +155,13 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: RettungstechnikModule,
     category: 'Diagnostik & Training',
+  },
+  {
+    id: 'rechtlichegrundlagen',
+    title: 'Rechtliche & organisatorische Grundlagen',
+    icon: '⚖️',
+    status: 'available',
+    component: RechtlicheGrundlagenModule,
+    category: 'Einsatz & Organisation',
   },
 ];

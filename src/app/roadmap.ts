@@ -84,5 +84,10 @@ export const ROADMAP: Record<ModuleCategory, RoadmapEntry[]> = {
     { moduleId: 'sanitaetsdienst', itemId: 'funkalphabet', label: 'Funkalphabet & Funkdisziplin' },
     { moduleId: 'sanitaetsdienst', itemId: 'veranstaltungs-verletzungsmuster', label: 'Veranstaltungs-Verletzungsmuster' },
     { moduleId: 'sanitaetsdienst', itemId: 'hygiene-infektionsschutz', label: 'Hygiene & Infektionsschutz' },
+    { moduleId: 'rechtlichegrundlagen', itemId: 'garantenstellung-hilfeleistung', label: 'Garantenstellung & unterlassene Hilfeleistung' },
+    { moduleId: 'rechtlichegrundlagen', itemId: 'schweigepflicht', label: 'Schweigepflicht' },
+    { moduleId: 'rechtlichegrundlagen', itemId: 'patientenwille', label: 'Patientenverfügung & mutmaßlicher Wille' },
+    { moduleId: 'rechtlichegrundlagen', itemId: 'delegation-kompetenzabgrenzung', label: 'Delegation — Abgrenzung RS vs. NotSan' },
+    { moduleId: 'rechtlichegrundlagen', itemId: 'dokumentation-einsatzprotokoll', label: 'Dokumentation: Einsatzprotokoll & DIVI' },
   ],
 };
