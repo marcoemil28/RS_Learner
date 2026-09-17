@@ -2,6 +2,7 @@ import { RHYTHMS } from '../modules/ekg/rhythms';
 import { MEDIKAMENTE } from '../modules/medikamente/data';
 import { ALGORITHMEN } from '../modules/algorithmen/data';
 import { ANATOMIE_THEMEN } from '../modules/anatomie/data';
+import { TOOLS } from '../modules/werkzeuge/data';
 import type { QualificationLevel } from './levels';
 
 export interface SearchItem {
@@ -64,6 +65,18 @@ const INDEX: SearchItem[] = [
       itemId: t.id,
       minLevel: t.minLevel,
       haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
+    })
+  ),
+  ...TOOLS.map(
+    (t): SearchItem => ({
+      key: `werkzeuge:${t.id}`,
+      title: t.title,
+      moduleId: 'werkzeuge',
+      moduleTitle: 'Werkzeuge & Scores',
+      icon: '🧮',
+      itemId: t.id,
+      minLevel: t.minLevel,
+      haystack: [t.title, t.description, t.category].join(' ').toLowerCase(),
     })
   ),
 ];

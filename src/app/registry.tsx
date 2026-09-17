@@ -3,6 +3,7 @@ import { EkgModule } from '../modules/ekg/EkgModule';
 import { MedikamenteModule } from '../modules/medikamente/MedikamenteModule';
 import { AlgorithmenModule } from '../modules/algorithmen/AlgorithmenModule';
 import { AnatomieModule } from '../modules/anatomie/AnatomieModule';
+import { WerkzeugeModule } from '../modules/werkzeuge/WerkzeugeModule';
 import type { QualificationLevel } from './levels';
 
 export interface LearningModule {
@@ -51,6 +52,14 @@ export const MODULES: LearningModule[] = [
     icon: '🫀',
     status: 'available',
     component: AnatomieModule,
+    minLevel: 'SanH',
+  },
+  {
+    id: 'werkzeuge',
+    title: 'Werkzeuge & Scores',
+    icon: '🧮',
+    status: 'available',
+    component: WerkzeugeModule,
     minLevel: 'SanH',
   },
 ];

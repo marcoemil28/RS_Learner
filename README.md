@@ -180,6 +180,18 @@ Hot-Reload sofort übernommen.
   Nachschlagetabelle.
   Allgemeines anatomisch-physiologisches Grundlagenwissen, keine SAA/BPR-Quelle.
 
+### ✅ Werkzeuge & Scores
+
+- 5 interaktive Rechner: **GCS** (Klick-Rechner, live Summe + Schweregrad),
+  **Schmerzskala NRS/VAS** (0–10-Regler, inkl. Cross-Referenz zu den
+  Medikamente-Schwellenwerten), **APGAR-Score** (Neugeborenen-Beurteilung),
+  **Neuner-Regel** (Verbrennungsfläche, Erwachsene/Kind umschaltbar +
+  Handflächenregel), **NACA-Score** (Einsatzschwere-Referenzliste).
+- Bewusst nicht enthalten: ein Medikamenten-Dosisrechner nach Körpergewicht
+  — die Dosierungsangaben der 29 SAA/BPR-Medikamente sind uneinheitlicher
+  Freitext, ein automatisches Auslesen wäre bei diesem hochsensiblen Thema
+  ein zu hohes Fehlerrisiko (siehe CHANGELOG 0.8.0).
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
@@ -233,6 +245,11 @@ src/
       types.ts           # Datenmodell (AnatomieTopic/-Section/-Fact, je mit minLevel)
       data.ts             # 5 Themen: Herz-Kreislauf, Atmung, Skelett/Muskulatur, Nervensystem, Vitalparameter
       AnatomieModule.tsx  # Detailansicht mit Fakten-Badges
+    werkzeuge/
+      data.ts             # Tool-Registry (GCS/Schmerzskala/APGAR/Neuner-Regel/NACA)
+      GcsCalculator.tsx, SchmerzSkala.tsx, ApgarCalculator.tsx,
+      NeunerRegel.tsx, NacaScore.tsx  # je ein interaktiver Rechner
+      WerkzeugeModule.tsx # Liste + aktiver Rechner
   App.tsx                 # App-Shell: nach Stufe gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

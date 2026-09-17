@@ -11,6 +11,36 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.8.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Werkzeuge & Scores-Modul** (neu) mit 5 interaktiven Rechnern, gemäß
+  Priorität 3 aus `docs/vorgaben_und_inhalte.txt` (geringer Aufwand, hoher
+  Nutzen):
+  - **Glasgow Coma Scale (GCS)**: Klick-Rechner für Augenöffnung/verbale/
+    motorische Reaktion, live Summe + Schweregrad. Ergänzt die bereits
+    bestehende statische GCS-Tabelle im Algorithmen-Modul um eine
+    interaktive Variante.
+  - **Schmerzskala (NRS/VAS)**: 0–10-Regler mit Einordnung und einer
+    **direkten Cross-Referenz zu den Medikamente-Schwellenwerten**
+    (z. B. "ab NRS ≥ 6 laut SAA/BPR Morphin/Fentanyl/Nalbuphin indiziert").
+  - **APGAR-Score**: 5 Kategorien à 0–2 Punkte für die Neugeborenen-Beurteilung.
+  - **Neuner-Regel**: Verbrennungsflächen-Schätzung mit Umschalter
+    Erwachsene/Kind (unterschiedliche Körperproportionen) plus
+    Handflächenregel für kleine/verstreute Areale.
+  - **NACA-Score**: Referenzliste der 8 Einsatzschwere-Stufen (0–VII).
+  - Alle Tools sind in die globale Suche und die modulübergreifende
+    Navigation eingebunden.
+- Bewusst **nicht** umgesetzt: ein Medikamenten-Dosisrechner nach
+  Körpergewicht (ebenfalls in der Roadmap-Doc genannt) — die Dosierungsfelder
+  der 29 SAA/BPR-Medikamente sind uneinheitlich formatierter Freitext
+  (Einzeldosis, gewichtsadaptiert, Alterstabellen gemischt), ein
+  automatisches Auslesen daraus wäre bei einem hochsensiblen Thema wie
+  Dosierung ein zu hohes Fehlerrisiko. Ein Dosisrechner sollte, falls
+  gewünscht, als eigenes, sorgfältig geprüftes Feature pro Medikament
+  angegangen werden statt generisch geparst.
+
 ## [0.7.0] – 2026-09-17
 
 ### Geändert (Breaking im Datenmodell)
