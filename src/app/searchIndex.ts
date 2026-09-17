@@ -4,6 +4,7 @@ import { ALGORITHMEN } from '../modules/algorithmen/data';
 import { ANATOMIE_THEMEN } from '../modules/anatomie/data';
 import { TOOLS } from '../modules/werkzeuge/data';
 import { TRAUMA_THEMEN } from '../modules/traumatologie/data';
+import { MED_VORBEREITUNG } from '../modules/medikamentenvorbereitung/data';
 import type { QualificationLevel } from './levels';
 
 export interface SearchItem {
@@ -90,6 +91,20 @@ const INDEX: SearchItem[] = [
       itemId: t.id,
       minLevel: t.minLevel,
       haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
+    })
+  ),
+  ...MED_VORBEREITUNG.map(
+    (e): SearchItem => ({
+      key: `medikamentenvorbereitung:${e.id}`,
+      title: e.title,
+      moduleId: 'medikamentenvorbereitung',
+      moduleTitle: 'Medikamente vorbereiten & verabreichen',
+      icon: '💉',
+      itemId: e.id,
+      minLevel: e.minLevel,
+      haystack: [e.title, e.summary, ...e.sections.flatMap((s) => s.steps.map((step) => step.text))]
+        .join(' ')
+        .toLowerCase(),
     })
   ),
 ];

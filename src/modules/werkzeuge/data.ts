@@ -5,6 +5,7 @@ import { NacaScore } from './NacaScore';
 import { SchmerzSkala } from './SchmerzSkala';
 import { ApgarCalculator } from './ApgarCalculator';
 import { NeunerRegel } from './NeunerRegel';
+import { VerduennungsRechner } from './VerduennungsRechner';
 
 export interface Tool {
   id: string;
@@ -55,6 +56,14 @@ export const TOOLS: Tool[] = [
     minLevel: 'RS',
     description: 'Einteilung der Einsatzschwere für Dokumentation.',
     component: NacaScore,
+  },
+  {
+    id: 'verduennung',
+    title: 'Verdünnungsrechner',
+    category: 'Medikamentenvorbereitung',
+    minLevel: 'RS',
+    description: 'Berechnet Ausgangslösung + Verdünnungsmittel für eine vorgegebene Zielkonzentration.',
+    component: VerduennungsRechner,
   },
 ];
 

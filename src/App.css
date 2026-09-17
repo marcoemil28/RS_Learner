@@ -997,6 +997,41 @@ ul {
   font-size: 1.1rem;
 }
 
+.dilution-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.dilution-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  flex: 1;
+  min-width: 160px;
+}
+
+.dilution-inputs input {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5em 0.7em;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.dilution-inputs input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
 /* ---------- Home page ---------- */
 
 .home-intro {

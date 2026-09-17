@@ -29,10 +29,15 @@ function AppShell() {
   const activeModule = MODULES.find((m) => m.id === activeId);
   const ActiveComponent = activeModule?.component;
 
+  const pinnedModules = useMemo(() => MODULES.filter((m) => m.pinned), []);
+
   const groups = useMemo(() => {
     const map = new Map<string, LearningModule[]>();
     for (const level of LEVELS) map.set(level, []);
-    for (const m of MODULES) map.get(m.minLevel)!.push(m);
+    for (const m of MODULES) {
+      if (m.pinned) continue;
+      map.get(m.minLevel)!.push(m);
+    }
     return LEVELS.map((level) => ({ level, modules: map.get(level)! })).filter((g) => g.modules.length > 0);
   }, []);
 
@@ -52,6 +57,17 @@ function AppShell() {
             <span className="app-nav-icon">🏠</span>
             <span>Startseite</span>
           </button>
+
+          {pinnedModules.map((m) => (
+            <button
+              key={m.id}
+              className={`app-nav-item ${m.id === activeId ? 'active' : ''}`}
+              onClick={() => setActiveId(m.id)}
+            >
+              <span className="app-nav-icon">{m.icon}</span>
+              <span>{m.title}</span>
+            </button>
+          ))}
 
           {groups.map((g) => (
             <div key={g.level} className="app-nav-group">

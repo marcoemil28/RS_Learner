@@ -11,6 +11,51 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.12.1] – 2026-09-17
+
+### Behoben
+
+- **Kritischer Bug im Stufen-Badge-System**: `LevelBadge` zeigte "ab
+  Rettungssanitäter"/"ab Notfallsanitäter" nur an, wenn explizit eine
+  Qualifikationsstufe im Filter unten links gewählt war. Im Standardzustand
+  "Alle anzeigen" erschien **nirgendwo im gesamten App** ein Badge — dadurch
+  sah z. B. "Medikamente vorbereiten & sicher verabreichen" (RS) optisch
+  identisch aus wie SanH-Inhalte wie "ABCDE – Herangehensweise", ohne jede
+  Kennzeichnung. Badges sind jetzt eine **permanente Einordnung**: sie
+  erscheinen immer für Inhalte oberhalb der Basisstufe (SanH), unabhängig
+  vom gewählten Filter. Die Abblendung (`above-level`) bleibt weiterhin
+  filterabhängig.
+- Badges werden jetzt zusätzlich direkt in den Seitenlisten der Module
+  Algorithmen, Anatomie, Traumatologie und Werkzeuge angezeigt (vorher nur
+  in der Detailansicht nach dem Reinklicken) — Stufe ist so auf einen
+  Blick erkennbar, ohne jeden Eintrag einzeln öffnen zu müssen.
+
+## [0.12.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neuer Algorithmen-Eintrag „Medikamente vorbereiten & sicher verabreichen"**
+  (Kategorie „Medikamentengabe", minLevel RS) direkt aus bisher ungenutzten
+  SAA/BPR-Seiten 40–41: 6-R-Regel, Sicherheitsprinzipien (DIVI-ISO-Aufkleber,
+  4-Augen-Prinzip, Doppelkontrolle, gesicherte Kommunikation),
+  Standardvorgehen-Ablauf sowie die allgemeine Verdünnungsformel
+  (C1×V1 = C2×V2, Pharmazie-Grundwissen, als solches gekennzeichnet) mit
+  zwei aus dem PDF verifizierten Praxisbeispielen (Epinephrin, Naloxon).
+- **Verdünnungsrechner** im Werkzeuge & Scores-Modul: berechnet aus
+  Ausgangskonzentration, Zielkonzentration und Zielvolumen die benötigte
+  Menge Ausgangslösung + Verdünnungsmittel. Mit zwei anklickbaren, gegen
+  das SAA/BPR-PDF geprüften Beispielen (Epinephrin bei instabiler
+  Bradykardie, Naloxon-Verdünnung). Bewusst als reine Rechenhilfe für eine
+  bereits vorgegebene Zielkonzentration konzipiert, nicht als Dosis-
+  Empfehlung.
+
+### Geändert
+
+- **Sidebar-Struktur**: "Werkzeuge & Scores" ist jetzt fest oben angepinnt
+  (direkt unter "Startseite"), statt in der "Sanitätshelfer"-Gruppe zu
+  stecken — die Werkzeuge sind stufenübergreifend gleich relevant.
+  Registry-Modell um `pinned`-Flag erweitert.
+
 ## [0.11.0] – 2026-09-17
 
 ### Hinzugefügt

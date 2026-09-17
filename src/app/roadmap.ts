@@ -43,6 +43,8 @@ export const ROADMAP: Record<QualificationLevel, RoadmapEntry[]> = {
     { moduleId: 'traumatologie', itemId: 'wirbelsaeulentrauma', label: 'Wirbelsäulentrauma & Immobilisation' },
     { moduleId: 'traumatologie', itemId: 'thorax-abdominaltrauma', label: 'Thorax- und Abdominaltrauma' },
     { moduleId: 'traumatologie', itemId: 'polytrauma-blutstillung', label: 'Polytrauma & kritische Blutungen (Tourniquet)' },
+    { moduleId: 'medikamentenvorbereitung', label: 'Medikamente vorbereiten & sicher verabreichen' },
+    { moduleId: 'werkzeuge', itemId: 'verduennung', label: 'Verdünnungsrechner' },
   ],
   NotSan: [
     { moduleId: 'algorithmen', itemId: 'atemwegsmanagement', label: 'Atemwegsmanagement (erweiterte Maßnahmen)' },

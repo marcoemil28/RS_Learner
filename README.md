@@ -97,9 +97,11 @@ Hot-Reload sofort übernommen.
   bewusst nicht separat), **Notfallsanitäter (NotSan)**.
 - Auswahl "Meine Qualifikation" unten in der Sidebar (Default: "Alle
   anzeigen"). Module in der Sidebar sind nach Einstiegsstufe gruppiert.
-- Inhalte über der gewählten Stufe werden **nie versteckt**, nur mit Badge
-  ("ab NotSan" etc.) markiert und leicht abgeblendet — der Nachschlage-
-  Charakter bleibt für alle Stufen erhalten.
+- Inhalte über der Basisstufe (SanH) werden **nie versteckt**, sondern
+  tragen immer ein Badge ("ab RS"/"ab NotSan") — auch im Standardzustand
+  "Alle anzeigen", nicht erst nach Auswahl einer Stufe. Zusätzlich
+  abgeblendet werden sie nur, wenn eine konkrete Stufe gewählt ist, die sie
+  übersteigt. Der Nachschlage-Charakter bleibt für alle Stufen erhalten.
 - Datenmodell: `src/app/levels.ts` + `LevelContext.tsx`. Inhalte tragen ein
   `minLevel`-Feld (teils bis auf einzelne Algorithmus-Schritte herunter,
   siehe Algorithmen-Modul) statt eigener Stufen-Module — vermeidet
@@ -182,6 +184,11 @@ Hot-Reload sofort übernommen.
   Notfallsanitäter" markiert sind.
 - Laien-Basismaßnahmen (Reanimation) sind allgemeines BLS-Wissen und per
   Quellenhinweis von den PDF-Inhalten (NotSan-fokussiert) abgegrenzt.
+- **„Medikamente vorbereiten & sicher verabreichen"**: 6-R-Regel,
+  Sicherheitsprinzipien (DIVI-ISO-Aufkleber, 4-Augen-Prinzip,
+  Doppelkontrolle) und der Standardvorgehen-Ablauf direkt aus SAA/BPR
+  S. 40–41, plus die allgemeine Verdünnungsformel (C1×V1 = C2×V2) mit zwei
+  PDF-geprüften Praxisbeispielen (Epinephrin, Naloxon).
 
 ### ✅ Anatomie & Physiologie
 
@@ -194,11 +201,17 @@ Hot-Reload sofort übernommen.
 
 ### ✅ Werkzeuge & Scores
 
-- 5 interaktive Rechner: **GCS** (Klick-Rechner, live Summe + Schweregrad),
+Fest oben in der Sidebar angepinnt (direkt unter der Startseite, nicht in
+einer Stufen-Gruppe) — die Werkzeuge sind stufenübergreifend gleich
+relevant.
+
+- 6 interaktive Rechner: **GCS** (Klick-Rechner, live Summe + Schweregrad),
   **Schmerzskala NRS/VAS** (0–10-Regler, inkl. Cross-Referenz zu den
   Medikamente-Schwellenwerten), **APGAR-Score** (Neugeborenen-Beurteilung),
   **Neuner-Regel** (Verbrennungsfläche, Erwachsene/Kind umschaltbar +
-  Handflächenregel), **NACA-Score** (Einsatzschwere-Referenzliste).
+  Handflächenregel), **NACA-Score** (Einsatzschwere-Referenzliste),
+  **Verdünnungsrechner** (Ausgangs-/Zielkonzentration + Zielvolumen →
+  benötigte Mengen, mit PDF-geprüften Beispielen).
 - Bewusst nicht enthalten: ein Medikamenten-Dosisrechner nach Körpergewicht
   — die Dosierungsangaben der 29 SAA/BPR-Medikamente sind uneinheitlicher
   Freitext, ein automatisches Auslesen wäre bei diesem hochsensiblen Thema

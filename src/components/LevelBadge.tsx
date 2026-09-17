@@ -8,7 +8,7 @@ export function LevelBadge({ minLevel }: { minLevel: QualificationLevel }) {
   return <span className="level-badge">ab {LEVEL_LABELS[minLevel]}</span>;
 }
 
-/** CSS-Klasse für Listeneinträge, die über der übergebenen Stufe liegen (Abblendung, nicht Verstecken). */
+/** CSS-Klasse für Listeneinträge, die über der aktuell gewählten Stufe liegen (Abblendung, nicht Verstecken). */
 export function aboveLevelClass(minLevel: QualificationLevel, level: LevelFilter): string {
   return isAboveSelected(minLevel, level) ? 'above-level' : '';
 }

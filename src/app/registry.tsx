@@ -5,6 +5,7 @@ import { AlgorithmenModule } from '../modules/algorithmen/AlgorithmenModule';
 import { AnatomieModule } from '../modules/anatomie/AnatomieModule';
 import { WerkzeugeModule } from '../modules/werkzeuge/WerkzeugeModule';
 import { TraumatologieModule } from '../modules/traumatologie/TraumatologieModule';
+import { MedikamentenvorbereitungModule } from '../modules/medikamentenvorbereitung/MedikamentenvorbereitungModule';
 import type { QualificationLevel } from './levels';
 
 export interface LearningModule {
@@ -16,9 +17,16 @@ export interface LearningModule {
   /**
    * Ab welcher Stufe dieses Modul überhaupt relevant wird (niedrigster
    * Einstiegspunkt) — dient nur der Sidebar-Gruppierung. Enthält ein Modul
-   * intern Inhalte für mehrere Stufen, zählt hier die niedrigste.
+   * intern Inhalte für mehrere Stufen, zählt hier die niedrigste. Wird bei
+   * `pinned: true` ignoriert.
    */
   minLevel: QualificationLevel;
+  /**
+   * Erscheint fest oben in der Sidebar (direkt unter der Startseite) statt
+   * in einer Stufen-Gruppe — für Module, die stufenübergreifend gleich
+   * relevant sind (z. B. Werkzeuge & Scores).
+   */
+  pinned?: boolean;
 }
 
 /**
@@ -62,6 +70,7 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: WerkzeugeModule,
     minLevel: 'SanH',
+    pinned: true,
   },
   {
     id: 'traumatologie',
@@ -70,5 +79,13 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: TraumatologieModule,
     minLevel: 'SanH',
+  },
+  {
+    id: 'medikamentenvorbereitung',
+    title: 'Medikamente vorbereiten & verabreichen',
+    icon: '💉',
+    status: 'available',
+    component: MedikamentenvorbereitungModule,
+    minLevel: 'RS',
   },
 ];
