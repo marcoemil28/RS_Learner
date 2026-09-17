@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { MEDIKAMENTE } from './data';
 import type { Medikament, MedikamentKategorie } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: MedikamentKategorie[] = [
   'Analgesie & Sedierung',
@@ -27,7 +28,10 @@ function MedikamentDetail({ med }: { med: Medikament }) {
     <div className="med-detail">
       <div className="med-detail-header">
         <div>
-          <h2>{med.name}</h2>
+          <h2>
+            {med.name}{' '}
+            <FavoriteButton moduleId="medikamente" itemId={med.id} title={med.name} moduleTitle="Medikamente (SAA/BPR)" icon="💊" />
+          </h2>
           {med.arzneimittelgruppe && <p className="med-subtitle">{med.arzneimittelgruppe}</p>}
         </div>
         <span className="med-page-ref">SAA und BPR 2025, S. {med.page}</span>

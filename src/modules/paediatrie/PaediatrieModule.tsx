@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { PAEDIATRIE_THEMEN } from './data';
 import type { PaediatrieCategory, PaediatrieTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: PaediatrieCategory[] = ['Pädiatrie', 'Geburtshilfe'];
 
@@ -10,7 +11,10 @@ function PaediatrieDetail({ topic }: { topic: PaediatrieTopic }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton moduleId="paediatrie" itemId={topic.id} title={topic.title} moduleTitle="Pädiatrie & Geburtshilfe" icon="🍼" />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ANATOMIE_THEMEN } from './data';
 import type { AnatomieCategory, AnatomieTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: AnatomieCategory[] = ['Herz-Kreislauf', 'Atmung', 'Skelett & Muskulatur', 'Nervensystem', 'Vitalparameter'];
 
@@ -10,7 +11,10 @@ function AnatomieDetail({ topic }: { topic: AnatomieTopic }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton moduleId="anatomie" itemId={topic.id} title={topic.title} moduleTitle="Anatomie & Physiologie" icon="🫀" />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

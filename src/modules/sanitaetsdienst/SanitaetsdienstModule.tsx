@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { SANITAETSDIENST_THEMEN } from './data';
 import type { SanitaetsdienstCategory, SanitaetsdienstTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: SanitaetsdienstCategory[] = ['Einsatzorganisation', 'Kommunikation', 'Medizinische Besonderheiten'];
 
@@ -10,7 +11,16 @@ function SanitaetsdienstDetail({ topic }: { topic: SanitaetsdienstTopic }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton
+              moduleId="sanitaetsdienst"
+              itemId={topic.id}
+              title={topic.title}
+              moduleTitle="Sanitätsdienst (Veranstaltungsdienst)"
+              icon="🎪"
+            />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

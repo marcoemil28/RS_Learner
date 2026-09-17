@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { RECHTLICHEGRUNDLAGEN_THEMEN } from './data';
 import type { RechtlicheGrundlagenCategory, RechtlicheGrundlagenTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: RechtlicheGrundlagenCategory[] = ['Grundrechte & Pflichten', 'Delegation & Kompetenz', 'Dokumentation'];
 
@@ -10,7 +11,16 @@ function RechtlicheGrundlagenDetail({ topic }: { topic: RechtlicheGrundlagenTopi
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton
+              moduleId="rechtlichegrundlagen"
+              itemId={topic.id}
+              title={topic.title}
+              moduleTitle="Rechtliche & organisatorische Grundlagen"
+              icon="⚖️"
+            />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

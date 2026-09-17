@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ALGORITHMEN } from './data';
 import type { AlgorithmCategory, AlgorithmEntry } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: AlgorithmCategory[] = [
   'Herangehensweise & Einschätzung',
@@ -15,7 +16,10 @@ function AlgorithmDetail({ entry }: { entry: AlgorithmEntry }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{entry.title}</h2>
+          <h2>
+            {entry.title}{' '}
+            <FavoriteButton moduleId="algorithmen" itemId={entry.id} title={entry.title} moduleTitle="Algorithmen" icon="🧭" />
+          </h2>
           <p className="algo-summary">{entry.summary}</p>
         </div>
         {entry.page && <span className="med-page-ref">SAA und BPR 2025, S. {entry.page}</span>}

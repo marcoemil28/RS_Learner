@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { RETTUNGSTECHNIK_THEMEN } from './data';
 import type { RettungstechnikCategory, RettungstechnikTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: RettungstechnikCategory[] = ['Transport & Trageformen', 'Lagerungsarten', 'Atemwege & Beatmung', 'Gerätekunde'];
 
@@ -10,7 +11,16 @@ function RettungstechnikDetail({ topic }: { topic: RettungstechnikTopic }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton
+              moduleId="rettungstechnik"
+              itemId={topic.id}
+              title={topic.title}
+              moduleTitle="Rettungstechnik & Gerätekunde"
+              icon="🎒"
+            />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

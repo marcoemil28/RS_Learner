@@ -11,6 +11,7 @@ import { PAEDIATRIE_THEMEN } from '../modules/paediatrie/data';
 import { PSYCHIATRIENOTFAELLE_THEMEN } from '../modules/psychiatrienotfaelle/data';
 import { RETTUNGSTECHNIK_THEMEN } from '../modules/rettungstechnik/data';
 import { RECHTLICHEGRUNDLAGEN_THEMEN } from '../modules/rechtlichegrundlagen/data';
+import { GLOSSAR } from '../modules/glossar/data';
 import { MODULES } from './registry';
 
 export interface SearchItem {
@@ -174,6 +175,17 @@ const RAW_INDEX: RawSearchItem[] = [
       icon: '⚖️',
       itemId: t.id,
       haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
+    })
+  ),
+  ...GLOSSAR.map(
+    (e): RawSearchItem => ({
+      key: `glossar:${e.id}`,
+      title: e.abbr,
+      moduleId: 'glossar',
+      moduleTitle: 'Glossar & Abkürzungen',
+      icon: '📖',
+      itemId: e.id,
+      haystack: [e.abbr, e.meaning, e.description].filter(Boolean).join(' ').toLowerCase(),
     })
   ),
 ];

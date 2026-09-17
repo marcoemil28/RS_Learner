@@ -1291,3 +1291,121 @@ ul {
   border-color: var(--accent-strong);
   color: white;
 }
+
+.glossar-search {
+  width: 100%;
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6em 0.8em;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.glossar-search:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.glossar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.glossar-entry {
+  display: flex;
+  gap: 1em;
+  padding: 0.7em 0.9em;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.glossar-entry-abbr {
+  flex-shrink: 0;
+  min-width: 90px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.glossar-entry-meaning {
+  margin: 0;
+}
+
+.glossar-entry-description {
+  margin: 0.3em 0 0 0;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+
+.app-sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.contrast-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  width: 100%;
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6em 0.8em;
+  font-size: 0.85rem;
+}
+
+.contrast-toggle.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Hoher-Kontrast-Modus: kräftigere Farben, dickere Rahmen, größere Schrift — für schlechte Lichtverhältnisse im Einsatz. */
+.app-shell.high-contrast {
+  --bg: #000000;
+  --bg-panel: #0a0a0a;
+  --bg-panel-alt: #161616;
+  --border: #ffffff;
+  --text: #ffffff;
+  --text-dim: #d8d8d8;
+  --accent: #66d1ff;
+  --accent-strong: #0099ff;
+  --good: #5dffb0;
+  --bad: #ff7a7a;
+  font-size: 17px;
+}
+
+.app-shell.high-contrast button,
+.app-shell.high-contrast input,
+.app-shell.high-contrast .med-detail,
+.app-shell.high-contrast .algo-detail,
+.app-shell.high-contrast .glossar-entry {
+  border-width: 2px;
+}
+
+.app-shell.high-contrast .app-nav-item.active {
+  outline: 2px solid var(--accent);
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.1em;
+  padding: 0 0.2em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.favorite-button.active {
+  color: #f5c518;
+}
+
+.home-favorites-empty {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}

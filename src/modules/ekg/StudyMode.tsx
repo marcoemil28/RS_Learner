@@ -4,6 +4,7 @@ import { generateTrace } from './waveform';
 import { EkgTrace } from './EkgTrace';
 import { CATEGORY_LABELS, type RhythmCategory } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 export function StudyMode() {
   const [selectedId, setSelectedId] = useState(RHYTHMS[0].id);
@@ -52,7 +53,10 @@ export function StudyMode() {
       <section className="rhythm-detail">
         <div className="rhythm-detail-header">
           <div>
-            <h2>{rhythm.nameDe}</h2>
+            <h2>
+              {rhythm.nameDe}{' '}
+              <FavoriteButton moduleId="ekg" itemId={rhythm.id} title={rhythm.nameDe} moduleTitle="EKG-Trainer" icon="📈" />
+            </h2>
             <p className="rhythm-en">{rhythm.nameEn}</p>
           </div>
           <button className="secondary" onClick={() => setSeed((s) => s + 1)}>

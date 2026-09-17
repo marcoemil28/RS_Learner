@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { PSYCHIATRIENOTFAELLE_THEMEN } from './data';
 import type { PsychiatrieNotfaelleCategory, PsychiatrieNotfaelleTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: PsychiatrieNotfaelleCategory[] = [
   'Psychiatrische Notfälle',
@@ -15,7 +16,16 @@ function PsychiatrieNotfaelleDetail({ topic }: { topic: PsychiatrieNotfaelleTopi
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton
+              moduleId="psychiatrienotfaelle"
+              itemId={topic.id}
+              title={topic.title}
+              moduleTitle="Psychiatrische Notfälle & Kommunikation"
+              icon="🧠"
+            />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

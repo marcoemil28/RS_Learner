@@ -11,6 +11,53 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.23.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Favoriten/Lesezeichen** (aus `docs/vorgaben_und_inhalte.txt` Abschnitt
+  3, „Favoriten/Lesezeichen"): ☆-Stern-Button neben dem Titel in der
+  Detailansicht der meisten Themenmodule (Algorithmen, Anatomie,
+  Traumatologie, Medikamente, Sanitätsdienst, Internistische Notfälle,
+  Pädiatrie & Geburtshilfe, Psychiatrische Notfälle & Kommunikation,
+  Rettungstechnik & Gerätekunde, Rechtliche Grundlagen, EKG-Rhythmen) —
+  markiert einen Eintrag zum schnellen Wiederfinden.
+  - Neue Sektion „Deine Favoriten" auf der Startseite, direkt oberhalb des
+    Fahrplans, mit Klick-Navigation zum jeweiligen Eintrag.
+  - Persistiert in `localStorage` (`src/app/favorites.ts`), modulübergreifend
+    synchronisiert über ein einfaches Pub/Sub (kein zusätzlicher React-
+    Context nötig).
+  - Bewusst nicht enthalten: Werkzeuge & Scores (Rechner, kein
+    "Nachschlage-Eintrag") und Glossar (bereits als durchsuchbare
+    Kurzliste konzipiert) sowie das Einzelthema
+    "Medikamente vorbereiten & verabreichen" (redundant zum direkten
+    Modul-Link auf der Startseite).
+
+## [0.22.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Hoher-Kontrast-Modus** (aus `docs/vorgaben_und_inhalte.txt` Abschnitt 3,
+  „Dark Mode / High-Contrast für schlechte Lichtverhältnisse im Einsatz"):
+  Umschalter unten in der Sidebar. Die App ist standardmäßig bereits
+  dunkel gestaltet — der neue Modus geht für schlechte Lichtverhältnisse
+  (grelle Sonne, Blendung) einen Schritt weiter: reines Schwarz als
+  Hintergrund, kräftigere Akzentfarben, dickere Rahmen und größere
+  Grundschrift. Einstellung wird lokal gespeichert (`localStorage`) und
+  bleibt über Neustarts erhalten.
+
+## [0.21.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Glossar & Abkürzungen"** (aus `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 3, „Tag-/Verlinkungssystem"), fest oben in der Sidebar
+  angepinnt wie Werkzeuge & Scores: ca. 40 RS-typische Abkürzungen (SAA,
+  BPR, GCS, NACA, MANV, SAMPLER, ZOABCDE, SINNHAFT, DIVI, PSNV, ROSC, u.
+  v. m.) mit Bedeutung, teils mit kurzer Erklärung und Verweis auf das
+  jeweilige Fachmodul. Direkt durchsuchbar per Eingabefeld im Modul selbst
+  sowie über die globale Suche.
+
 ## [0.20.0] – 2026-09-17
 
 ### Hinzugefügt

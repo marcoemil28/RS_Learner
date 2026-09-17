@@ -12,6 +12,7 @@ import { PaediatrieModule } from '../modules/paediatrie/PaediatrieModule';
 import { PsychiatrieNotfaelleModule } from '../modules/psychiatrienotfaelle/PsychiatrieNotfaelleModule';
 import { RettungstechnikModule } from '../modules/rettungstechnik/RettungstechnikModule';
 import { RechtlicheGrundlagenModule } from '../modules/rechtlichegrundlagen/RechtlicheGrundlagenModule';
+import { GlossarModule } from '../modules/glossar/GlossarModule';
 
 /**
  * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
@@ -163,5 +164,14 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: RechtlicheGrundlagenModule,
     category: 'Einsatz & Organisation',
+  },
+  {
+    id: 'glossar',
+    title: 'Glossar & Abkürzungen',
+    icon: '📖',
+    status: 'available',
+    component: GlossarModule,
+    category: 'Diagnostik & Training',
+    pinned: true,
   },
 ];

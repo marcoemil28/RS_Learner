@@ -1,11 +1,15 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MODULES, MODULE_CATEGORIES, type ModuleCategory } from './registry';
 import { ROADMAP } from './roadmap';
 import { useNavigation } from './NavigationContext';
+import { getFavorites, subscribeFavorites } from './favorites';
 import { getProgress } from '../modules/ekg/progress';
 
 export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: string) => void }) {
   const { goTo } = useNavigation();
+  const [favorites, setFavorites] = useState(getFavorites);
+
+  useEffect(() => subscribeFavorites(() => setFavorites(getFavorites())), []);
 
   const ekgStats = useMemo(() => {
     const progress = getProgress();
@@ -56,6 +60,22 @@ export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: st
           </button>
         ))}
       </div>
+
+      <h2 className="home-section-title">Deine Favoriten</h2>
+      {favorites.length === 0 ? (
+        <p className="home-favorites-empty">
+          Noch keine Favoriten — klicke in einem Modul auf den ☆-Stern neben einem Titel, um ihn hier zu merken.
+        </p>
+      ) : (
+        <div className="home-module-grid">
+          {favorites.map((f) => (
+            <button key={f.key} className="home-module-card" onClick={() => handleRoadmapClick(f.moduleId, f.itemId)}>
+              <span className="home-module-icon">{f.icon}</span>
+              <span className="home-module-title">{f.title}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       <h2 className="home-section-title">Dein Fahrplan</h2>
       <p className="home-intro">

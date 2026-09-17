@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { TRAUMA_THEMEN } from './data';
 import type { TraumaCategory, TraumaTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
+import { FavoriteButton } from '../../components/FavoriteButton';
 
 const CATEGORY_ORDER: TraumaCategory[] = [
   'Frakturen & Wunden',
@@ -16,7 +17,16 @@ function TraumaDetail({ topic }: { topic: TraumaTopic }) {
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>{topic.title}</h2>
+          <h2>
+            {topic.title}{' '}
+            <FavoriteButton
+              moduleId="traumatologie"
+              itemId={topic.id}
+              title={topic.title}
+              moduleTitle="Traumatologie & Verbandslehre"
+              icon="🩹"
+            />
+          </h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>

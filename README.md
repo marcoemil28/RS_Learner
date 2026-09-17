@@ -80,14 +80,30 @@ Hot-Reload sofort übernommen.
 
 ### ✅ Startseite
 
-- Landet man beim App-Start: Modul-Karten-Übersicht + **"Dein Fahrplan"**
-  — kuratierte Verlinkung in ausgewählte Abschnitte aller Module, gruppiert
-  nach Thema (kein eigenes Modul mit eigenen Inhalten, nur Navigation,
-  siehe `docs/vorgaben_und_inhalte.txt` Abschnitt 5).
+- Landet man beim App-Start: Modul-Karten-Übersicht + **"Deine Favoriten"**
+  + **"Dein Fahrplan"** — kuratierte Verlinkung in ausgewählte Abschnitte
+  aller Module, gruppiert nach Thema (kein eigenes Modul mit eigenen
+  Inhalten, nur Navigation, siehe `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 5).
 - Zeigt eine EKG-Fortschritts-Kachel, sobald erste Quiz-Versuche vorliegen.
 - Die App-Version steht sichtbar neben dem Logo in der Sidebar (z. B.
   "v0.10.0") — automatisch aus `package.json` übernommen, keine doppelte
   Pflege nötig (`vite.config.ts` → `__APP_VERSION__`).
+
+### ✅ Favoriten/Lesezeichen
+
+- ☆-Stern-Button neben dem Titel in der Detailansicht der meisten
+  Themenmodule sowie der EKG-Rhythmen — markiert einen Eintrag zum
+  schnellen Wiederfinden (ausgefüllter ★, wenn aktiv).
+- Erscheinen gesammelt in der Sektion "Deine Favoriten" auf der Startseite,
+  mit Klick-Navigation direkt zum Eintrag.
+- Persistiert in `localStorage` (`src/app/favorites.ts`), modulübergreifend
+  über ein leichtgewichtiges Pub/Sub synchronisiert (`FavoriteButton` in
+  `src/components/`).
+- Nicht enthalten: Werkzeuge & Scores (Rechner statt Nachschlage-Eintrag),
+  Glossar (bereits als durchsuchbare Kurzliste konzipiert) und das
+  Einzelthema "Medikamente vorbereiten & verabreichen" (redundant zum
+  direkten Modul-Link).
 
 ### ✅ Themen-Gruppierung (statt Qualifikationsstufen)
 
@@ -95,8 +111,8 @@ Hot-Reload sofort übernommen.
   nach Kompetenzstufe: **Grundlagenwissen**, **Krankheitsbilder &
   Algorithmen**, **Medikamente**, **Diagnostik & Training**, **Einsatz &
   Organisation** (`ModuleCategory` in `src/app/registry.tsx`). Werkzeuge &
-  Scores bleibt als einziges Modul fest oben angepinnt (`pinned: true`),
-  alle anderen erscheinen in ihrer Kategorie.
+  Scores sowie Glossar & Abkürzungen bleiben fest oben angepinnt
+  (`pinned: true`), alle anderen Module erscheinen in ihrer Kategorie.
 - Ursprünglich gab es hier drei Qualifikationsstufen (SanH/RS/NotSan) als
   Navigationsachse — nach Rückmeldung war das unnötig komplex, da Inhalte
   ohnehin für alle einsehbar sind. Umgestellt in 0.17.0, siehe CHANGELOG.
@@ -115,6 +131,16 @@ Hot-Reload sofort übernommen.
 - Implementierung: `app/searchIndex.ts` (durchsuchbarer Index über alle
   Module) + `app/NavigationContext.tsx` (moduleübergreifende
   Navigations-Anfrage, die jedes Modul selbst konsumiert).
+
+### ✅ Hoher-Kontrast-Modus
+
+- Umschalter unten in der Sidebar (🌙/🔆). Die App ist standardmäßig
+  bereits dunkel gestaltet — der Hoher-Kontrast-Modus geht für schlechte
+  Lichtverhältnisse im Einsatz (grelle Sonne, Blendung) einen Schritt
+  weiter: reines Schwarz als Hintergrund, kräftigere Akzentfarben, dickere
+  Rahmen, größere Grundschrift.
+- Einstellung wird per `localStorage` gespeichert und bleibt über
+  Neustarts erhalten.
 
 ### ✅ EKG-Trainer (v1)
 
@@ -205,7 +231,7 @@ Eigenständiges Modul, eigener Sidebar-Tab in der „Rettungssanitäter"-Gruppe
 ### ✅ Werkzeuge & Scores
 
 Fest oben in der Sidebar angepinnt (direkt unter der Startseite, nicht in
-einer Stufen-Gruppe) — die Werkzeuge sind stufenübergreifend gleich
+einer Themen-Kategorie) — die Werkzeuge sind themenübergreifend gleich
 relevant.
 
 - 6 interaktive Rechner: **GCS** (Klick-Rechner, live Summe + Schweregrad),
@@ -219,6 +245,16 @@ relevant.
   — die Dosierungsangaben der 29 SAA/BPR-Medikamente sind uneinheitlicher
   Freitext, ein automatisches Auslesen wäre bei diesem hochsensiblen Thema
   ein zu hohes Fehlerrisiko (siehe CHANGELOG 0.8.0).
+
+### ✅ Glossar & Abkürzungen
+
+Ebenfalls fest oben in der Sidebar angepinnt.
+
+- Ca. 40 RS-typische Abkürzungen (SAA, BPR, GCS, NACA, MANV, SAMPLER,
+  ZOABCDE, SINNHAFT, DIVI, PSNV, ROSC, u. v. m.) mit Bedeutung, teils mit
+  kurzer Erklärung und Verweis auf das jeweilige Fachmodul.
+- Eigenes Suchfeld im Modul selbst zum schnellen Filtern, zusätzlich über
+  die globale Suche erreichbar.
 
 ### ✅ Traumatologie & Verbandslehre
 
@@ -312,8 +348,8 @@ relevant.
 
 Aktuell keine Platzhalter-Module offen. Aus `docs/vorgaben_und_inhalte.txt`
 bleibt noch der generalisierte Quiz-Modus (Abschnitt 6) sowie
-cross-cutting Features aus Abschnitt 3 (Glossar, Favoriten/Notizen,
-Checklisten-Modus, Cheat-Sheet, Dark Mode/High-Contrast).
+cross-cutting Features aus Abschnitt 3 (eigene Notizen zu Einträgen,
+Checklisten-Modus, Cheat-Sheet-Ansicht).
 
 ## Architektur
 
@@ -326,9 +362,11 @@ src/
     searchIndex.ts            # durchsuchbarer Index über alle Module
     GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
     roadmap.ts                # kuratierter "Fahrplan" je Themenkategorie (nur Links, keine Inhalte)
-    HomePage.tsx               # Startseite: Modul-Karten + Fahrplan + EKG-Fortschritt
+    favorites.ts               # Favoriten-Store (localStorage + Pub/Sub, kein React-Context)
+    HomePage.tsx               # Startseite: Modul-Karten + Favoriten + Fahrplan + EKG-Fortschritt
   components/
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
+    FavoriteButton.tsx      # ☆/★-Stern-Button, verwendet in den meisten Modul-Detailansichten
   modules/
     ekg/
       types.ts           # Datenmodell für Rhythmen
@@ -407,6 +445,10 @@ src/
       data.ts             # 5 Themen: Grundrechte & Pflichten, Delegation & Kompetenz,
                           #   Dokumentation
       RechtlicheGrundlagenModule.tsx  # Detailansicht mit Fakten je Sektion
+    glossar/
+      types.ts           # Datenmodell (GlossaryEntry: abbr/meaning/description)
+      data.ts             # ca. 40 RS-typische Abkürzungen, alphabetisch sortiert
+      GlossarModule.tsx    # Durchsuchbare Liste ohne Kategorie-Sidebar
   App.tsx                 # App-Shell: nach Thema gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

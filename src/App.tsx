@@ -1,14 +1,33 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MODULES, MODULE_CATEGORIES, type LearningModule } from './app/registry';
 import { NavigationProvider } from './app/NavigationContext';
 import { GlobalSearch } from './app/GlobalSearch';
 import { HomePage } from './app/HomePage';
 import './App.css';
 
+const CONTRAST_STORAGE_KEY = 'sanwissen:highContrast';
+
+function loadInitialContrast(): boolean {
+  try {
+    return localStorage.getItem(CONTRAST_STORAGE_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 function AppShell() {
   const [activeId, setActiveId] = useState('home');
+  const [highContrast, setHighContrast] = useState(loadInitialContrast);
   const activeModule = MODULES.find((m) => m.id === activeId);
   const ActiveComponent = activeModule?.component;
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CONTRAST_STORAGE_KEY, highContrast ? '1' : '0');
+    } catch {
+      // localStorage nicht verfügbar — Einstellung gilt dann nur für die Sitzung.
+    }
+  }, [highContrast]);
 
   const pinnedModules = useMemo(() => MODULES.filter((m) => m.pinned), []);
 
@@ -25,7 +44,7 @@ function AppShell() {
   }, []);
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${highContrast ? 'high-contrast' : ''}`}>
       <aside className="app-sidebar">
         <div className="app-brand">
           <span className="app-brand-icon">🚑</span>
@@ -72,6 +91,16 @@ function AppShell() {
             </div>
           ))}
         </nav>
+
+        <div className="app-sidebar-footer">
+          <button
+            className={`contrast-toggle ${highContrast ? 'active' : ''}`}
+            onClick={() => setHighContrast((v) => !v)}
+          >
+            <span>{highContrast ? '🔆' : '🌙'}</span>
+            <span>{highContrast ? 'Hoher Kontrast an' : 'Hoher Kontrast'}</span>
+          </button>
+        </div>
       </aside>
 
       <main className="app-content">
