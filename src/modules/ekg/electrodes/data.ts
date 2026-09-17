@@ -15,6 +15,7 @@ export const MONITORING_SET: ElectrodeSet = {
     'Eselsbrücke „Ampelschema“: wie eine Ampel von oben nach unten und von rechts nach links – Rot, Gelb, Grün (, Schwarz).',
   bodyType: 'full',
   viewBox: { w: 400, h: 750 },
+  minLevel: 'RH',
   points: [
     {
       id: 'rot',
@@ -69,6 +70,7 @@ export const TWELVE_LEAD_SET: ElectrodeSet = {
     'Interkostalraum als auch die richtige Linie – wie in echt.',
   bodyType: 'thorax',
   viewBox: { w: 500, h: 560 },
+  minLevel: 'RS',
   points: [
     { id: 'ra', label: 'RA (Rot)', color: '#e5484d', x: 85, y: 65, description: 'Richtung rechter Arm (z. B. Handgelenk, innenseitig)' },
     { id: 'la', label: 'LA (Gelb)', color: '#e6c34d', x: 415, y: 65, description: 'Richtung linker Arm (z. B. Handgelenk, innenseitig)' },

@@ -115,6 +115,73 @@ ul {
   gap: 0.25em;
 }
 
+.app-sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.level-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+}
+
+.level-selector label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.level-selector select {
+  background-color: var(--bg-panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4em 0.5em;
+  font-size: 0.88rem;
+}
+
+.level-selector-hint {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin: 0.5em 0 0 0;
+  line-height: 1.4;
+}
+
+.level-badge {
+  margin-left: 0.5em;
+  font-size: 0.68rem;
+  background-color: rgba(255, 93, 93, 0.15);
+  color: var(--bad);
+  border: 1px solid rgba(255, 93, 93, 0.35);
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.above-level {
+  opacity: 0.55;
+}
+
+.app-nav-group {
+  margin-bottom: 0.6rem;
+}
+
+.app-nav-group h4 {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  margin: 0.9em 0.5em 0.35em 0.5em;
+}
+
+.app-nav-group:first-child h4 {
+  margin-top: 0.2em;
+}
+
 .app-nav-item {
   display: flex;
   align-items: center;
@@ -532,6 +599,77 @@ ul {
   border: 1px solid rgba(77, 163, 255, 0.3);
   border-radius: 8px;
   padding: 0.75em 1em;
+}
+
+/* ---------- Algorithmen module ---------- */
+
+.algo-detail {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.algo-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.algo-summary {
+  color: var(--text-dim);
+  margin: 0.3em 0 0 0;
+  max-width: 60ch;
+}
+
+.algo-section {
+  margin: 1.1rem 0;
+}
+
+.algo-section h4 {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+}
+
+.algo-section ul {
+  margin: 0;
+}
+
+.algo-section li {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
+}
+
+.algo-notes {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.algo-notes h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+}
+
+.algo-notes li {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  margin-bottom: 0.4em;
+}
+
+.algo-source-note {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-style: italic;
 }
 
 /* ---------- Electrode placement ---------- */

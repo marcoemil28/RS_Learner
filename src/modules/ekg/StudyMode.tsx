@@ -3,10 +3,13 @@ import { RHYTHMS } from './rhythms';
 import { generateTrace } from './waveform';
 import { EkgTrace } from './EkgTrace';
 import { CATEGORY_LABELS, type RhythmCategory } from './types';
+import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
+import { useLevel } from '../../app/LevelContext';
 
 export function StudyMode() {
   const [selectedId, setSelectedId] = useState(RHYTHMS[0].id);
   const [seed, setSeed] = useState(0);
+  const { level } = useLevel();
 
   const rhythm = RHYTHMS.find((r) => r.id === selectedId) ?? RHYTHMS[0];
   const trace = useMemo(() => generateTrace(rhythm.gen), [rhythm, seed]);
@@ -31,7 +34,7 @@ export function StudyMode() {
               {items.map((r) => (
                 <li key={r.id}>
                   <button
-                    className={r.id === selectedId ? 'active' : ''}
+                    className={`${r.id === selectedId ? 'active' : ''} ${aboveLevelClass(r.minLevel, level)}`}
                     onClick={() => setSelectedId(r.id)}
                   >
                     {r.nameDe}
@@ -46,7 +49,9 @@ export function StudyMode() {
       <section className="rhythm-detail">
         <div className="rhythm-detail-header">
           <div>
-            <h2>{rhythm.nameDe}</h2>
+            <h2>
+              {rhythm.nameDe} <LevelBadge minLevel={rhythm.minLevel} />
+            </h2>
             <p className="rhythm-en">{rhythm.nameEn}</p>
           </div>
           <button className="secondary" onClick={() => setSeed((s) => s + 1)}>

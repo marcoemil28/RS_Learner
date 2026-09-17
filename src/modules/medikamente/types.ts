@@ -1,3 +1,5 @@
+import type { QualificationLevel } from '../../app/levels';
+
 export type MedikamentKategorie =
   | 'Analgesie & Sedierung'
   | 'Herz-Kreislauf'
@@ -10,6 +12,8 @@ export interface Medikament {
   id: string;
   name: string;
   category: MedikamentKategorie;
+  /** Ab welcher Qualifikationsstufe die Gabe (mit Delegation) vorgesehen ist — siehe app/levels.ts. */
+  minLevel: QualificationLevel;
   wirkstoff: string | null;
   konzentration: string | null;
   arzneimittelgruppe: string | null;

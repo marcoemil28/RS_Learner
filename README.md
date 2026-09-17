@@ -1,9 +1,10 @@
-# RS Learner
+# SanWissen
 
-Eine lokale Lern-App für die Rettungssanitäter-Ausbildung (EKG, SAA/BPR, und
-perspektivisch weitere Themen). Läuft als native Desktop-App auf **macOS und
-Windows** (Tauri + React/TypeScript) — komplett offline, keine Accounts, keine
-Cloud.
+Eine lokale Lern- und Nachschlage-App für den Sanitäts- und Rettungsdienst —
+von Sanitätshelfer (SanH) über Rettungshelfer (RH) und Rettungssanitäter (RS)
+bis Notfallsanitäter (NotSan) (EKG, SAA/BPR, und perspektivisch weitere
+Themen). Läuft als native Desktop-App auf **macOS und Windows** (Tauri +
+React/TypeScript) — komplett offline, keine Accounts, keine Cloud.
 
 > ⚠️ **Wichtiger Hinweis zu den Inhalten:** Die fachlichen Inhalte (EKG-Merkmale,
 > Einordnungen, Handlungsempfehlungen) basieren auf allgemeinem rettungsdienstlichem
@@ -76,6 +77,18 @@ Hot-Reload sofort übernommen.
 
 ## Features
 
+### ✅ Qualifikationsstufen (SanH/RH/RS/NotSan) — modulübergreifend
+
+- Auswahl "Meine Qualifikation" unten in der Sidebar (Default: "Alle
+  anzeigen"). Module in der Sidebar sind nach Einstiegsstufe gruppiert.
+- Inhalte über der gewählten Stufe werden **nie versteckt**, nur mit Badge
+  ("ab NotSan" etc.) markiert und leicht abgeblendet — der Nachschlage-
+  Charakter bleibt für alle Stufen erhalten.
+- Datenmodell: `src/app/levels.ts` + `LevelContext.tsx`. Inhalte tragen ein
+  `minLevel`-Feld (teils bis auf einzelne Algorithmus-Schritte herunter,
+  siehe Algorithmen-Modul) statt eigener Stufen-Module — vermeidet
+  Content-Duplizierung, siehe `docs/vorgaben_und_inhalte.txt`.
+
 ### ✅ EKG-Trainer (v1)
 
 - **18 Rhythmen** über alle für die RS-Ausbildung relevanten Kategorien:
@@ -129,9 +142,22 @@ Hot-Reload sofort übernommen.
   ablegen und daraus weitere Module/Inhalte extrahieren, siehe
   [Eigene Inhalte einpflegen](#eigene-inhalte-einpflegen--korrigieren).
 
+### ✅ Algorithmen (ABCDE, BLS/ALS)
+
+- 10 Einträge aus den BPR-Abschnitten „Herangehensweise" und
+  „Kreislaufstillstand": ABCDE-Herangehensweise/-Instabilitäten, WASB & GCS,
+  SAMPLER, OPQRST, Atemwegsmanagement, Patientenanmeldung (ZOABCDE),
+  Übergabe (SINNHAFT), Reanimation Erwachsene (BLS→ALS) und Kinder (PLS).
+- **Qualifikationsstufen bis auf Schritt-Ebene**: jeder einzelne Handlungs-
+  schritt trägt sein eigenes `minLevel` — z. B. zeigt die Reanimation die
+  Basismaßnahmen (Bewusstsein/Atmung prüfen, HDM 30:2, AED) ohne Badge für
+  alle Stufen, während EGA, i.v./i.o.-Zugang und Medikamentengabe mit „ab
+  Notfallsanitäter" markiert sind.
+- Laien-Basismaßnahmen (Reanimation) sind allgemeines BLS-Wissen und per
+  Quellenhinweis von den PDF-Inhalten (NotSan-fokussiert) abgegrenzt.
+
 ### 🔜 Geplant
 
-- Algorithmen (ABCDE, BLS/ALS, BPR-Krankheitsbilder aus derselben Quelle)
 - Anatomie & Physiologie
 
 Platzhalter für diese Module sind bereits in der Seitenleiste sichtbar
@@ -142,7 +168,12 @@ Platzhalter für diese Module sind bereits in der Seitenleiste sichtbar
 ```
 src/
   app/
-    registry.tsx         # zentrale Liste aller Lernmodule (Sidebar-Einträge)
+    registry.tsx         # zentrale Liste aller Lernmodule (Sidebar-Einträge, inkl. minLevel)
+    levels.ts             # Qualifikationsstufen-Typ, Reihenfolge, Vergleichslogik
+    LevelContext.tsx        # globaler, persistierter Stufen-Filter
+  components/
+    LevelBadge.tsx        # "ab <Stufe>"-Badge + Abblendungs-Klasse, modulübergreifend
+    ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
   modules/
     ekg/
       types.ts           # Datenmodell für Rhythmen
@@ -169,7 +200,11 @@ src/
       wirkung.ts          # ergänzte Kurz-Wirkbeschreibungen (nicht aus dem PDF)
       data.ts             # lädt/typisiert medications.json + wirkung.ts
       MedikamenteModule.tsx  # Such-/Filter-UI + Detailansicht
-  App.tsx                 # App-Shell mit Sidebar + aktivem Modul
+    algorithmen/
+      types.ts           # Datenmodell (AlgorithmEntry/-Section/-Step, je mit minLevel)
+      data.ts             # 10 Einträge aus BPR "Herangehensweise" + "Kreislaufstillstand"
+      AlgorithmenModule.tsx  # Such-/Filter-UI + Detailansicht mit Schritt-Badges
+  App.tsx                 # App-Shell mit nach Stufe gruppierter Sidebar + aktivem Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden
 ```

@@ -1,3 +1,5 @@
+import type { QualificationLevel } from '../../app/levels';
+
 export type RhythmCategory =
   | 'Sinusrhythmen'
   | 'Vorhofarrhythmien'
@@ -44,6 +46,8 @@ export interface Rhythm {
   nameEn: string;
   category: RhythmCategory;
   difficulty: 1 | 2 | 3;
+  /** Ab welcher Qualifikationsstufe dieser Inhalt regulär relevant ist (siehe app/levels.ts). */
+  minLevel: QualificationLevel;
   /** Ob dieser Rhythmus im Multiple-Choice-Quiz als "erkennbar am Streifen" abgefragt wird. */
   quizEligible: boolean;
   keyFeatures: string[];

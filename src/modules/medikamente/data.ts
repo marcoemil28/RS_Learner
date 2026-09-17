@@ -19,9 +19,11 @@ import { WIRKUNG } from './wirkung';
  * Rettungsdienstbereichen und Bundesländern unterscheiden — im Zweifel zählt
  * immer die eigene, aktuell gültige Dienstanweisung.
  */
-export const MEDIKAMENTE: Medikament[] = (medicationsJson as Omit<Medikament, 'wirkung'>[]).map((m) => ({
+export const MEDIKAMENTE: Medikament[] = (medicationsJson as Omit<Medikament, 'wirkung' | 'minLevel'>[]).map((m) => ({
   ...m,
   wirkung: WIRKUNG[m.id] ?? null,
+  // Die gesamte SAA/BPR-Quelle richtet sich an NotSan mit ärztlicher Delegation (siehe Hinweis oben).
+  minLevel: 'NotSan',
 }));
 
 export function getMedikamentById(id: string): Medikament | undefined {

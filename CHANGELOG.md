@@ -11,6 +11,57 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.6.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Algorithmen-Modul** (vorher Platzhalter, jetzt verfügbar) mit 10
+  Einträgen aus den BPR-Abschnitten „Herangehensweise" und
+  „Kreislaufstillstand": ABCDE-Herangehensweise, ABCDE-Instabilitäten,
+  WASB & GCS, SAMPLER, OPQRST, Atemwegsmanagement, Patientenanmeldung
+  (ZOABCDE), Übergabe (SINNHAFT), Reanimation Erwachsene (BLS→ALS),
+  Reanimation Kinder (PLS).
+  - Jeder einzelne Schritt trägt sein eigenes `minLevel` (nicht nur der
+    ganze Eintrag) — z. B. zeigt "Reanimation Erwachsene" die
+    Basismaßnahmen (Bewusstsein/Atmung prüfen, HDM 30:2, AED) ohne Badge
+    für alle Stufen, während EGA/Zugang/Medikamente mit "ab
+    Notfallsanitäter" markiert sind. Das setzt das Stufen-Datenmodell aus
+    0.5.0 direkt im Detail um.
+  - SINNHAFT-Inhalt wurde aus einer im PDF eingebetteten Grafik (keine
+    Textebene) durch Rendern der Seite und visuelles Auslesen gewonnen.
+  - Basismaßnahmen-Anteile der Reanimation (Laienreanimation, nicht Teil
+    der NotSan-fokussierten SAA/BPR-Quelle) sind als allgemeines BLS-Wissen
+    ergänzt und per `sourceNote` von den PDF-Inhalten abgegrenzt.
+- **Sidebar nach Qualifikationsstufe gruppiert**: Module erscheinen jetzt
+  unter Abschnitts-Überschriften ("Ab Sanitätshelfer", "Ab Rettungshelfer" …)
+  nach ihrer niedrigsten Einstiegsstufe, damit die Navigation mit
+  wachsender Modulzahl übersichtlich bleibt.
+
+## [0.5.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Qualifikationsstufen-Modell** (SanH/RH/RS/NotSan) als Cross-cutting-
+  Metadatum auf bestehenden Inhalten, gemäß `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 5/6 (Priorität 1):
+  - `app/levels.ts` (Typ, Reihenfolge, Vergleichslogik),
+    `app/LevelContext.tsx` (global, lokal persistiert unter
+    `sanwissen:selectedLevel`).
+  - Neuer Stufen-Auswahl in der Sidebar ("Meine Qualifikation" /
+    "Alle anzeigen").
+  - `LevelBadge`-Komponente + `above-level`-Abblendung
+    (`components/LevelBadge.tsx`): Inhalte über der gewählten Stufe werden
+    **nicht versteckt**, nur mit Badge ("ab NotSan" etc.) markiert und
+    abgeblendet — der Nachschlage-Charakter bleibt erhalten.
+  - Migration bestehender Inhalte: EKG-Rhythmuserkennung →
+    `minLevel: 'RS'`, Medikamente (SAA/BPR) → `minLevel: 'NotSan'`,
+    Elektroden-legen → `minLevel: 'RH'` (stufenunabhängige Fertigkeit,
+    niedrig angesetzt) für beide Sets.
+- Projekt umbenannt in **SanWissen** (vormals "RS Learner") inkl. neuer
+  Zielgruppenbeschreibung (SanH/RH/RS/NotSan) in README/App-Branding.
+- `docs/vorgaben_und_inhalte.txt`: ausführliche Modul- und Feature-Roadmap
+  vom Nutzer ergänzt (Grundlage für die weitere Priorisierung).
+
 ## [0.4.0] – 2026-09-16
 
 ### Behoben

@@ -1,0 +1,242 @@
+Das hier werden mögliche Ideen für Inhalte und Themen innerhalb meiner App.
+Ziel: SanWissen (vormals "RS Learner") als möglichst vollständiges
+Nachschlage- und Lernwerk für alle Qualifikationsstufen im Sanitäts- und
+Rettungsdienst nutzbar machen — Sanitätshelfer (SanH), Rettungshelfer (RH),
+Rettungssanitäter (RS) und Notfallsanitäter (NotSan).
+
+Entschieden: Qualifikationsstufen werden NICHT als getrennte Abteile/Module
+abgebildet, sondern als Cross-cutting-Metadatum auf den bestehenden
+Themen-Inhalten (siehe Abschnitt 5). Grund: Themen wie Verbandslehre oder
+Medikamente gelten oft für mehrere Stufen, nur der Umfang/die Kompetenz
+unterscheidet sich — getrennte Kopien pro Stufe würden schnell auseinander-
+laufen.
+
+===========================================================
+1. GEPLANTE MODULE AUSBAUEN (bereits in registry.tsx als "coming-soon")
+===========================================================
+
+--- Algorithmen (ABCDE, BLS/ALS) ---
+- ABCDE-Schema Schritt für Schritt (Airway, Breathing, Circulation,
+  Disability, Exposure) mit Handlungsanweisung pro Buchstabe
+- BLS-Algorithmus (Basic Life Support) inkl. Erwachsene/Kind/Säugling-
+  Unterschiede, Laienreanimation vs. professionelle Reanimation
+- ALS-Algorithmus (Advanced Life Support) inkl. Schockbare/nicht-schockbare
+  Rhythmen, Adrenalin-/Amiodaron-Zeitpunkte (als Kontextwissen, wie bei
+  Medikamente-Modul)
+- Reanimation bei Sonderfällen: Schwangere, Ertrinken, Hypothermie,
+  Trauma-Reanimation, Kinder-Reanimation
+- Fremdkörperverlegung der Atemwege (Heimlich-Handgriff, Rückenschläge)
+  Erwachsene/Kind/Säugling
+- Algorithmus "Bewusstlosigkeit ohne Trauma" / "mit Trauma"
+- Schocktherapie-Algorithmus (hypovolämisch, kardiogen, anaphylaktisch,
+  septisch) inkl. Erkennungsmerkmale
+- Interaktive Entscheidungsbäume statt nur Text (ähnlich Elektroden-
+  Drag&Drop-Idee: Nutzer klickt sich durch den Algorithmus, bekommt
+  Feedback bei Fehlentscheidung)
+
+--- Anatomie & Physiologie ---
+- Herz-Kreislauf-System (Grundlage fürs EKG-Modul verlinken!)
+- Atmungssystem (Grundlage für Atemwegsmanagement)
+- Skelett/Muskulatur (Grundlage für Traumatologie/Verbandslehre)
+- Nervensystem Grundlagen (Grundlage für GCS, Pupillenkontrolle)
+- Interaktive SVG-Körperdiagramme im Stil des Elektroden-Trainers
+  (Organe/Knochen anklicken -> Info-Karte)
+- Vitalparameter-Normwerte nach Altersgruppe (Erwachsene, Kind, Säugling)
+  als Nachschlagetabelle
+
+===========================================================
+2. NEUE MODUL-IDEEN
+===========================================================
+
+--- Traumatologie / Verletzungslehre ---
+- Frakturlehre (offen/geschlossen, Erkennungszeichen, Ruhigstellung)
+- Wundversorgung (Wundarten, sterile Abdeckung, Blutstillung)
+- Verbandslehre: Druckverband, Dreiecktuch-Anwendungen, Schienung
+  (interaktiv: Schritt-für-Schritt mit Bildern/SVGs, evtl. als
+  "Übungsmodus" wie bei Elektroden)
+- Amputationsverletzungen, Thoraxverletzungen (offener Pneumothorax),
+  Abdominaltrauma, Wirbelsäulentrauma (Immobilisation, Log-Roll,
+  Vakuummatratze/Schaufeltrage)
+- Verbrennungen: Grad-Einteilung, Neuner-Regel/Handflächenregel zur
+  Flächenberechnung (guter Kandidat für kleinen interaktiven Rechner)
+- Polytrauma-Management, Tourniquet-Anwendung (tactical/zivil)
+
+--- Internistische Notfälle ---
+- Herzinfarkt/ACS, Schlaganfall (FAST-Test interaktiv), Lungenödem
+- Diabetische Notfälle (Hypo-/Hyperglykämie, Erkennung + Maßnahmen)
+- Krampfanfall/Epilepsie, Allergie/Anaphylaxie
+- Akutes Abdomen, Intoxikationen (inkl. Alkohol/Drogen — sehr relevant
+  für Sanitätsdienst bei Veranstaltungen)
+- Hitzenotfälle (Hitzschlag, Hitzeerschöpfung, Sonnenstich) und
+  Unterkühlung/Erfrierung — beides klassische Sanitätsdienst-Themen bei
+  Open-Air-Events
+
+--- Pädiatrie & Geburtshilfe ---
+- Besonderheiten Kindernotfälle (andere Vitalwerte, andere Dosierungen)
+- Normale Geburt / Notgeburt-Ablauf, Erstversorgung Neugeborenes,
+  APGAR-Score (guter Kandidat für kleinen interaktiven Score-Rechner)
+
+--- Psychiatrische Notfälle & Kommunikation ---
+- Erregungszustände, Suizidalität, Deeskalationstechniken
+- Gesprächsführung mit Patienten/Angehörigen, Umgang mit Sterbenden/
+  Todesfeststellung (rechtlicher Rahmen als RS)
+- Psychische Erste Hilfe / Betreuung von Betroffenen bei Großschadenslagen
+
+--- Rettungstechnik & Gerätekunde ---
+- Trageformen (Rautekgriff, Tragestuhl, Schaufeltrage, Vakuummatratze)
+- Lagerungsarten mit Indikation (stabile Seitenlage, Schocklage,
+  Oberkörperhochlagerung, Knierolle etc.) — interaktive Auswahl "welche
+  Lagerung bei welchem Krankheitsbild"
+- Sauerstoffgabe (Systeme, Flussraten, Indikationen)
+- Absaugung, Guedel-/Wendl-Tubus, Beatmungsbeutel
+- Gerätekunde Sanitätsrucksack/Notfallkoffer: Inhalt, Checkliste zur
+  Vollständigkeitsprüfung (praktisch für echten Dienstbeginn!)
+
+--- Rechtliche & organisatorische Grundlagen ---
+- Rechtsgrundlagen für RS (Garantenstellung, unterlassene Hilfeleistung,
+  Schweigepflicht, Patientenverfügung/Patientenwille, mutmaßlicher Wille)
+- Delegation ärztlicher Maßnahmen — Abgrenzung RS/RettSan vs. NotSan
+  (Anschluss an bestehenden Scope-Hinweis im Medikamente-Modul)
+- Dokumentation: Einsatzprotokoll/DIVI-Protokoll, was gehört rein
+- Übergabe an Notarzt/Klinik (z. B. strukturiert nach SAMPLER/ABCDE)
+
+--- Sanitätsdienst-spezifisch (Veranstaltungsdienst) ---
+- Sanitätswachdienst-Organisation: Aufbau einer Wache, Materialdepot,
+  Funkkonzept, Einsatzabschnitte bei Großveranstaltungen
+- MANV (Massenanfall von Verletzten): Sichtungskategorien (Triage,
+  z. B. Ampelschema/START), Sichtungsalgorithmus interaktiv
+- Typische Veranstaltungs-Verletzungsmuster (Menschenmengen, Festivals,
+  Sportveranstaltungen): Kreislaufkollaps, Verletzungen durch Gedränge,
+  Alkohol-/Hitzeintoxikation
+- Funkalphabet & Funkdisziplin (BOS-Funk Grundlagen, Sprechfunkverkehr)
+- Hygiene & Infektionsschutz: Basishygiene, PSA, Umgang mit
+  Blutkontakt/Nadelstichverletzung
+
+--- Score-Systeme & Rechner (eigenständiges "Werkzeuge"-Modul denkbar) ---
+- Glasgow Coma Scale (GCS) — interaktiver Rechner mit Erklärung
+- NACA-Score, Schmerzskala (NRS/VAS)
+- APGAR-Rechner, Neuner-Regel-Rechner (Verbrennungsfläche)
+- Medikamenten-Dosisrechner nach Körpergewicht (Kinder) — mit klarem
+  Sicherheitshinweis, da hochsensibel
+
+===========================================================
+3. FEATURES ZUR MAXIMALEN NUTZBARKEIT (modulübergreifend)
+===========================================================
+
+--- Suche & Navigation ---
+- Globale Volltextsuche über alle Module (aktuell vermutlich nur pro
+  Modul durchsuchbar wie bei Medikamente) — ein Suchfeld in der Sidebar,
+  das EKG-Rhythmen, Medikamente, Algorithmen etc. gleichzeitig durchsucht
+- Tag-/Verlinkungssystem: z. B. Medikament "Adrenalin" verlinkt zu
+  Anaphylaxie-Notfall UND zum Reanimationsalgorithmus; EKG-Rhythmus
+  "Kammerflimmern" verlinkt zum BLS/ALS-Algorithmus
+- Glossar/Abkürzungsverzeichnis (RS-typische Abkürzungen: SAA, BPR, GCS,
+  NACA, MANV, SAMPLER, DIVI ...) als eigenständiges Nachschlagemodul
+
+--- Lernen & Prüfungsvorbereitung ---
+- Generalisierter Quiz-Modus für alle Module (nicht nur EKG) mit dem
+  gleichen gewichteten Wiederholungssystem (progress.ts-Prinzip
+  wiederverwenden)
+- Favoriten/Lesezeichen: einzelne Einträge markieren zum schnellen
+  Wiederfinden vor der Prüfung
+- "Heute lernen"-Startbildschirm: schlägt Karten/Fragen aus allen
+  Modulen vor, gewichtet nach Fehlerquote (fächerübergreifendes Spaced
+  Repetition statt nur pro Modul)
+- Prüfungssimulation: Zeitlimit + Fragenmix aus mehreren Modulen,
+  simuliert echte Prüfungssituation
+- Notizfunktion: eigene Anmerkungen/Eselsbrücken zu einzelnen Einträgen
+  ergänzen (lokal gespeichert)
+
+--- Praxisnähe ---
+- Checklisten-Modus (abhakbar) z. B. für Rucksack-Check, MANV-Ablauf,
+  Reanimationsschritte — nützlich auch während des echten Dienstes, nicht
+  nur zum Lernen
+- Offline-Kurzreferenz/"Cheat Sheet"-Ansicht: eine kompakte, druckbare
+  oder schnell aufrufbare Zusammenfassung der wichtigsten Algorithmen für
+  den Einsatzfall (großformatige Schrift, wenig Text)
+- Dark Mode / High-Contrast für schlechte Lichtverhältnisse im Einsatz
+
+--- Content-Pipeline (Anschluss an bestehendes PDF-Extraktionskonzept) ---
+- Weitere PDFs unter docs/ ablegen (z. B. offizielle RS-Ausbildungs-
+  unterlagen, Landesrettungsdienstgesetz-Auszüge, DRK/ASB/Johanniter/
+  Malteser-Skripte) und wie bei saa_bpr_2025.pdf strukturiert extrahieren
+- Quellenangabe/Stand pro Eintrag mitführen (Datum + Quelle), damit bei
+  Aktualisierungen klar ist, was ggf. veraltet ist — analog zum
+  bestehenden Scope-/Disclaimer-Hinweis im README
+
+===========================================================
+5. QUALIFIKATIONSSTUFEN-KONZEPT (SanH / RH / RS / NotSan)
+===========================================================
+
+--- Grundidee ---
+- Stufen bauen (grob) aufeinander auf: SanH < RH < RS < NotSan. Jede
+  höhere Stufe umfasst tendenziell die Kompetenzen der vorherigen plus
+  zusätzliche.
+- ABER: manche Fertigkeiten sind stufenunabhängig (z. B. Elektroden legen
+  ist eine rein technische Fertigkeit, keine Kompetenzfrage), während
+  andere strikt an die Qualifikation gebunden sind (z. B. Medikamentengabe
+  nach SAA/BPR ist NotSan-Kompetenz mit ärztlicher Delegation). Diese zwei
+  Ebenen — "kann ich das technisch" vs. "darf ich das laut Kompetenz" —
+  sollten im Datenmodell unterscheidbar sein, nicht vermischt werden.
+
+--- Datenmodell-Idee ---
+- Jeder Lerninhalt (Medikament, Algorithmus-Schritt, Verbandstechnik,
+  Score, …) bekommt ein Feld wie `levels: ('SanH' | 'RH' | 'RS' |
+  'NotSan')[]` oder einfacher `minLevel` bei rein aufbauenden Themen.
+- Optional zusätzlich ein `scopeNote`-Feld für Sonderfälle ("nur mit
+  ärztlicher Delegation", "regional unterschiedlich geregelt" — analog
+  zum bestehenden Scope-Hinweis im Medikamente-Modul).
+- Regionale Unterschiede (Bundesland/Organisation) bewusst als Hinweistext
+  mitgeben statt hart zu kodieren, da Kompetenzregelungen variieren.
+
+--- UI-Idee ---
+- Stufenauswahl zentral (z. B. Sidebar oder Einstellungen): "Meine
+  Qualifikation: SanH / RH / RS / NotSan / Alle anzeigen".
+- Innerhalb eines Themenmoduls (z. B. Medikamente) werden Einträge, die
+  über der gewählten Stufe liegen, nicht versteckt, sondern klar
+  markiert/abgeblendet mit Badge (z. B. "ab NotSan (Delegation)") — so
+  bleibt der Nachschlage-/Kontextwissen-Charakter erhalten (RS kann
+  weiterhin nachschlagen, was NotSan tut, siehe bestehender Hinweis im
+  README), aber die Standardansicht ist auf die eigene Stufe fokussiert.
+- Zusätzlich eine kuratierte Stufen-Übersichtsseite je Qualifikation
+  (kein eigenes Modul mit eigenen Inhalten, sondern eine Art "Fahrplan"),
+  die in die jeweils relevanten Abschnitte der Themenmodule verlinkt —
+  löst die Navigation ("was muss ich als SanH überhaupt können") ohne
+  Inhalte zu duplizieren.
+
+--- Beispielhafte Stufen-Zuordnung (grobe Orientierung, regional prüfen) ---
+- SanH: Verbandslehre-Basics, Blutstillung, stabile Seitenlage/Lagerungen,
+  Basishygiene & Desinfektion, Notruf absetzen, einfache Erste-Hilfe-
+  Maßnahmen, Grundzüge PSA
+- RH (zusätzlich): Sauerstoffgabe, Trageformen/Patiententransport, einfache
+  Vitalzeichenkontrolle, Fahrzeug-/Gerätekunde
+- RS (zusätzlich): EKG-Rhythmuserkennung, erweiterte Algorithmen
+  (BLS-Details), SAA/BPR als Kontext-/Verständniswissen, Dokumentation
+- NotSan (zusätzlich): volle SAA/BPR-Kompetenz inkl. Medikamentengabe und
+  invasiver Maßnahmen nach Delegation, ALS, invasive Atemwegssicherung
+
+--- Migration bestehender Inhalte ---
+- Medikamente-Modul: Einträge grundsätzlich als NotSan-Kompetenz taggen
+  (ggf. mit `scopeNote` für regional delegierbare Ausnahmen), für RS/RH/
+  SanH bleibt es einsehbares Kontextwissen mit entsprechendem Badge.
+- EKG-Modul: Rhythmuserkennung als RS-Kompetenz taggen, Elektroden-legen
+  als stufenunabhängige Fertigkeit (ggf. schon ab RH relevant).
+
+===========================================================
+6. PRIORISIERUNG (Vorschlag)
+===========================================================
+1. Datenmodell für Qualifikationsstufen einführen (levels-Feld + Filter-
+   Infrastruktur) — Grundlage, auf der alles andere aufbaut, jetzt
+   einbauen bevor mehr Module entstehen und migriert werden müssen
+2. Algorithmen-Modul (ABCDE/BLS/ALS) — schließt direkt an EKG/Medikamente
+   an und ist Kernstoff jeder RS-Prüfung
+3. Score-Rechner (GCS, APGAR, Neuner-Regel) — geringer Aufwand, hoher
+   praktischer Nutzen, gut wiederverwendbar in mehreren Modulen
+4. Traumatologie/Verbandslehre — großer Ausbildungsanteil für alle
+   Stufen (SanH bis NotSan), gut geeignet für interaktive Übungen im
+   Stil des Elektroden-Trainers
+5. Sanitätsdienst-spezifisches Modul (MANV/Triage, Wachdienst-
+   Organisation, Veranstaltungs-Verletzungsmuster) — deckt den Teil ab,
+   der über klassische Rettungsdienst-Ausbildung hinausgeht
+6. Globale Suche + generalisierter Quiz-Modus — technische Basisarbeit,
+   die alle künftigen Module sofort aufwertet

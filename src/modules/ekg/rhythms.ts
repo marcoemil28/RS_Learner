@@ -16,6 +16,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Normal sinus rhythm',
     category: 'Sinusrhythmen',
     difficulty: 1,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Frequenz 60–100/min',
@@ -33,6 +34,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Sinus bradycardia',
     category: 'Sinusrhythmen',
     difficulty: 1,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Frequenz <60/min',
@@ -49,6 +51,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Sinus tachycardia',
     category: 'Sinusrhythmen',
     difficulty: 1,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Frequenz >100/min (meist <150/min)',
@@ -65,6 +68,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Sinus arrhythmia',
     category: 'Sinusrhythmen',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Leicht schwankende R-R-Abstände im Atemrhythmus',
@@ -80,6 +84,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Atrial fibrillation',
     category: 'Vorhofarrhythmien',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Absolut unregelmäßige R-R-Abstände ("irregularly irregular")',
@@ -97,6 +102,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Atrial flutter',
     category: 'Vorhofarrhythmien',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Sägezahnartige Flatterwellen (~250–350/min)',
@@ -112,6 +118,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Supraventricular tachycardia',
     category: 'Vorhofarrhythmien',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Regelmäßig, sehr schnell (150–220/min)',
@@ -129,6 +136,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Premature ventricular contraction',
     category: 'Kammerarrhythmien',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Vorzeitiger, breiter und bizarr geformter QRS-Komplex',
@@ -146,6 +154,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Ventricular tachycardia',
     category: 'Kammerarrhythmien',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Regelmäßig, breiter QRS (>120 ms)',
@@ -162,6 +171,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Ventricular flutter',
     category: 'Kammerarrhythmien',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Regelmäßige, große sinusähnliche Wellen (~250–320/min)',
@@ -176,6 +186,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Coarse ventricular fibrillation',
     category: 'Kreislaufstillstand',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Völlig chaotische, unregelmäßige Undulationen',
@@ -191,6 +202,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Fine ventricular fibrillation',
     category: 'Kreislaufstillstand',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Chaotische Undulationen mit kleiner Amplitude',
@@ -205,6 +217,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Asystole',
     category: 'Kreislaufstillstand',
     difficulty: 1,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Keine erkennbare elektrische Aktivität (Nulllinie)',
@@ -220,6 +233,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'First-degree AV block',
     category: 'Erregungsleitungsstoerungen',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'PQ-Zeit konstant verlängert (>200 ms)',
@@ -235,6 +249,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Second-degree AV block, Mobitz I (Wenckebach)',
     category: 'Erregungsleitungsstoerungen',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'PQ-Zeit wird von Schlag zu Schlag länger',
@@ -250,6 +265,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Second-degree AV block, Mobitz II',
     category: 'Erregungsleitungsstoerungen',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'PQ-Zeit konstant (keine Verlängerung)',
@@ -265,6 +281,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'Third-degree (complete) AV block',
     category: 'Erregungsleitungsstoerungen',
     difficulty: 3,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'P-Wellen und QRS-Komplexe völlig unabhängig voneinander (AV-Dissoziation)',
@@ -280,6 +297,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'ST-elevation pattern',
     category: 'Ischaemiezeichen',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Grundrhythmus meist regelmäßig, normale P-QRS-Beziehung',
@@ -296,6 +314,7 @@ export const RHYTHMS: Rhythm[] = [
     nameEn: 'ST-depression pattern',
     category: 'Ischaemiezeichen',
     difficulty: 2,
+    minLevel: 'RS',
     quizEligible: true,
     keyFeatures: [
       'Grundrhythmus meist regelmäßig',
