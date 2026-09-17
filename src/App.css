@@ -94,6 +94,7 @@ ul {
   display: flex;
   flex-direction: column;
   padding: 1rem 0.75rem;
+  overflow: hidden;
 }
 
 .app-brand {
@@ -205,6 +206,11 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.25em;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0 -0.75rem;
+  padding: 0 0.75rem;
 }
 
 .app-nav-group {

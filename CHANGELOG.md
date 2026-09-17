@@ -11,6 +11,18 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.23.1] – 2026-09-17
+
+### Behoben
+
+- **Sidebar ließ sich nicht scrollen**: Die Sidebar hat eine feste Höhe
+  (100vh), aber mit inzwischen 14 Modulen in 5 Kategorien plus Fußzeile
+  (Kontrast-Umschalter) passte der Inhalt nicht mehr vollständig ins
+  Fenster — ohne Scroll-Möglichkeit war alles unterhalb des sichtbaren
+  Bereichs (u. a. der Kontrast-Umschalter) unerreichbar. Die Modul-Liste
+  (`.app-nav`) scrollt jetzt eigenständig zwischen Suchfeld und Fußzeile,
+  die beide fest sichtbar bleiben.
+
 ## [0.23.0] – 2026-09-17
 
 ### Hinzugefügt
