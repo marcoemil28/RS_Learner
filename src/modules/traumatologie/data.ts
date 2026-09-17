@@ -1,4 +1,7 @@
 import type { TraumaTopic } from './types';
+import { DruckverbandIllustration } from './illustrations/DruckverbandIllustration';
+import { ArmtragetuchIllustration } from './illustrations/ArmtragetuchIllustration';
+import { KopfverbandIllustration } from './illustrations/KopfverbandIllustration';
 
 const GENERAL_SOURCE_NOTE =
   'Allgemeines rettungsdienstliches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). ' +
@@ -91,6 +94,7 @@ export const TRAUMA_THEMEN: TraumaTopic[] = [
     sections: [
       {
         heading: 'Druckverband (bei stärkerer Blutung)',
+        illustration: DruckverbandIllustration,
         facts: [
           { text: '1. Sterile Wundauflage direkt auf die Wunde legen', minLevel: 'SanH' },
           { text: '2. Druckpolster (z. B. unbenutztes Verbandpäckchen) darauf platzieren', minLevel: 'SanH' },
@@ -103,12 +107,26 @@ export const TRAUMA_THEMEN: TraumaTopic[] = [
         ],
       },
       {
-        heading: 'Dreiecktuch-Anwendungen',
+        heading: 'Dreiecktuch: Armtragetuch',
+        illustration: ArmtragetuchIllustration,
         facts: [
-          { text: 'Armtragetuch: Ruhigstellung von Verletzungen an Arm oder Schulter', minLevel: 'SanH' },
-          { text: 'Kopfverband: Fixierung von Wundauflagen am Kopf', minLevel: 'SanH' },
-          { text: 'Fixierbinde-Ersatz: kann großflächige Wundauflagen provisorisch fixieren', minLevel: 'SanH' },
+          { text: 'Ruhigstellung von Verletzungen an Arm oder Schulter', minLevel: 'SanH' },
+          { text: 'Hand sollte etwas höher liegen als der Ellenbogen (Schwellung vorbeugen)', minLevel: 'RS' },
+          { text: 'Knoten seitlich am Hals, nicht direkt auf der Wirbelsäule, platzieren', minLevel: 'SanH' },
         ],
+      },
+      {
+        heading: 'Dreiecktuch: Kopfverband',
+        illustration: KopfverbandIllustration,
+        facts: [
+          { text: 'Fixierung von Wundauflagen am Kopf', minLevel: 'SanH' },
+          { text: 'Tuch flach über die Wundauflage legen, Spitze am Oberkopf einschlagen', minLevel: 'SanH' },
+          { text: 'Enden am Hinterkopf kreuzen und verknoten, nicht zu fest über den Ohren', minLevel: 'SanH' },
+        ],
+      },
+      {
+        heading: 'Weitere Anwendung',
+        facts: [{ text: 'Fixierbinde-Ersatz: kann großflächige Wundauflagen provisorisch fixieren', minLevel: 'SanH' }],
       },
       {
         heading: 'Schienung',
@@ -119,8 +137,8 @@ export const TRAUMA_THEMEN: TraumaTopic[] = [
       },
     ],
     notes: [
-      'Laut Roadmap als nächster Ausbaustand geeignet für einen interaktiven „Übungsmodus" im Stil des ' +
-        'Elektroden-Trainers (Schritt-für-Schritt mit Feedback) — aktuell als Referenztext hinterlegt.',
+      'Die Illustrationen sind stilisierte Schemazeichnungen, keine Fotos — sie zeigen das Funktionsprinzip, ' +
+        'nicht jedes Detail. Übe die Handgriffe zusätzlich praktisch (Kurs/Selbststudium mit echtem Material).',
     ],
     sourceNote: GENERAL_SOURCE_NOTE,
   },

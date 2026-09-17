@@ -764,6 +764,93 @@ ul {
   font-style: italic;
 }
 
+/* ---------- Trauma illustrations ---------- */
+
+.illustration-box {
+  background-color: var(--bg-panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  max-width: 460px;
+}
+
+.illustration-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.illustration-caption {
+  margin: 0.5em 0 0 0;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-align: center;
+  font-style: italic;
+}
+
+.illustration-skin {
+  fill: #5a4a3f;
+  stroke: #3d322a;
+  stroke-width: 2;
+}
+
+.illustration-limb {
+  fill: none;
+  stroke: #5a4a3f;
+  stroke-width: 22;
+  stroke-linecap: round;
+}
+
+.illustration-wound {
+  fill: #f5f0e8;
+  stroke: var(--bad);
+  stroke-width: 1.5;
+}
+
+.illustration-bandage {
+  fill: #e8dcc0;
+  stroke: #c9b98f;
+  stroke-width: 1.5;
+}
+
+.illustration-bandage-fold {
+  fill: #d8c9a3;
+  stroke: #c9b98f;
+  stroke-width: 1;
+}
+
+.illustration-bandage-strip {
+  fill: #e8dcc0;
+  stroke: #c9b98f;
+  stroke-width: 0.5;
+  opacity: 0.92;
+}
+
+.illustration-tie {
+  fill: none;
+  stroke: #e8dcc0;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.illustration-knot {
+  fill: #d8c9a3;
+  stroke: #c9b98f;
+  stroke-width: 1.5;
+}
+
+.illustration-leader {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.illustration-label {
+  fill: var(--text-dim);
+  font-size: 10px;
+}
+
 /* ---------- Werkzeuge / Scores ---------- */
 
 .tool-calculator {

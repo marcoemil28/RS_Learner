@@ -26,19 +26,28 @@ function TraumaDetail({ topic }: { topic: TraumaTopic }) {
         </div>
       </div>
 
-      {topic.sections.map((section, i) => (
-        <div key={i} className="algo-section">
-          {section.heading && <h4>{section.heading}</h4>}
-          <ul>
-            {section.facts.map((fact, j) => (
-              <li key={j} className={aboveLevelClass(fact.minLevel ?? topic.minLevel, level)}>
-                {fact.text}
-                <LevelBadge minLevel={fact.minLevel ?? topic.minLevel} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {topic.sections.map((section, i) => {
+        const Illustration = section.illustration;
+        return (
+          <div key={i} className="algo-section">
+            {section.heading && <h4>{section.heading}</h4>}
+            {Illustration && (
+              <div className="illustration-box">
+                <Illustration />
+                <p className="illustration-caption">Stilisiertes Schema, kein Foto</p>
+              </div>
+            )}
+            <ul>
+              {section.facts.map((fact, j) => (
+                <li key={j} className={aboveLevelClass(fact.minLevel ?? topic.minLevel, level)}>
+                  {fact.text}
+                  <LevelBadge minLevel={fact.minLevel ?? topic.minLevel} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
 
       {topic.notes && topic.notes.length > 0 && (
         <div className="algo-notes">

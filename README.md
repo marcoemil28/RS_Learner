@@ -86,6 +86,9 @@ Hot-Reload sofort übernommen.
   Inhalten, nur Navigation, siehe `docs/vorgaben_und_inhalte.txt`
   Abschnitt 5).
 - Zeigt eine EKG-Fortschritts-Kachel, sobald erste Quiz-Versuche vorliegen.
+- Die App-Version steht sichtbar neben dem Logo in der Sidebar (z. B.
+  "v0.10.0") — automatisch aus `package.json` übernommen, keine doppelte
+  Pflege nötig (`vite.config.ts` → `__APP_VERSION__`).
 
 ### ✅ Qualifikationsstufen (SanH/RS/NotSan) — modulübergreifend
 
@@ -201,6 +204,18 @@ Hot-Reload sofort übernommen.
   Freitext, ein automatisches Auslesen wäre bei diesem hochsensiblen Thema
   ein zu hohes Fehlerrisiko (siehe CHANGELOG 0.8.0).
 
+### ✅ Traumatologie & Verbandslehre
+
+- 7 Themen: Frakturlehre, Wundversorgung, Verbandslehre (Druckverband/
+  Dreiecktuch/Schienung), Wirbelsäulentrauma & Immobilisation,
+  Thorax-/Abdominaltrauma, Verbrennungen, Polytrauma & kritische
+  Blutungen (Tourniquet). Allgemeines rettungsdienstliches
+  Grundlagenwissen, keine SAA/BPR-Quelle.
+- Die Verbandslehre enthält stilisierte SVG-Beispiel-Illustrationen
+  (Druckverband, Armtragetuch, Kopfverband) statt Fotos — schnell
+  umsetzbar, keine Lizenzfragen. Bei Bedarf später ersetzbar durch eigene
+  Fotos (z. B. aus Kursunterlagen).
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
@@ -261,6 +276,11 @@ src/
       GcsCalculator.tsx, SchmerzSkala.tsx, ApgarCalculator.tsx,
       NeunerRegel.tsx, NacaScore.tsx  # je ein interaktiver Rechner
       WerkzeugeModule.tsx # Liste + aktiver Rechner
+    traumatologie/
+      types.ts           # Datenmodell (TraumaTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 7 Themen: Frakturen, Wundversorgung, Verbandslehre, schwere
+                          #   Verletzungen, Verbrennungen, Polytrauma/Blutstillung
+      TraumatologieModule.tsx  # Detailansicht mit Fakten-Badges
   App.tsx                 # App-Shell: nach Stufe gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

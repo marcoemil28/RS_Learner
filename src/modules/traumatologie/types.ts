@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import type { QualificationLevel } from '../../app/levels';
 
 export type TraumaCategory =
@@ -15,6 +16,8 @@ export interface TraumaFact {
 export interface TraumaSection {
   heading?: string;
   facts: TraumaFact[];
+  /** Optionale stilisierte Beispiel-Illustration (kein Foto) für diesen Abschnitt. */
+  illustration?: ComponentType;
 }
 
 export interface TraumaTopic {

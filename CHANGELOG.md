@@ -11,6 +11,25 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.11.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Stilisierte Verbands-Illustrationen** im Traumatologie-Modul (statt der
+  ursprünglich angedachten interaktiven Übung — nach Rückmeldung reichen
+  einfache Beispiel-Diagramme): Druckverband am Unterarm, Dreiecktuch als
+  Armtragetuch, Dreiecktuch als Kopfverband
+  (`modules/traumatologie/illustrations/`). Reine SVG-Schemazeichnungen im
+  Look der bestehenden EKG-Elektroden-Diagramme, keine Fotos — dafür sofort
+  umsetzbar und ohne Lizenzfragen. Jede Illustration ist klar als
+  "Stilisiertes Schema, kein Foto" gekennzeichnet.
+- `TraumaSection` kann jetzt optional eine `illustration`-Komponente tragen
+  (neues Feld im Datenmodell), gerendert oberhalb der zugehörigen
+  Stichpunkte.
+- Falls die Diagramme nicht überzeugen: Umstieg auf einen Platzhalter-
+  Mechanismus für eigene Fotos (z. B. aus Kursunterlagen) ist als nächster
+  Schritt vorgemerkt, sobald gewünscht.
+
 ## [0.10.0] – 2026-09-17
 
 ### Hinzugefügt
