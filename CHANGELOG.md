@@ -11,6 +11,34 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.7.0] – 2026-09-17
+
+### Geändert (Breaking im Datenmodell)
+
+- **Rettungshelfer (RH) und Rettungssanitäter (RS) zu einer Stufe zusammengelegt**
+  (sehr ähnlicher Kompetenzumfang). `QualificationLevel` ist jetzt
+  `'SanH' | 'RS' | 'NotSan'` statt vier Stufen. Alle bisherigen `RH`-Werte
+  in den Datenquellen wurden auf `RS` migriert.
+- **Suche konsolidiert**: die einzelnen Suchfelder in EKG-Trainer,
+  Medikamente und Algorithmen sind entfernt. Stattdessen gibt es jetzt
+  **eine globale Suche** oben in der Sidebar (`app/GlobalSearch.tsx`), die
+  alle Module gleichzeitig durchsucht (`app/searchIndex.ts`) und beim Klick
+  auf einen Treffer direkt zum richtigen Modul **und** Eintrag springt
+  (`app/NavigationContext.tsx` — auch über EKG-Trainer-interne Tabs
+  hinweg).
+
+### Hinzugefügt
+
+- **Anatomie & Physiologie-Modul** (vorher Platzhalter, jetzt verfügbar)
+  mit 5 Themen: Herz-Kreislauf-System (inkl. Erregungsleitungssystem als
+  direkte Grundlage fürs EKG-Modul), Atmungssystem, Skelett & Muskulatur,
+  Nervensystem (inkl. vegetatives NS als Grundlage für Medikamentenwirkungen
+  wie Adrenalin/Atropin), Vitalparameter-Normwerte nach Altersgruppe als
+  Nachschlagetabelle. Allgemeines anatomisch-physiologisches Wissen, klar
+  als solches gekennzeichnet (keine SAA/BPR-Quelle).
+- Algorithmen-Eintrag "Beurteilung der Bewusstseinslage" um die vollständige
+  GCS-Punktetabelle ergänzt (siehe 0.6.1).
+
 ## [0.6.1] – 2026-09-17
 
 ### Geändert

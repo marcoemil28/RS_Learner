@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ALGORITHMEN } from './data';
 import type { AlgorithmCategory, AlgorithmEntry } from './types';
 import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
 import { useLevel } from '../../app/LevelContext';
+import { useNavigation } from '../../app/NavigationContext';
 
 const CATEGORY_ORDER: AlgorithmCategory[] = [
   'Herangehensweise & Einschätzung',
@@ -56,30 +57,26 @@ function AlgorithmDetail({ entry }: { entry: AlgorithmEntry }) {
 }
 
 export function AlgorithmenModule() {
-  const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(ALGORITHMEN[0].id);
   const { level } = useLevel();
+  const { pending, clearPending } = useNavigation();
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return ALGORITHMEN;
-    return ALGORITHMEN.filter(
-      (a) =>
-        a.title.toLowerCase().includes(q) ||
-        a.summary.toLowerCase().includes(q) ||
-        a.sections.some((s) => s.steps.some((step) => step.text.toLowerCase().includes(q)))
-    );
-  }, [query]);
+  useEffect(() => {
+    if (pending?.moduleId === 'algorithmen' && ALGORITHMEN.some((a) => a.id === pending.itemId)) {
+      setSelectedId(pending.itemId);
+      clearPending();
+    }
+  }, [pending, clearPending]);
 
   const grouped = useMemo(() => {
     const map = new Map<AlgorithmCategory, AlgorithmEntry[]>();
-    for (const a of filtered) {
+    for (const a of ALGORITHMEN) {
       const list = map.get(a.category) ?? [];
       list.push(a);
       map.set(a.category, list);
     }
     return map;
-  }, [filtered]);
+  }, []);
 
   const selected = ALGORITHMEN.find((a) => a.id === selectedId) ?? ALGORITHMEN[0];
 
@@ -99,13 +96,6 @@ export function AlgorithmenModule() {
 
       <div className="med-layout">
         <aside className="med-list">
-          <input
-            className="med-search"
-            type="text"
-            placeholder="Suchen…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
           {CATEGORY_ORDER.filter((c) => grouped.has(c)).map((cat) => (
             <div key={cat} className="med-group">
               <h4>{cat}</h4>
@@ -123,7 +113,6 @@ export function AlgorithmenModule() {
               </ul>
             </div>
           ))}
-          {filtered.length === 0 && <p className="med-no-results">Keine Treffer.</p>}
         </aside>
 
         <AlgorithmDetail entry={selected} />

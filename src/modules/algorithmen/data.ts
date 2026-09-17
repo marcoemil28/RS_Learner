@@ -17,7 +17,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
     id: 'abcde-herangehensweise',
     title: 'ABCDE – Herangehensweise',
     category: 'Herangehensweise & Einschätzung',
-    minLevel: 'RH',
+    minLevel: 'RS',
     summary:
       'Strukturierte Erstuntersuchung und Prioritätensetzung bei jedem Notfallpatienten — immer in derselben ' +
       'Reihenfolge, lebensbedrohliche Probleme werden sofort bei Entdeckung behandelt statt nur dokumentiert.',
@@ -26,7 +26,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         heading: 'A – Airway (Atemweg)',
         steps: [
           { text: 'Atemweg frei? (Inspektion, ggf. Freimachen bei Verlegung)', minLevel: 'SanH' },
-          { text: 'Bei Kreislaufstillstand: Reanimation nach passendem BPR', minLevel: 'RH' },
+          { text: 'Bei Kreislaufstillstand: Reanimation nach passendem BPR', minLevel: 'RS' },
         ],
       },
       {
@@ -34,9 +34,9 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         steps: [
           {
             text: 'Atmung suffizient? Frequenz, Hautkolorit, Tidalvolumen/Thoraxexkursionen, Auskultation/Seitenvergleich, SpO2',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
-          { text: 'Sauerstoffgabe', minLevel: 'RH' },
+          { text: 'Sauerstoffgabe', minLevel: 'RS' },
           { text: 'ggf. Atemweg sichern und beatmen', minLevel: 'NotSan' },
           { text: 'ggf. Entlastung eines Spannungspneumothorax (Thoraxentlastungspunktion)', minLevel: 'NotSan' },
         ],
@@ -46,13 +46,13 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         steps: [
           {
             text: 'Puls (Frequenz, Qualität, Rhythmus), Hauttemperatur/-kolorit, Rekapillarisierungszeit (kürzer/länger als 2 Sek.)',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
           {
             text: 'Blutungszeichen prüfen: äußere Blutung, Brust/Bauch, Becken ("Open-Book-Fraktur"), Arme/Beine',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
-          { text: 'Kritische Blutung stoppen (Kompression, ggf. Tourniquet an Extremitäten)', minLevel: 'RH' },
+          { text: 'Kritische Blutung stoppen (Kompression, ggf. Tourniquet an Extremitäten)', minLevel: 'RS' },
           { text: 'ggf. i.v.-Zugang bei Kreislaufinstabilität', minLevel: 'NotSan' },
           { text: 'ggf. "Load-and-go"-Entscheidung', minLevel: 'RS' },
         ],
@@ -60,7 +60,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
       {
         heading: 'D – Disability (neurologische Defizite)',
         steps: [
-          { text: 'Bewusstsein (WASB/GCS), Sensorik und Motorik', minLevel: 'RH' },
+          { text: 'Bewusstsein (WASB/GCS), Sensorik und Motorik', minLevel: 'RS' },
           { text: 'Pupillenreaktion, Blutzuckerkontrolle', minLevel: 'RS' },
         ],
       },
@@ -69,7 +69,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         steps: [
           {
             text: 'Patient entkleiden, Ganzkörperuntersuchung, ggf. Log-Roll-Manöver (achsengerechte 90°-en-bloc-Drehung)',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
           { text: 'Temperatur erfassen, vor Auskühlung schützen', minLevel: 'SanH' },
         ],
@@ -146,7 +146,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
           { text: 'S – Reaktion auf Schmerzreiz?', minLevel: 'SanH' },
           {
             text: 'B – Bewusstlosigkeit? (keine Reaktion; je nach Reaktionsgrad Somnolenz/Sopor/Koma, Schutzreflexe prüfen)',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
         ],
       },
@@ -200,7 +200,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
     id: 'sampler',
     title: 'SAMPLER-Schema',
     category: 'Herangehensweise & Einschätzung',
-    minLevel: 'RH',
+    minLevel: 'RS',
     summary: 'Strukturiertes Abfrageschema zur Erfassung der akuten Situation und Vorgeschichte.',
     sections: [
       {
@@ -247,7 +247,7 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
     id: 'atemwegsmanagement',
     title: 'Atemwegsmanagement',
     category: 'Atemweg',
-    minLevel: 'RH',
+    minLevel: 'RS',
     summary:
       'Eskalierendes Vorgehen bei insuffizienter Atmung/Bewusstlosigkeit: erst einfache Maßnahmen, dann ' +
       'Eskalation, mit regelmäßiger Reevaluation.',
@@ -256,17 +256,17 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         heading: 'Einfache Maßnahmen (zuerst)',
         steps: [
           { text: 'Atemweg freimachen: Reklination des Kopfes (Cave: V. a. HWS-Trauma), Esmarch-Handgriff', minLevel: 'SanH' },
-          { text: 'ggf. oral absaugen / Fremdkörper ausräumen', minLevel: 'RH' },
-          { text: 'ggf. nasopharyngealer Tubus', minLevel: 'RH' },
+          { text: 'ggf. oral absaugen / Fremdkörper ausräumen', minLevel: 'RS' },
+          { text: 'ggf. nasopharyngealer Tubus', minLevel: 'RS' },
           { text: 'Sauerstoffgabe; bei Stridor Epinephrin vernebeln (SAA Epinephrin)', minLevel: 'RS' },
         ],
       },
       {
         heading: 'Wenn Ventilation/Oxygenierung weiter unzureichend',
         steps: [
-          { text: 'Optimierung der (Kopf-)Lagerung, 2-Hand-Technik/doppelter C-Griff, Ausschluss technischer Fehler', minLevel: 'RH' },
-          { text: 'Beutel-Masken-Beatmung', minLevel: 'RH' },
-          { text: 'Bei V. a. Atemwegsverlegung durch Fremdkörper: BPR „A-Problem bei Fremdkörperaspiration"', minLevel: 'RH' },
+          { text: 'Optimierung der (Kopf-)Lagerung, 2-Hand-Technik/doppelter C-Griff, Ausschluss technischer Fehler', minLevel: 'RS' },
+          { text: 'Beutel-Masken-Beatmung', minLevel: 'RS' },
+          { text: 'Bei V. a. Atemwegsverlegung durch Fremdkörper: BPR „A-Problem bei Fremdkörperaspiration"', minLevel: 'RS' },
         ],
       },
       {
@@ -370,13 +370,13 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
             minLevel: 'SanH',
           },
           { text: 'Herzdruckmassage : Beatmung im Verhältnis 30:2 (sofern Beatmung durchführbar/geschult)', minLevel: 'SanH' },
-          { text: 'AED sobald verfügbar anlegen und den Sprachanweisungen folgen', minLevel: 'RH' },
+          { text: 'AED sobald verfügbar anlegen und den Sprachanweisungen folgen', minLevel: 'RS' },
         ],
       },
       {
         heading: 'Erweiterte Versorgung (RS/NotSan)',
         steps: [
-          { text: 'Defibrillator vorbereiten, einschalten, Defi-Elektroden kleben, laden', minLevel: 'RH' },
+          { text: 'Defibrillator vorbereiten, einschalten, Defi-Elektroden kleben, laden', minLevel: 'RS' },
           {
             text: '1. EKG-Rhythmus-Beurteilung: VF/pVT → Defibrillation; Asystolie/PEA/auswurffähiger Rhythmus → keine Defibrillation, Defi entladen',
             minLevel: 'RS',
@@ -421,13 +421,13 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
           },
           {
             text: '5 initiale Beatmungen (Sauerstoff, FiO2 1,0); erst danach bei fehlenden Lebenszeichen mit Thoraxkompression beginnen',
-            minLevel: 'RH',
+            minLevel: 'RS',
           },
           {
             text: 'Thoraxkompression: mind. 1/3 des Thoraxdurchmessers — Säugling: 2-Daumen-Technik, Kind: 1-Handballen-Technik, Jugendliche: 2-Hand-Technik ca. 5 cm (max. 6 cm)',
             minLevel: 'SanH',
           },
-          { text: 'Verhältnis Thoraxkompression : Beatmung 15:2 (ohne EGA bzw. bei Undichtigkeit unter Kompression)', minLevel: 'RH' },
+          { text: 'Verhältnis Thoraxkompression : Beatmung 15:2 (ohne EGA bzw. bei Undichtigkeit unter Kompression)', minLevel: 'RS' },
         ],
       },
       {

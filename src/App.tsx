@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import { MODULES, type LearningModule } from './app/registry';
 import { LevelProvider, useLevel } from './app/LevelContext';
+import { NavigationProvider } from './app/NavigationContext';
+import { GlobalSearch } from './app/GlobalSearch';
 import { LEVELS, LEVEL_LABELS } from './app/levels';
 import './App.css';
 
@@ -40,6 +42,9 @@ function AppShell() {
           <span className="app-brand-icon">🚑</span>
           <span>SanWissen</span>
         </div>
+
+        <GlobalSearch onNavigate={setActiveId} />
+
         <nav className="app-nav">
           {groups.map((g) => (
             <div key={g.level} className="app-nav-group">
@@ -85,7 +90,9 @@ function AppShell() {
 function App() {
   return (
     <LevelProvider>
-      <AppShell />
+      <NavigationProvider>
+        <AppShell />
+      </NavigationProvider>
     </LevelProvider>
   );
 }

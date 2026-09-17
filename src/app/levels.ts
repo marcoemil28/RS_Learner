@@ -3,18 +3,20 @@
  * Metadatum auf Inhalten (nicht als getrennte Module) — siehe
  * docs/vorgaben_und_inhalte.txt Abschnitt 5.
  *
- * Die Stufen bauen (grob) aufeinander auf: SanH < RH < RS < NotSan.
+ * Rettungshelfer (RH) und Rettungssanitäter (RS) werden hier bewusst NICHT
+ * getrennt (sehr ähnlicher Kompetenzumfang) — "RS" deckt beide ab.
+ *
+ * Die Stufen bauen (grob) aufeinander auf: SanH < RS < NotSan.
  * `minLevel` an einem Inhalt bedeutet "ab dieser Stufe technisch/rechtlich
  * relevant" — er wird für niedrigere Stufen NICHT versteckt (Nachschlage-
  * Charakter bleibt erhalten), nur mit Badge markiert/abgeblendet.
  */
-export type QualificationLevel = 'SanH' | 'RH' | 'RS' | 'NotSan';
+export type QualificationLevel = 'SanH' | 'RS' | 'NotSan';
 
-export const LEVELS: QualificationLevel[] = ['SanH', 'RH', 'RS', 'NotSan'];
+export const LEVELS: QualificationLevel[] = ['SanH', 'RS', 'NotSan'];
 
 export const LEVEL_LABELS: Record<QualificationLevel, string> = {
   SanH: 'Sanitätshelfer',
-  RH: 'Rettungshelfer',
   RS: 'Rettungssanitäter',
   NotSan: 'Notfallsanitäter',
 };

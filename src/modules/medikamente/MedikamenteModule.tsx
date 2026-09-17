@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MEDIKAMENTE } from './data';
 import type { Medikament, MedikamentKategorie } from './types';
 import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
 import { useLevel } from '../../app/LevelContext';
+import { useNavigation } from '../../app/NavigationContext';
 
 const CATEGORY_ORDER: MedikamentKategorie[] = [
   'Analgesie & Sedierung',
@@ -58,29 +59,28 @@ function MedikamentDetail({ med }: { med: Medikament }) {
 }
 
 export function MedikamenteModule() {
-  const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(MEDIKAMENTE[0].id);
+  const { level } = useLevel();
+  const { pending, clearPending } = useNavigation();
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return MEDIKAMENTE;
-    return MEDIKAMENTE.filter((m) =>
-      [m.name, m.wirkstoff, m.arzneimittelgruppe, m.indikationen].some((f) => f?.toLowerCase().includes(q))
-    );
-  }, [query]);
+  useEffect(() => {
+    if (pending?.moduleId === 'medikamente' && MEDIKAMENTE.some((m) => m.id === pending.itemId)) {
+      setSelectedId(pending.itemId);
+      clearPending();
+    }
+  }, [pending, clearPending]);
 
   const grouped = useMemo(() => {
     const map = new Map<MedikamentKategorie, Medikament[]>();
-    for (const m of filtered) {
+    for (const m of MEDIKAMENTE) {
       const list = map.get(m.category) ?? [];
       list.push(m);
       map.set(m.category, list);
     }
     return map;
-  }, [filtered]);
+  }, []);
 
   const selected = MEDIKAMENTE.find((m) => m.id === selectedId) ?? MEDIKAMENTE[0];
-  const { level } = useLevel();
 
   return (
     <div className="module medikamente-module">
@@ -100,13 +100,6 @@ export function MedikamenteModule() {
 
       <div className="med-layout">
         <aside className="med-list">
-          <input
-            className="med-search"
-            type="text"
-            placeholder="Suchen (Name, Wirkstoff, Indikation)…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
           {CATEGORY_ORDER.filter((c) => grouped.has(c)).map((cat) => (
             <div key={cat} className="med-group">
               <h4>{cat}</h4>
@@ -124,7 +117,6 @@ export function MedikamenteModule() {
               </ul>
             </div>
           ))}
-          {filtered.length === 0 && <p className="med-no-results">Keine Treffer.</p>}
         </aside>
 
         <MedikamentDetail med={selected} />

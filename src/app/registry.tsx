@@ -2,6 +2,7 @@ import type { ComponentType } from 'react';
 import { EkgModule } from '../modules/ekg/EkgModule';
 import { MedikamenteModule } from '../modules/medikamente/MedikamenteModule';
 import { AlgorithmenModule } from '../modules/algorithmen/AlgorithmenModule';
+import { AnatomieModule } from '../modules/anatomie/AnatomieModule';
 import type { QualificationLevel } from './levels';
 
 export interface LearningModule {
@@ -13,8 +14,7 @@ export interface LearningModule {
   /**
    * Ab welcher Stufe dieses Modul überhaupt relevant wird (niedrigster
    * Einstiegspunkt) — dient nur der Sidebar-Gruppierung. Enthält ein Modul
-   * intern Inhalte für mehrere Stufen (z. B. EKG: Elektroden ab RH,
-   * Rhythmuserkennung ab RS), zählt hier die niedrigste.
+   * intern Inhalte für mehrere Stufen, zählt hier die niedrigste.
    */
   minLevel: QualificationLevel;
 }
@@ -28,7 +28,7 @@ export interface LearningModule {
  * 3. Hier einen Eintrag mit status: 'available' und component hinzufügen.
  */
 export const MODULES: LearningModule[] = [
-  { id: 'ekg', title: 'EKG-Trainer', icon: '📈', status: 'available', component: EkgModule, minLevel: 'RH' },
+  { id: 'ekg', title: 'EKG-Trainer', icon: '📈', status: 'available', component: EkgModule, minLevel: 'RS' },
   {
     id: 'algorithmen',
     title: 'Algorithmen (ABCDE, BLS/ALS)',
@@ -45,5 +45,12 @@ export const MODULES: LearningModule[] = [
     component: MedikamenteModule,
     minLevel: 'NotSan',
   },
-  { id: 'anatomie', title: 'Anatomie & Physiologie', icon: '🫀', status: 'coming-soon', minLevel: 'SanH' },
+  {
+    id: 'anatomie',
+    title: 'Anatomie & Physiologie',
+    icon: '🫀',
+    status: 'available',
+    component: AnatomieModule,
+    minLevel: 'SanH',
+  },
 ];

@@ -1,51 +1,41 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { RHYTHMS } from './rhythms';
 import { generateTrace } from './waveform';
 import { EkgTrace } from './EkgTrace';
 import { CATEGORY_LABELS, type RhythmCategory } from './types';
 import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
 import { useLevel } from '../../app/LevelContext';
+import { useNavigation } from '../../app/NavigationContext';
 
 export function StudyMode() {
   const [selectedId, setSelectedId] = useState(RHYTHMS[0].id);
   const [seed, setSeed] = useState(0);
-  const [query, setQuery] = useState('');
   const { level } = useLevel();
+  const { pending, clearPending } = useNavigation();
+
+  useEffect(() => {
+    if (pending?.moduleId === 'ekg' && RHYTHMS.some((r) => r.id === pending.itemId)) {
+      setSelectedId(pending.itemId);
+      clearPending();
+    }
+  }, [pending, clearPending]);
 
   const rhythm = RHYTHMS.find((r) => r.id === selectedId) ?? RHYTHMS[0];
   const trace = useMemo(() => generateTrace(rhythm.gen), [rhythm, seed]);
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return RHYTHMS;
-    return RHYTHMS.filter(
-      (r) =>
-        r.nameDe.toLowerCase().includes(q) ||
-        r.nameEn.toLowerCase().includes(q) ||
-        r.keyFeatures.some((f) => f.toLowerCase().includes(q))
-    );
-  }, [query]);
-
   const grouped = useMemo(() => {
     const map = new Map<RhythmCategory, typeof RHYTHMS>();
-    filtered.forEach((r) => {
+    RHYTHMS.forEach((r) => {
       const list = map.get(r.category) ?? [];
       list.push(r);
       map.set(r.category, list as typeof RHYTHMS);
     });
     return map;
-  }, [filtered]);
+  }, []);
 
   return (
     <div className="study-mode">
       <aside className="rhythm-list">
-        <input
-          className="med-search"
-          type="text"
-          placeholder="Suchen (Name, Merkmal)…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
         {[...grouped.entries()].map(([cat, items]) => (
           <div key={cat} className="rhythm-group">
             <h4>{CATEGORY_LABELS[cat]}</h4>
@@ -63,7 +53,6 @@ export function StudyMode() {
             </ul>
           </div>
         ))}
-        {filtered.length === 0 && <p className="med-no-results">Keine Treffer.</p>}
       </aside>
 
       <section className="rhythm-detail">

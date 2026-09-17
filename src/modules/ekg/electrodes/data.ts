@@ -15,7 +15,7 @@ export const MONITORING_SET: ElectrodeSet = {
     'Eselsbrücke „Ampelschema“: wie eine Ampel von oben nach unten und von rechts nach links – Rot, Gelb, Grün (, Schwarz).',
   bodyType: 'full',
   viewBox: { w: 400, h: 750 },
-  minLevel: 'RH',
+  minLevel: 'RS',
   points: [
     {
       id: 'rot',

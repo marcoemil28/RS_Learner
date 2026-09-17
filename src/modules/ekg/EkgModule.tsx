@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StudyMode } from './StudyMode';
 import { QuizMode } from './QuizMode';
 import { ProgressView } from './ProgressView';
 import { ElectrodesTab } from './electrodes/ElectrodesTab';
+import { useNavigation } from '../../app/NavigationContext';
 
 type Tab = 'study' | 'electrodes' | 'quiz' | 'progress';
 
 export function EkgModule() {
   const [tab, setTab] = useState<Tab>('study');
+  const { pending } = useNavigation();
+
+  useEffect(() => {
+    if (pending?.moduleId === 'ekg') setTab('study');
+  }, [pending]);
 
   return (
     <div className="module ekg-module">

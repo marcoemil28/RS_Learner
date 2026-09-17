@@ -1,10 +1,11 @@
 # SanWissen
 
 Eine lokale Lern- und Nachschlage-App für den Sanitäts- und Rettungsdienst —
-von Sanitätshelfer (SanH) über Rettungshelfer (RH) und Rettungssanitäter (RS)
-bis Notfallsanitäter (NotSan) (EKG, SAA/BPR, und perspektivisch weitere
-Themen). Läuft als native Desktop-App auf **macOS und Windows** (Tauri +
-React/TypeScript) — komplett offline, keine Accounts, keine Cloud.
+von Sanitätshelfer (SanH) über Rettungssanitäter (RS, schließt Rettungshelfer
+mit ein) bis Notfallsanitäter (NotSan) (EKG, Anatomie, Algorithmen, SAA/BPR,
+und perspektivisch weitere Themen). Läuft als native Desktop-App auf
+**macOS und Windows** (Tauri + React/TypeScript) — komplett offline, keine
+Accounts, keine Cloud.
 
 > ⚠️ **Wichtiger Hinweis zu den Inhalten:** Die fachlichen Inhalte (EKG-Merkmale,
 > Einordnungen, Handlungsempfehlungen) basieren auf allgemeinem rettungsdienstlichem
@@ -77,8 +78,11 @@ Hot-Reload sofort übernommen.
 
 ## Features
 
-### ✅ Qualifikationsstufen (SanH/RH/RS/NotSan) — modulübergreifend
+### ✅ Qualifikationsstufen (SanH/RS/NotSan) — modulübergreifend
 
+- Drei Stufen: **Sanitätshelfer (SanH)**, **Rettungssanitäter (RS)**
+  (deckt auch Rettungshelfer mit ab — sehr ähnlicher Kompetenzumfang, daher
+  bewusst nicht separat), **Notfallsanitäter (NotSan)**.
 - Auswahl "Meine Qualifikation" unten in der Sidebar (Default: "Alle
   anzeigen"). Module in der Sidebar sind nach Einstiegsstufe gruppiert.
 - Inhalte über der gewählten Stufe werden **nie versteckt**, nur mit Badge
@@ -88,6 +92,17 @@ Hot-Reload sofort übernommen.
   `minLevel`-Feld (teils bis auf einzelne Algorithmus-Schritte herunter,
   siehe Algorithmen-Modul) statt eigener Stufen-Module — vermeidet
   Content-Duplizierung, siehe `docs/vorgaben_und_inhalte.txt`.
+
+### ✅ Globale Suche
+
+- Ein Suchfeld oben in der Sidebar durchsucht **alle Module gleichzeitig**
+  (EKG-Rhythmen, Medikamente, Algorithmen, Anatomie) statt einzelner
+  Tab-Suchfelder.
+- Klick auf einen Treffer springt direkt zum richtigen Modul **und**
+  Eintrag — auch über die internen Tabs des EKG-Trainers hinweg.
+- Implementierung: `app/searchIndex.ts` (durchsuchbarer Index über alle
+  Module) + `app/NavigationContext.tsx` (moduleübergreifende
+  Navigations-Anfrage, die jedes Modul selbst konsumiert).
 
 ### ✅ EKG-Trainer (v1)
 
@@ -156,12 +171,19 @@ Hot-Reload sofort übernommen.
 - Laien-Basismaßnahmen (Reanimation) sind allgemeines BLS-Wissen und per
   Quellenhinweis von den PDF-Inhalten (NotSan-fokussiert) abgegrenzt.
 
+### ✅ Anatomie & Physiologie
+
+- 5 Themen: Herz-Kreislauf-System (inkl. Erregungsleitungssystem — direkte
+  Grundlage fürs EKG-Modul), Atmungssystem, Skelett & Muskulatur,
+  Nervensystem (inkl. vegetatives NS als Grundlage für Medikamentenwirkungen
+  wie Adrenalin/Atropin), Vitalparameter-Normwerte nach Altersgruppe als
+  Nachschlagetabelle.
+  Allgemeines anatomisch-physiologisches Grundlagenwissen, keine SAA/BPR-Quelle.
+
 ### 🔜 Geplant
 
-- Anatomie & Physiologie
-
-Platzhalter für diese Module sind bereits in der Seitenleiste sichtbar
-("bald").
+Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
+für weitere Ideen (Traumatologie/Verbandslehre, Score-Rechner, MANV/Triage, …).
 
 ## Architektur
 
@@ -171,6 +193,9 @@ src/
     registry.tsx         # zentrale Liste aller Lernmodule (Sidebar-Einträge, inkl. minLevel)
     levels.ts             # Qualifikationsstufen-Typ, Reihenfolge, Vergleichslogik
     LevelContext.tsx        # globaler, persistierter Stufen-Filter
+    NavigationContext.tsx    # modulübergreifende "spring zu Modul X, Eintrag Y"-Anfrage
+    searchIndex.ts            # durchsuchbarer Index über alle Module
+    GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
   components/
     LevelBadge.tsx        # "ab <Stufe>"-Badge + Abblendungs-Klasse, modulübergreifend
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
@@ -199,12 +224,16 @@ src/
       medications.json   # aus docs/saa_bpr_2025.pdf extrahierte Rohdaten
       wirkung.ts          # ergänzte Kurz-Wirkbeschreibungen (nicht aus dem PDF)
       data.ts             # lädt/typisiert medications.json + wirkung.ts
-      MedikamenteModule.tsx  # Such-/Filter-UI + Detailansicht
+      MedikamenteModule.tsx  # Kategorie-Liste + Detailansicht
     algorithmen/
       types.ts           # Datenmodell (AlgorithmEntry/-Section/-Step, je mit minLevel)
       data.ts             # 10 Einträge aus BPR "Herangehensweise" + "Kreislaufstillstand"
-      AlgorithmenModule.tsx  # Such-/Filter-UI + Detailansicht mit Schritt-Badges
-  App.tsx                 # App-Shell mit nach Stufe gruppierter Sidebar + aktivem Modul
+      AlgorithmenModule.tsx  # Detailansicht mit Schritt-Badges
+    anatomie/
+      types.ts           # Datenmodell (AnatomieTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 5 Themen: Herz-Kreislauf, Atmung, Skelett/Muskulatur, Nervensystem, Vitalparameter
+      AnatomieModule.tsx  # Detailansicht mit Fakten-Badges
+  App.tsx                 # App-Shell: nach Stufe gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden
 ```
