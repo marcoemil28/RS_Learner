@@ -62,7 +62,7 @@ export function AlgorithmenModule() {
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'algorithmen' && ALGORITHMEN.some((a) => a.id === pending.itemId)) {
+    if (pending?.moduleId === 'algorithmen' && pending.itemId && ALGORITHMEN.some((a) => a.id === pending.itemId)) {
       setSelectedId(pending.itemId);
       clearPending();
     }

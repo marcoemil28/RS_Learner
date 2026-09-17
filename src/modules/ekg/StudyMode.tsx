@@ -14,7 +14,7 @@ export function StudyMode() {
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'ekg' && RHYTHMS.some((r) => r.id === pending.itemId)) {
+    if (pending?.moduleId === 'ekg' && pending.itemId && RHYTHMS.some((r) => r.id === pending.itemId)) {
       setSelectedId(pending.itemId);
       clearPending();
     }

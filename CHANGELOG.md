@@ -11,6 +11,25 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.9.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Startseite** (`app/HomePage.tsx`, neuer Sidebar-Eintrag "Startseite",
+  jetzt Standardansicht beim Öffnen der App):
+  - Modul-Karten-Übersicht (Klick navigiert direkt ins Modul).
+  - **"Dein Fahrplan"**: kuratierte Verlinkung in die relevanten Abschnitte
+    aller Module, gruppiert nach Qualifikationsstufe (`app/roadmap.ts`) —
+    setzt die "Fahrplan"-Idee aus `docs/vorgaben_und_inhalte.txt`
+    Abschnitt 5 um. Kein eigenes Modul mit eigenen Inhalten, nur Links;
+    Einträge über der gewählten Stufe werden wie überall sonst nur markiert,
+    nicht versteckt.
+  - EKG-Fortschritts-Kachel (Versuche/Trefferquote), sobald erste
+    Quiz-Versuche vorliegen.
+  - `NavigationContext`: `itemId` ist jetzt optional, damit auch reine
+    Modul-Links (ohne konkreten Eintrag, z. B. "Elektroden legen üben")
+    funktionieren.
+
 ## [0.8.0] – 2026-09-17
 
 ### Hinzugefügt

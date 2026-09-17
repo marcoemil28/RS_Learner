@@ -78,6 +78,15 @@ Hot-Reload sofort übernommen.
 
 ## Features
 
+### ✅ Startseite
+
+- Landet man beim App-Start: Modul-Karten-Übersicht + **"Dein Fahrplan"**
+  — kuratierte Verlinkung in die relevanten Abschnitte aller Module,
+  gruppiert nach Qualifikationsstufe (kein eigenes Modul mit eigenen
+  Inhalten, nur Navigation, siehe `docs/vorgaben_und_inhalte.txt`
+  Abschnitt 5).
+- Zeigt eine EKG-Fortschritts-Kachel, sobald erste Quiz-Versuche vorliegen.
+
 ### ✅ Qualifikationsstufen (SanH/RS/NotSan) — modulübergreifend
 
 - Drei Stufen: **Sanitätshelfer (SanH)**, **Rettungssanitäter (RS)**
@@ -208,6 +217,8 @@ src/
     NavigationContext.tsx    # modulübergreifende "spring zu Modul X, Eintrag Y"-Anfrage
     searchIndex.ts            # durchsuchbarer Index über alle Module
     GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
+    roadmap.ts                # kuratierter "Fahrplan" je Stufe (nur Links, keine Inhalte)
+    HomePage.tsx               # Startseite: Modul-Karten + Fahrplan + EKG-Fortschritt
   components/
     LevelBadge.tsx        # "ab <Stufe>"-Badge + Abblendungs-Klasse, modulübergreifend
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)

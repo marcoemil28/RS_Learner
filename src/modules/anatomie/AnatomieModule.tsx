@@ -56,7 +56,7 @@ export function AnatomieModule() {
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'anatomie' && ANATOMIE_THEMEN.some((t) => t.id === pending.itemId)) {
+    if (pending?.moduleId === 'anatomie' && pending.itemId && ANATOMIE_THEMEN.some((t) => t.id === pending.itemId)) {
       setSelectedId(pending.itemId);
       clearPending();
     }

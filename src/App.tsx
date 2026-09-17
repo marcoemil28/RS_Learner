@@ -3,6 +3,7 @@ import { MODULES, type LearningModule } from './app/registry';
 import { LevelProvider, useLevel } from './app/LevelContext';
 import { NavigationProvider } from './app/NavigationContext';
 import { GlobalSearch } from './app/GlobalSearch';
+import { HomePage } from './app/HomePage';
 import { LEVELS, LEVEL_LABELS } from './app/levels';
 import './App.css';
 
@@ -24,9 +25,9 @@ function LevelSelector() {
 }
 
 function AppShell() {
-  const [activeId, setActiveId] = useState(MODULES.find((m) => m.status === 'available')?.id ?? MODULES[0].id);
-  const activeModule = MODULES.find((m) => m.id === activeId) ?? MODULES[0];
-  const ActiveComponent = activeModule.component;
+  const [activeId, setActiveId] = useState('home');
+  const activeModule = MODULES.find((m) => m.id === activeId);
+  const ActiveComponent = activeModule?.component;
 
   const groups = useMemo(() => {
     const map = new Map<string, LearningModule[]>();
@@ -46,6 +47,11 @@ function AppShell() {
         <GlobalSearch onNavigate={setActiveId} />
 
         <nav className="app-nav">
+          <button className={`app-nav-item ${activeId === 'home' ? 'active' : ''}`} onClick={() => setActiveId('home')}>
+            <span className="app-nav-icon">🏠</span>
+            <span>Startseite</span>
+          </button>
+
           {groups.map((g) => (
             <div key={g.level} className="app-nav-group">
               <h4>{LEVEL_LABELS[g.level]}</h4>
@@ -77,7 +83,9 @@ function AppShell() {
       </aside>
 
       <main className="app-content">
-        {ActiveComponent ? (
+        {activeId === 'home' ? (
+          <HomePage onNavigateModule={setActiveId} />
+        ) : ActiveComponent ? (
           <ActiveComponent />
         ) : (
           <div className="coming-soon">Dieses Modul ist noch nicht verfügbar.</div>

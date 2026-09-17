@@ -64,7 +64,7 @@ export function MedikamenteModule() {
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'medikamente' && MEDIKAMENTE.some((m) => m.id === pending.itemId)) {
+    if (pending?.moduleId === 'medikamente' && pending.itemId && MEDIKAMENTE.some((m) => m.id === pending.itemId)) {
       setSelectedId(pending.itemId);
       clearPending();
     }

@@ -9,11 +9,14 @@ type Tab = 'study' | 'electrodes' | 'quiz' | 'progress';
 
 export function EkgModule() {
   const [tab, setTab] = useState<Tab>('study');
-  const { pending } = useNavigation();
+  const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'ekg') setTab('study');
-  }, [pending]);
+    if (pending?.moduleId === 'ekg') {
+      setTab('study');
+      if (!pending.itemId) clearPending();
+    }
+  }, [pending, clearPending]);
 
   return (
     <div className="module ekg-module">

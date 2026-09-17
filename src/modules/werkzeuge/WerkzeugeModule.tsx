@@ -10,7 +10,7 @@ export function WerkzeugeModule() {
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'werkzeuge' && TOOLS.some((t) => t.id === pending.itemId)) {
+    if (pending?.moduleId === 'werkzeuge' && pending.itemId && TOOLS.some((t) => t.id === pending.itemId)) {
       setSelectedId(pending.itemId);
       clearPending();
     }

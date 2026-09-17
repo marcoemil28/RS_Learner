@@ -2,7 +2,8 @@ import { createContext, useContext, useState, type ReactNode } from 'react';
 
 export interface NavigationTarget {
   moduleId: string;
-  itemId: string;
+  /** Wenn nicht gesetzt, wird nur ins Modul gewechselt, ohne einen bestimmten Eintrag zu selektieren. */
+  itemId?: string;
 }
 
 const NavigationContext = createContext<{
