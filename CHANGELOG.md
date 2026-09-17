@@ -3,13 +3,28 @@
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
 Format angelehnt an [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
-Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
-(solange die App nicht veröffentlicht ist, sind Breaking Changes zwischen
-`0.x`-Versionen jederzeit möglich).
+Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unreleased]
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
+
+## [1.0.0] – 2026-09-17
+
+### Erste offizielle Testversion
+
+Erster Release, der als Mac- und Windows-Installer über GitHub Releases
+verteilt wird (gebaut via `.github/workflows/release.yml`). Inhaltlich
+identisch zu 0.27.0 — der Versionssprung markiert den Milestone
+"erste fertige App zum Testen weitergeben", kein Breaking Change.
+
+Umfang zu diesem Zeitpunkt: 17 Module (EKG-Trainer, Algorithmen,
+Medikamente, Anatomie, Werkzeuge & Scores, Traumatologie, Medikamente
+vorbereiten & verabreichen, Sanitätsdienst, Internistische Notfälle,
+Pädiatrie & Geburtshilfe, Psychiatrische Notfälle & Kommunikation,
+Rettungstechnik & Gerätekunde, Rechtliche Grundlagen, Glossar,
+Prüfungsvorbereitung/Quiz, Checklisten, Cheat-Sheet), globale Suche,
+Favoriten, Hoher-Kontrast-Modus, themenbasierte Sidebar-Navigation.
 
 ## [0.27.0] – 2026-09-17
 

@@ -588,15 +588,15 @@ Intel+Apple-Silicon-Installer: `npm run tauri build -- --target universal-apple-
 ### Release-Workflow (GitHub Actions) — macOS & Windows in einem Schritt
 
 `.github/workflows/release.yml` baut bei jedem Push eines Tags im Format
-`v*` (z. B. `v0.27.0`) automatisch **beide** Plattformen parallel in der
+`v*` (z. B. `v1.0.0`) automatisch **beide** Plattformen parallel in der
 Cloud (macOS als Universal Binary + Windows) und legt die Installer als
 **Entwurf** eines GitHub Release ab — kein eigener Windows-Rechner nötig.
 
 So auslösen:
 
 ```bash
-git tag v0.27.0        # Versionsnummer aus package.json übernehmen
-git push origin v0.27.0
+git tag v1.0.0        # Versionsnummer aus package.json übernehmen
+git push origin v1.0.0
 ```
 
 Danach im Reiter „Actions" auf GitHub den Fortschritt verfolgen (dauert
