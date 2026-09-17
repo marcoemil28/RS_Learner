@@ -43,7 +43,7 @@ function AppShell() {
         <nav className="app-nav">
           {groups.map((g) => (
             <div key={g.level} className="app-nav-group">
-              <h4>Ab {LEVEL_LABELS[g.level]}</h4>
+              <h4>{LEVEL_LABELS[g.level]}</h4>
               {g.modules.map((m) => (
                 <button
                   key={m.id}

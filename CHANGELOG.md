@@ -11,6 +11,20 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.6.1] – 2026-09-17
+
+### Geändert
+
+- Sidebar-Gruppenüberschriften zeigen nur noch den Stufennamen ("Sanitätshelfer"
+  statt "Ab Sanitätshelfer").
+- EKG-Trainer (Lernmodus) hat jetzt ein Suchfeld, konsistent mit
+  Medikamente/Algorithmen.
+- Algorithmen-Eintrag "Beurteilung der Bewusstseinslage (WASB & GCS)" um die
+  vollständige GCS-Punktetabelle (Augenöffnung/verbale/motorische Reaktion,
+  je mit Einzelpunktwerten) ergänzt — allgemein gebräuchliche Originalskala
+  nach Teasdale & Jennett, nicht im SAA/BPR-PDF enthalten (per Quellenhinweis
+  markiert).
+
 ## [0.6.0] – 2026-09-17
 
 ### Hinzugefügt

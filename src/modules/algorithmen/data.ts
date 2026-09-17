@@ -151,13 +151,48 @@ export const ALGORITHMEN: AlgorithmEntry[] = [
         ],
       },
       {
-        heading: 'GCS (Glasgow Coma Scale)',
+        heading: 'GCS – Augenöffnung (E, max. 4 Punkte)',
+        steps: [
+          { text: '4 – spontan', minLevel: 'RS' },
+          { text: '3 – auf Ansprache', minLevel: 'RS' },
+          { text: '2 – auf Schmerzreiz', minLevel: 'RS' },
+          { text: '1 – keine Reaktion', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'GCS – Verbale Reaktion (V, max. 5 Punkte)',
+        steps: [
+          { text: '5 – orientiert', minLevel: 'RS' },
+          { text: '4 – verwirrt', minLevel: 'RS' },
+          { text: '3 – unzusammenhängende Worte', minLevel: 'RS' },
+          { text: '2 – unverständliche Laute', minLevel: 'RS' },
+          { text: '1 – keine Reaktion', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'GCS – Motorische Reaktion (M, max. 6 Punkte)',
+        steps: [
+          { text: '6 – befolgt Aufforderungen', minLevel: 'RS' },
+          { text: '5 – gezielte Schmerzabwehr', minLevel: 'RS' },
+          { text: '4 – ungezielte Schmerzabwehr (normale Beugung)', minLevel: 'RS' },
+          { text: '3 – abnorme Beugung (Beugesynergismen, Dekortikationshaltung)', minLevel: 'RS' },
+          { text: '2 – Streckung (Strecksynergismen, Dezerebrationshaltung)', minLevel: 'RS' },
+          { text: '1 – keine Reaktion', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'GCS – Schweregrad (Summe aus E + V + M, 3–15 Punkte)',
         steps: [
           { text: '15–13 Punkte: leichtes Schädel-Hirn-Trauma (SHT)', minLevel: 'RS' },
           { text: '12–9 Punkte: mittelschweres SHT', minLevel: 'RS' },
           { text: '8–3 Punkte: schweres SHT', minLevel: 'RS' },
         ],
       },
+    ],
+    notes: [
+      'Die detaillierte Punktetabelle (Augenöffnung/verbale/motorische Reaktion) ist die allgemein gebräuchliche ' +
+        'Originalskala nach Teasdale & Jennett (1974) und steht so nicht im SAA/BPR-PDF — dort wird nur die grobe ' +
+        'Schweregrad-Einteilung (15–13/12–9/8–3) genannt.',
     ],
     page: 77,
   },
