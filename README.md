@@ -573,14 +573,47 @@ SAA/BPR-Version, ein Fragenkatalog-PDF) als Quelle zu nutzen:
 Native Installer werden pro Betriebssystem gebaut (kein Cross-Compiling
 ohne weiteres möglich). D. h. für einen Windows-Installer brauchst du
 einen Windows-Rechner (oder CI, z. B. GitHub Actions mit einem
-`windows-latest`-Runner).
+`windows-latest`-Runner — siehe unten).
 
 ```bash
 npm run tauri build
 ```
 
 Die fertigen Installer liegen danach unter `src-tauri/target/release/bundle/`
-(z. B. `.dmg`/`.app` auf macOS, `.msi`/`.exe` auf Windows).
+(z. B. `.dmg`/`.app` auf macOS, `.msi`/`.exe` auf Windows). Lokal auf
+Apple Silicon gebaut läuft die App nur auf Apple-Silicon-Macs — für einen
+Intel+Apple-Silicon-Installer: `npm run tauri build -- --target universal-apple-darwin`
+(einmalig `rustup target add x86_64-apple-darwin aarch64-apple-darwin`).
+
+### Release-Workflow (GitHub Actions) — macOS & Windows in einem Schritt
+
+`.github/workflows/release.yml` baut bei jedem Push eines Tags im Format
+`v*` (z. B. `v0.27.0`) automatisch **beide** Plattformen parallel in der
+Cloud (macOS als Universal Binary + Windows) und legt die Installer als
+**Entwurf** eines GitHub Release ab — kein eigener Windows-Rechner nötig.
+
+So auslösen:
+
+```bash
+git tag v0.27.0        # Versionsnummer aus package.json übernehmen
+git push origin v0.27.0
+```
+
+Danach im Reiter „Actions" auf GitHub den Fortschritt verfolgen (dauert
+einige Minuten). Ist der Workflow fertig, liegt unter „Releases" ein
+**Entwurf** mit den fertigen Installern als Anhang. Entwürfe sind nicht
+öffentlich sichtbar — erst nach manuellem „Publish release" bekommen
+Tester einen Download-Link. Alternativ die Dateien aus dem Entwurf selbst
+herunterladen und direkt weitergeben (z. B. per AirDrop/Cloud-Link), ohne
+den Release zu veröffentlichen.
+
+**Ohne Code-Signing** (kein Apple Developer Account, kein Windows-
+Zertifikat) zeigen macOS und Windows beim ersten Start eine Warnung
+("nicht verifizierter Entwickler" bzw. SmartScreen) — für Tester normal,
+einmal bestätigen reicht. Für eine unauffällige Installation später wäre
+ein Apple Developer Account (99 $/Jahr, für Code-Signing + Notarisierung)
+und ein Windows-Codesigning-Zertifikat nötig — für eine erste Testversion
+nicht notwendig.
 
 ## Fehlerbehebung
 

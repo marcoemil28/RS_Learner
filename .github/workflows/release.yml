@@ -1,0 +1,54 @@
+name: 'Release build (macOS & Windows)'
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish-tauri:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: 'macos-latest'
+            args: '--target universal-apple-darwin'
+          - platform: 'windows-latest'
+            args: ''
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Rust einrichten
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+
+      - name: Rust-Build-Cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+
+      - name: Frontend-Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Tauri-App bauen & Release erstellen
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: 'SanWissen ${{ github.ref_name }}'
+          releaseBody: 'Testversion — siehe CHANGELOG.md für Details zu dieser Version. Noch ohne Code-Signing: macOS/Windows zeigen beim ersten Start eine Warnung, die man einmalig bestätigen muss.'
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
