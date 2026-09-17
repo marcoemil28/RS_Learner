@@ -1,28 +1,10 @@
 import { useMemo, useState } from 'react';
 import { MODULES, type LearningModule } from './app/registry';
-import { LevelProvider, useLevel } from './app/LevelContext';
 import { NavigationProvider } from './app/NavigationContext';
 import { GlobalSearch } from './app/GlobalSearch';
 import { HomePage } from './app/HomePage';
 import { LEVELS, LEVEL_LABELS } from './app/levels';
 import './App.css';
-
-function LevelSelector() {
-  const { level, setLevel } = useLevel();
-  return (
-    <div className="level-selector">
-      <label htmlFor="level-select">Meine Qualifikation</label>
-      <select id="level-select" value={level} onChange={(e) => setLevel(e.target.value as typeof level)}>
-        <option value="all">Alle anzeigen</option>
-        {LEVELS.map((l) => (
-          <option key={l} value={l}>
-            {LEVEL_LABELS[l]}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
 
 function AppShell() {
   const [activeId, setActiveId] = useState('home');
@@ -89,14 +71,6 @@ function AppShell() {
             </div>
           ))}
         </nav>
-
-        <div className="app-sidebar-footer">
-          <LevelSelector />
-          <p className="level-selector-hint">
-            Module sind hier nach Einstiegsstufe sortiert. Inhalte über deiner gewählten Stufe werden innerhalb
-            der Module nicht versteckt, nur markiert — praktisch zum Nachschlagen.
-          </p>
-        </div>
       </aside>
 
       <main className="app-content">
@@ -114,11 +88,9 @@ function AppShell() {
 
 function App() {
   return (
-    <LevelProvider>
-      <NavigationProvider>
-        <AppShell />
-      </NavigationProvider>
-    </LevelProvider>
+    <NavigationProvider>
+      <AppShell />
+    </NavigationProvider>
   );
 }
 

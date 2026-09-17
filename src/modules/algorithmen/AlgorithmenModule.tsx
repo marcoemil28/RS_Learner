@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ALGORITHMEN } from './data';
 import type { AlgorithmCategory, AlgorithmEntry } from './types';
-import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
-import { useLevel } from '../../app/LevelContext';
 import { useNavigation } from '../../app/NavigationContext';
 
 const CATEGORY_ORDER: AlgorithmCategory[] = [
@@ -13,14 +11,11 @@ const CATEGORY_ORDER: AlgorithmCategory[] = [
 ];
 
 function AlgorithmDetail({ entry }: { entry: AlgorithmEntry }) {
-  const { level } = useLevel();
   return (
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>
-            {entry.title} <LevelBadge minLevel={entry.minLevel} />
-          </h2>
+          <h2>{entry.title}</h2>
           <p className="algo-summary">{entry.summary}</p>
         </div>
         {entry.page && <span className="med-page-ref">SAA und BPR 2025, S. {entry.page}</span>}
@@ -31,10 +26,7 @@ function AlgorithmDetail({ entry }: { entry: AlgorithmEntry }) {
           {section.heading && <h4>{section.heading}</h4>}
           <ul>
             {section.steps.map((step, j) => (
-              <li key={j} className={aboveLevelClass(step.minLevel ?? entry.minLevel, level)}>
-                {step.text}
-                <LevelBadge minLevel={step.minLevel ?? entry.minLevel} />
-              </li>
+              <li key={j}>{step.text}</li>
             ))}
           </ul>
         </div>
@@ -58,7 +50,6 @@ function AlgorithmDetail({ entry }: { entry: AlgorithmEntry }) {
 
 export function AlgorithmenModule() {
   const [selectedId, setSelectedId] = useState(ALGORITHMEN[0].id);
-  const { level } = useLevel();
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
@@ -90,8 +81,7 @@ export function AlgorithmenModule() {
         ℹ️ Diese Algorithmen fassen die <strong>Herangehensweise- und Kreislaufstillstand-Behandlungspfade</strong>{' '}
         aus den Standard-Arbeitsanweisungen und Behandlungspfaden (SAA/BPR) 2025 zusammen — ergänzt um allgemeines
         Basiswissen (z. B. Laien-Basismaßnahmen bei der Reanimation), das nicht aus dem PDF stammt (siehe
-        Quellenhinweis je Eintrag). Die Stufen-Badges sind eine Orientierung, keine rechtsverbindliche
-        Kompetenzzuordnung — es gilt immer deine eigene Ausbildungs-/Dienstordnung.
+        Quellenhinweis je Eintrag).
       </div>
 
       <div className="med-layout">
@@ -102,10 +92,7 @@ export function AlgorithmenModule() {
               <ul>
                 {grouped.get(cat)!.map((a) => (
                   <li key={a.id}>
-                    <button
-                      className={`${a.id === selectedId ? 'active' : ''} ${aboveLevelClass(a.minLevel, level)}`}
-                      onClick={() => setSelectedId(a.id)}
-                    >
+                    <button className={a.id === selectedId ? 'active' : ''} onClick={() => setSelectedId(a.id)}>
                       {a.title}
                     </button>
                   </li>

@@ -1,17 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
-import { TRAUMA_THEMEN } from './data';
-import type { TraumaCategory, TraumaTopic } from './types';
+import { SANITAETSDIENST_THEMEN } from './data';
+import type { SanitaetsdienstCategory, SanitaetsdienstTopic } from './types';
 import { useNavigation } from '../../app/NavigationContext';
 
-const CATEGORY_ORDER: TraumaCategory[] = [
-  'Frakturen & Wunden',
-  'Verbandslehre',
-  'Schwere Verletzungen',
-  'Verbrennungen',
-  'Polytrauma & Blutstillung',
-];
+const CATEGORY_ORDER: SanitaetsdienstCategory[] = ['Einsatzorganisation', 'Kommunikation', 'Medizinische Besonderheiten'];
 
-function TraumaDetail({ topic }: { topic: TraumaTopic }) {
+function SanitaetsdienstDetail({ topic }: { topic: SanitaetsdienstTopic }) {
   return (
     <div className="algo-detail">
       <div className="algo-detail-header">
@@ -21,25 +15,16 @@ function TraumaDetail({ topic }: { topic: TraumaTopic }) {
         </div>
       </div>
 
-      {topic.sections.map((section, i) => {
-        const Illustration = section.illustration;
-        return (
-          <div key={i} className="algo-section">
-            {section.heading && <h4>{section.heading}</h4>}
-            {Illustration && (
-              <div className="illustration-box">
-                <Illustration />
-                <p className="illustration-caption">Stilisiertes Schema, kein Foto</p>
-              </div>
-            )}
-            <ul>
-              {section.facts.map((fact, j) => (
-                <li key={j}>{fact.text}</li>
-              ))}
-            </ul>
-          </div>
-        );
-      })}
+      {topic.sections.map((section, i) => (
+        <div key={i} className="algo-section">
+          {section.heading && <h4>{section.heading}</h4>}
+          <ul>
+            {section.facts.map((fact, j) => (
+              <li key={j}>{fact.text}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
       {topic.notes && topic.notes.length > 0 && (
         <div className="algo-notes">
@@ -57,20 +42,24 @@ function TraumaDetail({ topic }: { topic: TraumaTopic }) {
   );
 }
 
-export function TraumatologieModule() {
-  const [selectedId, setSelectedId] = useState(TRAUMA_THEMEN[0].id);
+export function SanitaetsdienstModule() {
+  const [selectedId, setSelectedId] = useState(SANITAETSDIENST_THEMEN[0].id);
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
-    if (pending?.moduleId === 'traumatologie' && pending.itemId && TRAUMA_THEMEN.some((t) => t.id === pending.itemId)) {
+    if (
+      pending?.moduleId === 'sanitaetsdienst' &&
+      pending.itemId &&
+      SANITAETSDIENST_THEMEN.some((t) => t.id === pending.itemId)
+    ) {
       setSelectedId(pending.itemId);
       clearPending();
     }
   }, [pending, clearPending]);
 
   const grouped = useMemo(() => {
-    const map = new Map<TraumaCategory, TraumaTopic[]>();
-    for (const t of TRAUMA_THEMEN) {
+    const map = new Map<SanitaetsdienstCategory, SanitaetsdienstTopic[]>();
+    for (const t of SANITAETSDIENST_THEMEN) {
       const list = map.get(t.category) ?? [];
       list.push(t);
       map.set(t.category, list);
@@ -78,18 +67,18 @@ export function TraumatologieModule() {
     return map;
   }, []);
 
-  const selected = TRAUMA_THEMEN.find((t) => t.id === selectedId) ?? TRAUMA_THEMEN[0];
+  const selected = SANITAETSDIENST_THEMEN.find((t) => t.id === selectedId) ?? SANITAETSDIENST_THEMEN[0];
 
   return (
-    <div className="module traumatologie-module">
+    <div className="module sanitaetsdienst-module">
       <header className="module-header">
-        <h1>Traumatologie & Verbandslehre</h1>
+        <h1>Sanitätsdienst (Veranstaltungsdienst)</h1>
       </header>
 
       <div className="med-disclaimer">
-        ℹ️ Allgemeines rettungsdienstliches Grundlagenwissen zu Frakturen, Wundversorgung, Verbandstechniken und
-        schweren Verletzungen — keine SAA/BPR-Quelle. Konkrete Vorgehensweisen können je nach
-        Rettungsdienstbereich/aktueller Leitlinie variieren.
+        ℹ️ Allgemeines Grundlagenwissen zu Wachdienst-Organisation, MANV/Sichtung, Funkdisziplin und Hygiene bei
+        Veranstaltungen — keine SAA/BPR-Quelle. Konkrete Abläufe (Kanäle/Rufnamen, Sichtungsschema,
+        Hygieneplan) sind organisations- und bundeslandspezifisch geregelt.
       </div>
 
       <div className="med-layout">
@@ -110,7 +99,7 @@ export function TraumatologieModule() {
           ))}
         </aside>
 
-        <TraumaDetail topic={selected} />
+        <SanitaetsdienstDetail topic={selected} />
       </div>
     </div>
   );

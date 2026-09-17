@@ -27,6 +27,10 @@ export const ROADMAP: Record<QualificationLevel, RoadmapEntry[]> = {
     { moduleId: 'traumatologie', itemId: 'wundversorgung', label: 'Wundversorgung' },
     { moduleId: 'traumatologie', itemId: 'verbandslehre', label: 'Verbandslehre (Druckverband, Dreiecktuch)' },
     { moduleId: 'traumatologie', itemId: 'verbrennungen', label: 'Verbrennungen' },
+    { moduleId: 'sanitaetsdienst', itemId: 'wachdienst-organisation', label: 'Sanitätswachdienst-Organisation' },
+    { moduleId: 'sanitaetsdienst', itemId: 'funkalphabet', label: 'Funkalphabet & Funkdisziplin' },
+    { moduleId: 'sanitaetsdienst', itemId: 'veranstaltungs-verletzungsmuster', label: 'Veranstaltungs-Verletzungsmuster' },
+    { moduleId: 'sanitaetsdienst', itemId: 'hygiene-infektionsschutz', label: 'Hygiene & Infektionsschutz' },
   ],
   RS: [
     { moduleId: 'ekg', itemId: 'sinus-normal', label: 'EKG-Rhythmuserkennung' },
@@ -45,6 +49,7 @@ export const ROADMAP: Record<QualificationLevel, RoadmapEntry[]> = {
     { moduleId: 'traumatologie', itemId: 'polytrauma-blutstillung', label: 'Polytrauma & kritische Blutungen (Tourniquet)' },
     { moduleId: 'medikamentenvorbereitung', label: 'Medikamente vorbereiten & sicher verabreichen' },
     { moduleId: 'werkzeuge', itemId: 'verduennung', label: 'Verdünnungsrechner' },
+    { moduleId: 'sanitaetsdienst', itemId: 'manv-sichtung', label: 'MANV & Sichtung (Triage)' },
   ],
   NotSan: [
     { moduleId: 'algorithmen', itemId: 'atemwegsmanagement', label: 'Atemwegsmanagement (erweiterte Maßnahmen)' },

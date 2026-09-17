@@ -6,6 +6,7 @@ import { AnatomieModule } from '../modules/anatomie/AnatomieModule';
 import { WerkzeugeModule } from '../modules/werkzeuge/WerkzeugeModule';
 import { TraumatologieModule } from '../modules/traumatologie/TraumatologieModule';
 import { MedikamentenvorbereitungModule } from '../modules/medikamentenvorbereitung/MedikamentenvorbereitungModule';
+import { SanitaetsdienstModule } from '../modules/sanitaetsdienst/SanitaetsdienstModule';
 import type { QualificationLevel } from './levels';
 
 export interface LearningModule {
@@ -87,5 +88,13 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: MedikamentenvorbereitungModule,
     minLevel: 'RS',
+  },
+  {
+    id: 'sanitaetsdienst',
+    title: 'Sanitätsdienst (Veranstaltungsdienst)',
+    icon: '🎪',
+    status: 'available',
+    component: SanitaetsdienstModule,
+    minLevel: 'SanH',
   },
 ];

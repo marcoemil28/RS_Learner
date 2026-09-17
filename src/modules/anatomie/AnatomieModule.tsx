@@ -1,21 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ANATOMIE_THEMEN } from './data';
 import type { AnatomieCategory, AnatomieTopic } from './types';
-import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
-import { useLevel } from '../../app/LevelContext';
 import { useNavigation } from '../../app/NavigationContext';
 
 const CATEGORY_ORDER: AnatomieCategory[] = ['Herz-Kreislauf', 'Atmung', 'Skelett & Muskulatur', 'Nervensystem', 'Vitalparameter'];
 
 function AnatomieDetail({ topic }: { topic: AnatomieTopic }) {
-  const { level } = useLevel();
   return (
     <div className="algo-detail">
       <div className="algo-detail-header">
         <div>
-          <h2>
-            {topic.title} <LevelBadge minLevel={topic.minLevel} />
-          </h2>
+          <h2>{topic.title}</h2>
           <p className="algo-summary">{topic.summary}</p>
         </div>
       </div>
@@ -25,10 +20,7 @@ function AnatomieDetail({ topic }: { topic: AnatomieTopic }) {
           {section.heading && <h4>{section.heading}</h4>}
           <ul>
             {section.facts.map((fact, j) => (
-              <li key={j} className={aboveLevelClass(fact.minLevel ?? topic.minLevel, level)}>
-                {fact.text}
-                <LevelBadge minLevel={fact.minLevel ?? topic.minLevel} />
-              </li>
+              <li key={j}>{fact.text}</li>
             ))}
           </ul>
         </div>
@@ -52,7 +44,6 @@ function AnatomieDetail({ topic }: { topic: AnatomieTopic }) {
 
 export function AnatomieModule() {
   const [selectedId, setSelectedId] = useState(ANATOMIE_THEMEN[0].id);
-  const { level } = useLevel();
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
@@ -95,10 +86,7 @@ export function AnatomieModule() {
               <ul>
                 {grouped.get(cat)!.map((t) => (
                   <li key={t.id}>
-                    <button
-                      className={`${t.id === selectedId ? 'active' : ''} ${aboveLevelClass(t.minLevel, level)}`}
-                      onClick={() => setSelectedId(t.id)}
-                    >
+                    <button className={t.id === selectedId ? 'active' : ''} onClick={() => setSelectedId(t.id)}>
                       {t.title}
                     </button>
                   </li>

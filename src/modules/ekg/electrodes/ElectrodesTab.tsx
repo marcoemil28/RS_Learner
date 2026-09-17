@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { ELECTRODE_SETS } from './data';
 import { ElectrodeStudy } from './ElectrodeStudy';
 import { ElectrodePlacement } from './ElectrodePlacement';
-import { LevelBadge } from '../../../components/LevelBadge';
 
 type Mode = 'lernen' | 'ueben';
 
@@ -16,7 +15,7 @@ export function ElectrodesTab() {
       <div className="electrode-set-switch">
         {ELECTRODE_SETS.map((s) => (
           <button key={s.id} className={s.id === setId ? 'active' : ''} onClick={() => setSetId(s.id)}>
-            {s.title} <LevelBadge minLevel={s.minLevel} />
+            {s.title}
           </button>
         ))}
         <div className="electrode-mode-switch">

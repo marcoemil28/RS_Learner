@@ -207,57 +207,6 @@ ul {
   gap: 0.25em;
 }
 
-.app-sidebar-footer {
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-}
-
-.level-selector {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35em;
-}
-
-.level-selector label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-dim);
-}
-
-.level-selector select {
-  background-color: var(--bg-panel-alt);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.4em 0.5em;
-  font-size: 0.88rem;
-}
-
-.level-selector-hint {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  margin: 0.5em 0 0 0;
-  line-height: 1.4;
-}
-
-.level-badge {
-  margin-left: 0.5em;
-  font-size: 0.68rem;
-  background-color: rgba(255, 93, 93, 0.15);
-  color: var(--bad);
-  border: 1px solid rgba(255, 93, 93, 0.35);
-  padding: 0.1em 0.5em;
-  border-radius: 999px;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
-.above-level {
-  opacity: 0.55;
-}
-
 .app-nav-group {
   margin-bottom: 0.6rem;
 }

@@ -5,6 +5,7 @@ import { ANATOMIE_THEMEN } from '../modules/anatomie/data';
 import { TOOLS } from '../modules/werkzeuge/data';
 import { TRAUMA_THEMEN } from '../modules/traumatologie/data';
 import { MED_VORBEREITUNG } from '../modules/medikamentenvorbereitung/data';
+import { SANITAETSDIENST_THEMEN } from '../modules/sanitaetsdienst/data';
 import type { QualificationLevel } from './levels';
 
 export interface SearchItem {
@@ -105,6 +106,18 @@ const INDEX: SearchItem[] = [
       haystack: [e.title, e.summary, ...e.sections.flatMap((s) => s.steps.map((step) => step.text))]
         .join(' ')
         .toLowerCase(),
+    })
+  ),
+  ...SANITAETSDIENST_THEMEN.map(
+    (t): SearchItem => ({
+      key: `sanitaetsdienst:${t.id}`,
+      title: t.title,
+      moduleId: 'sanitaetsdienst',
+      moduleTitle: 'Sanitätsdienst (Veranstaltungsdienst)',
+      icon: '🎪',
+      itemId: t.id,
+      minLevel: t.minLevel,
+      haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
     })
   ),
 ];

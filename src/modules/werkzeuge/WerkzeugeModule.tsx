@@ -1,12 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { TOOLS } from './data';
-import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
-import { useLevel } from '../../app/LevelContext';
 import { useNavigation } from '../../app/NavigationContext';
 
 export function WerkzeugeModule() {
   const [selectedId, setSelectedId] = useState(TOOLS[0].id);
-  const { level } = useLevel();
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
@@ -48,10 +45,7 @@ export function WerkzeugeModule() {
               <ul>
                 {items.map((t) => (
                   <li key={t.id}>
-                    <button
-                      className={`${t.id === selectedId ? 'active' : ''} ${aboveLevelClass(t.minLevel, level)}`}
-                      onClick={() => setSelectedId(t.id)}
-                    >
+                    <button className={t.id === selectedId ? 'active' : ''} onClick={() => setSelectedId(t.id)}>
                       {t.title}
                     </button>
                   </li>
@@ -64,9 +58,7 @@ export function WerkzeugeModule() {
         <div className="algo-detail">
           <div className="algo-detail-header">
             <div>
-              <h2>
-                {selected.title} <LevelBadge minLevel={selected.minLevel} />
-              </h2>
+              <h2>{selected.title}</h2>
               <p className="algo-summary">{selected.description}</p>
             </div>
           </div>

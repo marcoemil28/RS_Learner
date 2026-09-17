@@ -95,17 +95,16 @@ Hot-Reload sofort übernommen.
 - Drei Stufen: **Sanitätshelfer (SanH)**, **Rettungssanitäter (RS)**
   (deckt auch Rettungshelfer mit ab — sehr ähnlicher Kompetenzumfang, daher
   bewusst nicht separat), **Notfallsanitäter (NotSan)**.
-- Auswahl "Meine Qualifikation" unten in der Sidebar (Default: "Alle
-  anzeigen"). Module in der Sidebar sind nach Einstiegsstufe gruppiert.
-- Inhalte über der Basisstufe (SanH) werden **nie versteckt**, sondern
-  tragen immer ein Badge ("ab RS"/"ab NotSan") — auch im Standardzustand
-  "Alle anzeigen", nicht erst nach Auswahl einer Stufe. Zusätzlich
-  abgeblendet werden sie nur, wenn eine konkrete Stufe gewählt ist, die sie
-  übersteigt. Der Nachschlage-Charakter bleibt für alle Stufen erhalten.
-- Datenmodell: `src/app/levels.ts` + `LevelContext.tsx`. Inhalte tragen ein
-  `minLevel`-Feld (teils bis auf einzelne Algorithmus-Schritte herunter,
-  siehe Algorithmen-Modul) statt eigener Stufen-Module — vermeidet
-  Content-Duplizierung, siehe `docs/vorgaben_und_inhalte.txt`.
+- Module in der Sidebar sind nach Einstiegsstufe gruppiert (rein zur
+  Orientierung). Es gibt **keine** personalisierte Auswahl/Filterung der
+  eigenen Qualifikation mehr, und entsprechend auch keine "ab \<Stufe\>"-
+  Badges oder Abblendung einzelner Inhalte (entfernt in 0.14.0, siehe
+  CHANGELOG) — alle Inhalte werden für alle gleich angezeigt.
+- Datenmodell: `src/app/levels.ts`. Inhalte tragen weiterhin ein
+  `minLevel`-Feld statt eigener Stufen-Module — vermeidet
+  Content-Duplizierung, siehe `docs/vorgaben_und_inhalte.txt`. Es steuert
+  nur noch die Sidebar-/Fahrplan-Gruppierung, keine Anzeige mehr pro
+  Einzelinhalt.
 
 ### ✅ Globale Suche
 
@@ -173,22 +172,27 @@ Hot-Reload sofort übernommen.
 
 ### ✅ Algorithmen (ABCDE, BLS/ALS)
 
-- 10 Einträge aus den BPR-Abschnitten „Herangehensweise" und
+- 9 Einträge aus den BPR-Abschnitten „Herangehensweise" und
   „Kreislaufstillstand": ABCDE-Herangehensweise/-Instabilitäten, WASB & GCS,
   SAMPLER, OPQRST, Atemwegsmanagement, Patientenanmeldung (ZOABCDE),
   Übergabe (SINNHAFT), Reanimation Erwachsene (BLS→ALS) und Kinder (PLS).
-- **Qualifikationsstufen bis auf Schritt-Ebene**: jeder einzelne Handlungs-
-  schritt trägt sein eigenes `minLevel` — z. B. zeigt die Reanimation die
-  Basismaßnahmen (Bewusstsein/Atmung prüfen, HDM 30:2, AED) ohne Badge für
-  alle Stufen, während EGA, i.v./i.o.-Zugang und Medikamentengabe mit „ab
-  Notfallsanitäter" markiert sind.
+- Jeder einzelne Handlungsschritt trägt intern sein eigenes `minLevel`-
+  Datenfeld (z. B. Basismaßnahmen der Reanimation vs. EGA/i.v.-Zugang/
+  Medikamentengabe erst ab Notfallsanitäter) — dient nur der Datenmodell-
+  Struktur, wird aber nicht mehr separat angezeigt.
 - Laien-Basismaßnahmen (Reanimation) sind allgemeines BLS-Wissen und per
   Quellenhinweis von den PDF-Inhalten (NotSan-fokussiert) abgegrenzt.
-- **„Medikamente vorbereiten & sicher verabreichen"**: 6-R-Regel,
-  Sicherheitsprinzipien (DIVI-ISO-Aufkleber, 4-Augen-Prinzip,
-  Doppelkontrolle) und der Standardvorgehen-Ablauf direkt aus SAA/BPR
-  S. 40–41, plus die allgemeine Verdünnungsformel (C1×V1 = C2×V2) mit zwei
-  PDF-geprüften Praxisbeispielen (Epinephrin, Naloxon).
+
+### ✅ Medikamente vorbereiten & sicher verabreichen
+
+Eigenständiges Modul, eigener Sidebar-Tab in der „Rettungssanitäter"-Gruppe
+(vorher fälschlich als Unterpunkt in Algorithmen einsortiert).
+
+- 6-R-Regel, Sicherheitsprinzipien (DIVI-ISO-Aufkleber, 4-Augen-Prinzip,
+  Doppelkontrolle, gesicherte Kommunikation) und der
+  Standardvorgehen-Ablauf direkt aus SAA/BPR S. 40–41, plus die allgemeine
+  Verdünnungsformel (C1×V1 = C2×V2) mit zwei PDF-geprüften
+  Praxisbeispielen (Epinephrin, Naloxon).
 
 ### ✅ Anatomie & Physiologie
 
@@ -229,10 +233,25 @@ relevant.
   umsetzbar, keine Lizenzfragen. Bei Bedarf später ersetzbar durch eigene
   Fotos (z. B. aus Kursunterlagen).
 
+### ✅ Sanitätsdienst (Veranstaltungsdienst)
+
+- 5 Themen in 3 Kategorien: **Einsatzorganisation** (Sanitätswachdienst-
+  Organisation, MANV & Sichtung/Triage mit Ampelschema und
+  Sichtungsalgorithmus angelehnt an START), **Kommunikation**
+  (Funkalphabet nach DIN 5009/ICAO & Funkdisziplin), **Medizinische
+  Besonderheiten** (typische Veranstaltungs-Verletzungsmuster wie
+  Kreislaufkollaps und Crowd-Crush-Verletzungen, Hygiene &
+  Infektionsschutz).
+- Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst, keine
+  SAA/BPR-Quelle — organisations- und bundeslandspezifische Abweichungen
+  (Sichtungsschema, Funkkanäle, Hygieneplan) sind je Eintrag vermerkt.
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
-für weitere Ideen (Traumatologie/Verbandslehre, Score-Rechner, MANV/Triage, …).
+für weitere Ideen (Internistische Notfälle, Pädiatrie & Geburtshilfe,
+Psychiatrische Notfälle, Rettungstechnik & Gerätekunde, Rechtliche
+Grundlagen, generalisierter Quiz-Modus, …).
 
 ## Architektur
 
@@ -240,15 +259,13 @@ für weitere Ideen (Traumatologie/Verbandslehre, Score-Rechner, MANV/Triage, …
 src/
   app/
     registry.tsx         # zentrale Liste aller Lernmodule (Sidebar-Einträge, inkl. minLevel)
-    levels.ts             # Qualifikationsstufen-Typ, Reihenfolge, Vergleichslogik
-    LevelContext.tsx        # globaler, persistierter Stufen-Filter
+    levels.ts             # Qualifikationsstufen-Typ, Reihenfolge (nur noch für Gruppierung)
     NavigationContext.tsx    # modulübergreifende "spring zu Modul X, Eintrag Y"-Anfrage
     searchIndex.ts            # durchsuchbarer Index über alle Module
     GlobalSearch.tsx           # Suchfeld + Ergebnisliste in der Sidebar
     roadmap.ts                # kuratierter "Fahrplan" je Stufe (nur Links, keine Inhalte)
     HomePage.tsx               # Startseite: Modul-Karten + Fahrplan + EKG-Fortschritt
   components/
-    LevelBadge.tsx        # "ab <Stufe>"-Badge + Abblendungs-Klasse, modulübergreifend
     ConfirmButton.tsx      # In-App-Bestätigung statt window.confirm (Tauri-WebView-sicher)
   modules/
     ekg/
@@ -278,12 +295,16 @@ src/
       MedikamenteModule.tsx  # Kategorie-Liste + Detailansicht
     algorithmen/
       types.ts           # Datenmodell (AlgorithmEntry/-Section/-Step, je mit minLevel)
-      data.ts             # 10 Einträge aus BPR "Herangehensweise" + "Kreislaufstillstand"
-      AlgorithmenModule.tsx  # Detailansicht mit Schritt-Badges
+      data.ts             # 9 Einträge aus BPR "Herangehensweise" + "Kreislaufstillstand"
+      AlgorithmenModule.tsx  # Detailansicht mit Schritten je Sektion
+    medikamentenvorbereitung/
+      types.ts           # Datenmodell (MedVorbereitungEntry/-Section/-Step, je mit minLevel)
+      data.ts             # 6-R-Regel, Sicherheitsprinzipien, Standardvorgehen, Verdünnungsformel
+      MedikamentenvorbereitungModule.tsx  # Detailansicht (Einzelthema, keine Liste)
     anatomie/
       types.ts           # Datenmodell (AnatomieTopic/-Section/-Fact, je mit minLevel)
       data.ts             # 5 Themen: Herz-Kreislauf, Atmung, Skelett/Muskulatur, Nervensystem, Vitalparameter
-      AnatomieModule.tsx  # Detailansicht mit Fakten-Badges
+      AnatomieModule.tsx  # Detailansicht mit Fakten je Sektion
     werkzeuge/
       data.ts             # Tool-Registry (GCS/Schmerzskala/APGAR/Neuner-Regel/NACA)
       GcsCalculator.tsx, SchmerzSkala.tsx, ApgarCalculator.tsx,
@@ -293,7 +314,12 @@ src/
       types.ts           # Datenmodell (TraumaTopic/-Section/-Fact, je mit minLevel)
       data.ts             # 7 Themen: Frakturen, Wundversorgung, Verbandslehre, schwere
                           #   Verletzungen, Verbrennungen, Polytrauma/Blutstillung
-      TraumatologieModule.tsx  # Detailansicht mit Fakten-Badges
+      TraumatologieModule.tsx  # Detailansicht mit Fakten je Sektion
+    sanitaetsdienst/
+      types.ts           # Datenmodell (SanitaetsdienstTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 5 Themen: Wachdienst-Organisation, MANV/Sichtung, Funkalphabet,
+                          #   Veranstaltungs-Verletzungsmuster, Hygiene & Infektionsschutz
+      SanitaetsdienstModule.tsx  # Detailansicht mit Fakten je Sektion
   App.tsx                 # App-Shell: nach Stufe gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

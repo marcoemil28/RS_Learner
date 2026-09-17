@@ -2,13 +2,10 @@ import { useMemo } from 'react';
 import { MODULES } from './registry';
 import { LEVELS, LEVEL_LABELS, type QualificationLevel } from './levels';
 import { ROADMAP } from './roadmap';
-import { useLevel } from './LevelContext';
 import { useNavigation } from './NavigationContext';
-import { LevelBadge, aboveLevelClass } from '../components/LevelBadge';
 import { getProgress } from '../modules/ekg/progress';
 
 export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: string) => void }) {
-  const { level } = useLevel();
   const { goTo } = useNavigation();
 
   const ekgStats = useMemo(() => {
@@ -32,8 +29,7 @@ export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: st
 
       <p className="home-intro">
         Deine lokale Lern- und Nachschlage-App für den Sanitäts- und Rettungsdienst — von Sanitätshelfer bis
-        Notfallsanitäter. Wähle unten links deine Qualifikation, um einen persönlichen Fahrplan zu sehen, oder
-        durchsuche oben in der Sidebar alle Inhalte auf einmal.
+        Notfallsanitäter. Durchsuche oben in der Sidebar alle Inhalte auf einmal oder folge unten dem Fahrplan.
       </p>
 
       {ekgStats.attempts > 0 && (
@@ -74,13 +70,7 @@ export function HomePage({ onNavigateModule }: { onNavigateModule: (moduleId: st
           <ul>
             {ROADMAP[roadmapLevel].map((entry, i) => (
               <li key={i}>
-                <button
-                  className={aboveLevelClass(roadmapLevel, level)}
-                  onClick={() => handleRoadmapClick(entry.moduleId, entry.itemId)}
-                >
-                  {entry.label}
-                  <LevelBadge minLevel={roadmapLevel} />
-                </button>
+                <button onClick={() => handleRoadmapClick(entry.moduleId, entry.itemId)}>{entry.label}</button>
               </li>
             ))}
           </ul>

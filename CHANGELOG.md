@@ -11,6 +11,60 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.15.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Sanitätsdienst (Veranstaltungsdienst)"** (Priorisierungspunkt 5
+  aus `docs/vorgaben_und_inhalte.txt`), erscheint in der Sidebar unter
+  „Sanitätshelfer": 5 Themen in 3 Kategorien —
+  - Einsatzorganisation: Sanitätswachdienst-Organisation (Wachaufbau,
+    Materialdepot, Funkkonzept, Einsatzabschnitte), MANV & Sichtung
+    (Ampelschema, Sichtungsalgorithmus angelehnt an START)
+  - Kommunikation: Funkalphabet (DIN 5009/ICAO) & Funkdisziplin
+  - Medizinische Besonderheiten: Typische Veranstaltungs-Verletzungsmuster
+    (Kreislaufkollaps, Crowd-Crush-Verletzungen, Alkohol-/Hitzeintoxikation),
+    Hygiene & Infektionsschutz (Basishygiene, PSA, Nadelstichverletzung)
+  - Allgemeines Grundlagenwissen, keine SAA/BPR-Quelle — organisations- und
+    bundeslandspezifische Abweichungen (Sichtungsschema, Funkkanäle,
+    Hygieneplan) sind im jeweiligen Quellenhinweis vermerkt.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+
+## [0.14.0] – 2026-09-17
+
+### Entfernt
+
+- **"Meine Qualifikation"-Selector** in der Sidebar (inkl. `LevelContext`)
+  komplett entfernt — nicht benötigt.
+- Damit einhergehend auch **"ab \<Stufe\>"-Badges und die
+  Abblendung von Inhalten über der gewählten Stufe** (`LevelBadge`,
+  `aboveLevelClass`, `isAboveSelected`) aus allen Modulen sowie dem
+  Fahrplan auf der Startseite entfernt.
+- Die Sidebar-Gruppierung der Module nach Einstiegsstufe (Sanitätshelfer/
+  Rettungssanitäter/Notfallsanitäter) bleibt zur Orientierung bestehen —
+  betroffen war nur die personalisierte Auswahl/Anzeige, nicht die
+  strukturelle Einteilung.
+
+## [0.13.0] – 2026-09-17
+
+### Korrigiert
+
+- **0.12.1 zurückgerollt**: Die dort eingeführten, permanent sichtbaren
+  Stufen-Badges waren nach Rückmeldung unübersichtlich ("steht fast überall
+  Rettungssanitäter") — `LevelBadge` zeigt Badges wieder nur an, wenn eine
+  Qualifikationsstufe explizit im Filter gewählt ist (Ursprungsverhalten).
+  Die zusätzlichen Badges in den Seitenlisten von Algorithmen, Anatomie,
+  Traumatologie und Werkzeuge wurden ebenfalls entfernt.
+- **Eigentliche Ursache der ursprünglichen Beschwerde behoben**: „Medikamente
+  vorbereiten & sicher verabreichen" gehörte inhaltlich nicht in die
+  SanH/Basis-lastige Kategorie „Medikamentengabe" des Algorithmen-Moduls.
+  Der Eintrag ist jetzt ein **eigenständiges Modul** und erscheint als
+  eigener Tab in der Sidebar unter „Rettungssanitäter" (statt versteckt
+  als Unterpunkt in Algorithmen). Kategorie „Medikamentengabe" aus dem
+  Algorithmen-Modul entfernt, da sie dadurch leer wurde. Fahrplan,
+  Suchindex und der Querverweis im Verdünnungsrechner wurden entsprechend
+  aktualisiert.
+
 ## [0.12.1] – 2026-09-17
 
 ### Behoben

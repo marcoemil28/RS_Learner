@@ -1,9 +1,6 @@
 import { MED_VORBEREITUNG } from './data';
-import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
-import { useLevel } from '../../app/LevelContext';
 
 export function MedikamentenvorbereitungModule() {
-  const { level } = useLevel();
   const entry = MED_VORBEREITUNG[0];
 
   return (
@@ -15,16 +12,13 @@ export function MedikamentenvorbereitungModule() {
       <div className="med-disclaimer">
         ℹ️ Die 6-R-Regel, Sicherheitsprinzipien und das Standardvorgehen bei Medikamentengabe aus den
         Standard-Arbeitsanweisungen und Behandlungspfaden (SAA/BPR) 2025 — ergänzt um die allgemeine
-        Verdünnungsformel (siehe Quellenhinweis). Die Stufen-Badges sind eine Orientierung, keine
-        rechtsverbindliche Kompetenzzuordnung — es gilt immer deine eigene Ausbildungs-/Dienstordnung.
+        Verdünnungsformel (siehe Quellenhinweis).
       </div>
 
       <div className="algo-detail">
         <div className="algo-detail-header">
           <div>
-            <h2>
-              {entry.title} <LevelBadge minLevel={entry.minLevel} />
-            </h2>
+            <h2>{entry.title}</h2>
             <p className="algo-summary">{entry.summary}</p>
           </div>
           {entry.page && <span className="med-page-ref">SAA und BPR 2025, S. {entry.page}</span>}
@@ -35,10 +29,7 @@ export function MedikamentenvorbereitungModule() {
             {section.heading && <h4>{section.heading}</h4>}
             <ul>
               {section.steps.map((step, j) => (
-                <li key={j} className={aboveLevelClass(step.minLevel ?? entry.minLevel, level)}>
-                  {step.text}
-                  <LevelBadge minLevel={step.minLevel ?? entry.minLevel} />
-                </li>
+                <li key={j}>{step.text}</li>
               ))}
             </ul>
           </div>

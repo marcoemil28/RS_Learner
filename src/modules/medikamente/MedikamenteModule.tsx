@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { MEDIKAMENTE } from './data';
 import type { Medikament, MedikamentKategorie } from './types';
-import { LevelBadge, aboveLevelClass } from '../../components/LevelBadge';
-import { useLevel } from '../../app/LevelContext';
 import { useNavigation } from '../../app/NavigationContext';
 
 const CATEGORY_ORDER: MedikamentKategorie[] = [
@@ -29,9 +27,7 @@ function MedikamentDetail({ med }: { med: Medikament }) {
     <div className="med-detail">
       <div className="med-detail-header">
         <div>
-          <h2>
-            {med.name} <LevelBadge minLevel={med.minLevel} />
-          </h2>
+          <h2>{med.name}</h2>
           {med.arzneimittelgruppe && <p className="med-subtitle">{med.arzneimittelgruppe}</p>}
         </div>
         <span className="med-page-ref">SAA und BPR 2025, S. {med.page}</span>
@@ -60,7 +56,6 @@ function MedikamentDetail({ med }: { med: Medikament }) {
 
 export function MedikamenteModule() {
   const [selectedId, setSelectedId] = useState(MEDIKAMENTE[0].id);
-  const { level } = useLevel();
   const { pending, clearPending } = useNavigation();
 
   useEffect(() => {
@@ -106,10 +101,7 @@ export function MedikamenteModule() {
               <ul>
                 {grouped.get(cat)!.map((m) => (
                   <li key={m.id}>
-                    <button
-                      className={`${m.id === selectedId ? 'active' : ''} ${aboveLevelClass(m.minLevel, level)}`}
-                      onClick={() => setSelectedId(m.id)}
-                    >
+                    <button className={m.id === selectedId ? 'active' : ''} onClick={() => setSelectedId(m.id)}>
                       {m.name}
                     </button>
                   </li>
