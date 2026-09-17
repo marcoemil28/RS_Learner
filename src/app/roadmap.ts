@@ -71,6 +71,12 @@ export const ROADMAP: Record<ModuleCategory, RoadmapEntry[]> = {
     { moduleId: 'werkzeuge', itemId: 'apgar', label: 'APGAR-Score' },
     { moduleId: 'werkzeuge', itemId: 'neuner-regel', label: 'Neuner-Regel' },
     { moduleId: 'werkzeuge', itemId: 'verduennung', label: 'Verdünnungsrechner' },
+    { moduleId: 'rettungstechnik', itemId: 'trageformen', label: 'Trageformen' },
+    { moduleId: 'rettungstechnik', itemId: 'lagerungsarten', label: 'Lagerungsarten mit Indikation' },
+    { moduleId: 'rettungstechnik', itemId: 'sauerstoffgabe', label: 'Sauerstoffgabe' },
+    { moduleId: 'rettungstechnik', itemId: 'absaugung-atemwegshilfen', label: 'Absaugung & Atemwegshilfen' },
+    { moduleId: 'rettungstechnik', itemId: 'beatmungsbeutel', label: 'Beatmungsbeutel' },
+    { moduleId: 'rettungstechnik', itemId: 'notfallrucksack-checkliste', label: 'Notfallrucksack & Checkliste' },
   ],
   'Einsatz & Organisation': [
     { moduleId: 'sanitaetsdienst', itemId: 'wachdienst-organisation', label: 'Sanitätswachdienst-Organisation' },

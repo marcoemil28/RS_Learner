@@ -283,11 +283,22 @@ relevant.
   Bundeslandspezifische rechtliche Rahmenbedingungen (Unterbringung gegen
   den eigenen Willen, Todesfeststellung) sind je Eintrag vermerkt.
 
+### ✅ Rettungstechnik & Gerätekunde
+
+- 6 Themen in 4 Kategorien: **Transport & Trageformen** (Rautekgriff,
+  Tragestuhl, Schaufeltrage, Vakuummatratze), **Lagerungsarten** (stabile
+  Seitenlage, Schocklage, Oberkörperhochlagerung, Knierolle — jeweils mit
+  Indikation), **Atemwege & Beatmung** (Sauerstoffgabe, Absaugung &
+  Atemwegshilfen mit Guedel-/Wendl-Tubus, Beatmungsbeutel),
+  **Gerätekunde** (Notfallrucksack-Inhalt & Vollständigkeitsprüfung).
+- Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+  Konkrete Geräte und Checklisten können je nach Organisation/Fahrzeugtyp
+  abweichen.
+
 ### 🔜 Geplant
 
 Aktuell keine Platzhalter-Module offen — siehe `docs/vorgaben_und_inhalte.txt`
-für weitere Ideen (Rettungstechnik & Gerätekunde, Rechtliche Grundlagen,
-generalisierter Quiz-Modus, …).
+für weitere Ideen (Rechtliche Grundlagen, generalisierter Quiz-Modus, …).
 
 ## Architektur
 
@@ -371,6 +382,11 @@ src/
       data.ts             # 5 Themen: Psychiatrische Notfälle, Kommunikation,
                           #   Sterben & Todesfeststellung, Großschadenslagen
       PsychiatrieNotfaelleModule.tsx  # Detailansicht mit Fakten je Sektion
+    rettungstechnik/
+      types.ts           # Datenmodell (RettungstechnikTopic/-Section/-Fact, je mit minLevel)
+      data.ts             # 6 Themen: Trageformen, Lagerungsarten, Atemwege & Beatmung,
+                          #   Gerätekunde (Notfallrucksack)
+      RettungstechnikModule.tsx  # Detailansicht mit Fakten je Sektion
   App.tsx                 # App-Shell: nach Thema gruppierte Sidebar, globale Suche, aktives Modul
 src-tauri/                # Rust-Backend (Tauri), native Fenster/Bundling
 docs/                    # Quell-PDFs/Unterlagen, aus denen Inhalte extrahiert werden

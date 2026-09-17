@@ -9,6 +9,7 @@ import { SANITAETSDIENST_THEMEN } from '../modules/sanitaetsdienst/data';
 import { INTERNISTISCHE_NOTFAELLE_THEMEN } from '../modules/internistischenotfaelle/data';
 import { PAEDIATRIE_THEMEN } from '../modules/paediatrie/data';
 import { PSYCHIATRIENOTFAELLE_THEMEN } from '../modules/psychiatrienotfaelle/data';
+import { RETTUNGSTECHNIK_THEMEN } from '../modules/rettungstechnik/data';
 import { MODULES } from './registry';
 
 export interface SearchItem {
@@ -148,6 +149,17 @@ const RAW_INDEX: RawSearchItem[] = [
       moduleId: 'psychiatrienotfaelle',
       moduleTitle: 'Psychiatrische Notfälle & Kommunikation',
       icon: '🧠',
+      itemId: t.id,
+      haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
+    })
+  ),
+  ...RETTUNGSTECHNIK_THEMEN.map(
+    (t): RawSearchItem => ({
+      key: `rettungstechnik:${t.id}`,
+      title: t.title,
+      moduleId: 'rettungstechnik',
+      moduleTitle: 'Rettungstechnik & Gerätekunde',
+      icon: '🎒',
       itemId: t.id,
       haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
     })

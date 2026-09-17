@@ -11,6 +11,23 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.19.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Neues Modul „Rettungstechnik & Gerätekunde"** (aus
+  `docs/vorgaben_und_inhalte.txt` Abschnitt 2), erscheint in der Sidebar
+  unter „Diagnostik & Training": 6 Themen in 4 Kategorien —
+  - Transport & Trageformen: Rautekgriff, Tragestuhl, Schaufeltrage,
+    Vakuummatratze
+  - Lagerungsarten: stabile Seitenlage, Schocklage, Oberkörperhochlagerung,
+    Knierolle, jeweils mit Indikation
+  - Atemwege & Beatmung: Sauerstoffgabe (Systeme/Flussraten), Absaugung &
+    Atemwegshilfen (Guedel-/Wendl-Tubus), Beatmungsbeutel
+  - Gerätekunde: Notfallrucksack-Inhalt & Vollständigkeitsprüfung
+  - Allgemeines rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+- Fahrplan und Suchindex um die neuen Inhalte ergänzt.
+
 ## [0.18.0] – 2026-09-17
 
 ### Hinzugefügt

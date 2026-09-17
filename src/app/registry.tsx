@@ -10,6 +10,7 @@ import { SanitaetsdienstModule } from '../modules/sanitaetsdienst/Sanitaetsdiens
 import { InternistischeNotfaelleModule } from '../modules/internistischenotfaelle/InternistischeNotfaelleModule';
 import { PaediatrieModule } from '../modules/paediatrie/PaediatrieModule';
 import { PsychiatrieNotfaelleModule } from '../modules/psychiatrienotfaelle/PsychiatrieNotfaelleModule';
+import { RettungstechnikModule } from '../modules/rettungstechnik/RettungstechnikModule';
 
 /**
  * Thematische Kategorien für die Sidebar-Gruppierung. Ersetzt die frühere
@@ -145,5 +146,13 @@ export const MODULES: LearningModule[] = [
     status: 'available',
     component: PsychiatrieNotfaelleModule,
     category: 'Krankheitsbilder & Algorithmen',
+  },
+  {
+    id: 'rettungstechnik',
+    title: 'Rettungstechnik & Gerätekunde',
+    icon: '🎒',
+    status: 'available',
+    component: RettungstechnikModule,
+    category: 'Diagnostik & Training',
   },
 ];
