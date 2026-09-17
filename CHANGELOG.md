@@ -11,6 +11,36 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/)
 
 Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
 
+## [0.10.0] – 2026-09-17
+
+### Hinzugefügt
+
+- **Traumatologie & Verbandslehre-Modul** (neu, Priorität 4 aus
+  `docs/vorgaben_und_inhalte.txt`) mit 7 Themen: Frakturlehre,
+  Wundversorgung, Verbandslehre (Druckverband/Dreiecktuch/Schienung),
+  Wirbelsäulentrauma & Immobilisation, Thorax-/Abdominaltrauma,
+  Verbrennungen (mit Verweis auf die Neuner-Regel im Werkzeuge-Modul),
+  Polytrauma & kritische Blutungen (Tourniquet). Allgemeines
+  rettungsdienstliches Grundlagenwissen, keine SAA/BPR-Quelle.
+- In den "Fahrplan" auf der Startseite eingehängt (SanH: Frakturlehre/
+  Wundversorgung/Verbandslehre/Verbrennungen; RS: Wirbelsäulentrauma/
+  Thorax-Abdominaltrauma/Polytrauma) und in die globale Suche
+  aufgenommen.
+- Der Verbandslehre-Eintrag markiert explizit, dass er sich als nächster
+  Ausbaustand für einen interaktiven Schritt-für-Schritt-Übungsmodus
+  eignet (im Stil des Elektroden-Trainers) — bewusst als Referenztext
+  begonnen, da die interaktive Variante ein neues UI-Pattern braucht und
+  nicht überstürzt werden sollte.
+
+## [0.9.1] – 2026-09-17
+
+### Hinzugefügt
+
+- Versionsnummer wird jetzt in der Sidebar neben dem Logo angezeigt
+  ("SanWissen v0.9.1") — automatisch aus `package.json` übernommen
+  (`vite.config.ts` injiziert `__APP_VERSION__` als Build-Konstante),
+  keine manuelle Pflege an zweiter Stelle nötig.
+
 ## [0.9.0] – 2026-09-17
 
 ### Hinzugefügt

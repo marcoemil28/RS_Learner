@@ -23,6 +23,10 @@ export const ROADMAP: Record<QualificationLevel, RoadmapEntry[]> = {
     { moduleId: 'algorithmen', itemId: 'reanimation-erwachsene', label: 'Reanimation Erwachsene (Basismaßnahmen)' },
     { moduleId: 'algorithmen', itemId: 'reanimation-kinder', label: 'Reanimation Kinder (Basismaßnahmen)' },
     { moduleId: 'werkzeuge', itemId: 'schmerzskala', label: 'Schmerzskala (NRS/VAS)' },
+    { moduleId: 'traumatologie', itemId: 'frakturlehre', label: 'Frakturlehre' },
+    { moduleId: 'traumatologie', itemId: 'wundversorgung', label: 'Wundversorgung' },
+    { moduleId: 'traumatologie', itemId: 'verbandslehre', label: 'Verbandslehre (Druckverband, Dreiecktuch)' },
+    { moduleId: 'traumatologie', itemId: 'verbrennungen', label: 'Verbrennungen' },
   ],
   RS: [
     { moduleId: 'ekg', itemId: 'sinus-normal', label: 'EKG-Rhythmuserkennung' },
@@ -36,6 +40,9 @@ export const ROADMAP: Record<QualificationLevel, RoadmapEntry[]> = {
     { moduleId: 'werkzeuge', itemId: 'naca', label: 'NACA-Score' },
     { moduleId: 'werkzeuge', itemId: 'apgar', label: 'APGAR-Score' },
     { moduleId: 'werkzeuge', itemId: 'neuner-regel', label: 'Neuner-Regel' },
+    { moduleId: 'traumatologie', itemId: 'wirbelsaeulentrauma', label: 'Wirbelsäulentrauma & Immobilisation' },
+    { moduleId: 'traumatologie', itemId: 'thorax-abdominaltrauma', label: 'Thorax- und Abdominaltrauma' },
+    { moduleId: 'traumatologie', itemId: 'polytrauma-blutstillung', label: 'Polytrauma & kritische Blutungen (Tourniquet)' },
   ],
   NotSan: [
     { moduleId: 'algorithmen', itemId: 'atemwegsmanagement', label: 'Atemwegsmanagement (erweiterte Maßnahmen)' },

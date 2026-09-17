@@ -109,6 +109,17 @@ ul {
   font-size: 1.4em;
 }
 
+.app-brand-version {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  background-color: var(--bg-panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15em 0.55em;
+  margin-left: auto;
+}
+
 .global-search {
   position: relative;
   padding: 0 0.5em 0.75em 0.5em;

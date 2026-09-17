@@ -1,0 +1,289 @@
+import type { TraumaTopic } from './types';
+
+const GENERAL_SOURCE_NOTE =
+  'Allgemeines rettungsdienstliches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). ' +
+  'Konkrete Vorgehensweisen (z. B. Immobilisationsumfang, Tourniquet-Freigabe) können je nach ' +
+  'Rettungsdienstbereich/aktueller Leitlinie variieren — es gilt deine lokale Ausbildungs-/Dienstordnung.';
+
+export const TRAUMA_THEMEN: TraumaTopic[] = [
+  {
+    id: 'frakturlehre',
+    title: 'Frakturlehre',
+    category: 'Frakturen & Wunden',
+    minLevel: 'SanH',
+    summary: 'Frakturarten erkennen, sichere von unsicheren Frakturzeichen unterscheiden, richtig ruhigstellen.',
+    sections: [
+      {
+        heading: 'Frakturarten',
+        facts: [
+          { text: 'Geschlossene Fraktur: Haut über der Bruchstelle intakt', minLevel: 'SanH' },
+          {
+            text: 'Offene Fraktur: Wunde reicht bis zum Knochen — deutlich erhöhtes Infektionsrisiko',
+            minLevel: 'SanH',
+          },
+          { text: 'Grünholzfraktur: unvollständiger Bruch, v. a. bei Kindern (Knochen noch elastischer)', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Unsichere Frakturzeichen',
+        facts: [{ text: 'Schmerz, Schwellung, Bewegungseinschränkung, Hämatom (Bluterguss)', minLevel: 'SanH' }],
+      },
+      {
+        heading: 'Sichere Frakturzeichen',
+        facts: [
+          { text: 'Sichtbare Fehlstellung', minLevel: 'SanH' },
+          { text: 'Abnorme Beweglichkeit außerhalb eines Gelenks', minLevel: 'RS' },
+          { text: 'Krepitation (Knochenreiben) — nicht aktiv prüfen, nur falls zufällig bemerkt', minLevel: 'RS' },
+          { text: 'Sichtbare Knochenfragmente (bei offener Fraktur)', minLevel: 'SanH' },
+        ],
+      },
+      {
+        heading: 'Erstmaßnahmen',
+        facts: [
+          {
+            text: 'DMS-Kontrolle (Durchblutung, Motorik, Sensibilität) distal der Verletzung — vor UND nach jeder Maßnahme',
+            minLevel: 'RS',
+          },
+          { text: 'Ruhigstellung in der vorgefundenen Stellung — nicht reponieren (nicht gewaltsam richten)!', minLevel: 'SanH' },
+          { text: 'Bei offener Fraktur: steril abdecken statt reponieren, Knochenfragmente nicht zurückschieben', minLevel: 'SanH' },
+          { text: 'Indirekt kühlen (nie direkt Eis auf die Haut) zur Schmerz-/Schwellungslinderung', minLevel: 'SanH' },
+          { text: 'Grundsatz der Schienung: jeweils ein Gelenk oberhalb UND unterhalb der Fraktur mit ruhigstellen', minLevel: 'RS' },
+        ],
+      },
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'wundversorgung',
+    title: 'Wundversorgung',
+    category: 'Frakturen & Wunden',
+    minLevel: 'SanH',
+    summary: 'Wundarten unterscheiden und die wichtigsten Grundprinzipien der Erstversorgung.',
+    sections: [
+      {
+        heading: 'Wundarten',
+        facts: [
+          { text: 'Schnittwunde: glatte Wundränder, meist durch scharfe Gegenstände', minLevel: 'SanH' },
+          { text: 'Platzwunde: unregelmäßige Wundränder durch stumpfe Gewalt (z. B. Sturz auf Kante)', minLevel: 'SanH' },
+          { text: 'Schürfwunde: oberflächliche Hautabschürfung', minLevel: 'SanH' },
+          { text: 'Stichwunde: kleine äußere Öffnung, potenziell tiefer innerer Verlauf/Organbeteiligung', minLevel: 'RS' },
+          { text: 'Quetschwunde: durch Quetschung, oft mit Gewebeschädigung in der Umgebung', minLevel: 'RS' },
+          { text: 'Bisswunde: erhöhtes Infektionsrisiko durch Keime im Speichel', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Grundprinzipien der Erstversorgung',
+        facts: [
+          { text: 'Wunde steril abdecken, im Rahmen der Erstversorgung nicht auswaschen oder desinfizieren', minLevel: 'SanH' },
+          { text: 'Fremdkörper in der Wunde belassen und ringförmig umpolstern — niemals herausziehen', minLevel: 'SanH' },
+          { text: 'Schmuck/einengende Gegenstände nahe der Verletzung frühzeitig entfernen (vor Schwellung)', minLevel: 'SanH' },
+        ],
+      },
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'verbandslehre',
+    title: 'Verbandslehre (Druckverband, Dreiecktuch, Schienung)',
+    category: 'Verbandslehre',
+    minLevel: 'SanH',
+    summary: 'Die klassischen Verbandstechniken Schritt für Schritt — Grundlage für einen künftigen interaktiven Übungsmodus.',
+    sections: [
+      {
+        heading: 'Druckverband (bei stärkerer Blutung)',
+        facts: [
+          { text: '1. Sterile Wundauflage direkt auf die Wunde legen', minLevel: 'SanH' },
+          { text: '2. Druckpolster (z. B. unbenutztes Verbandpäckchen) darauf platzieren', minLevel: 'SanH' },
+          { text: '3. Mit einer Fixierbinde straff umwickeln, sodass Druck auf der Wunde bleibt', minLevel: 'SanH' },
+          { text: '4. DMS-Kontrolle distal des Verbands durchführen', minLevel: 'RS' },
+          {
+            text: 'Blutet der Verband durch: NICHT abnehmen, sondern einen weiteren Druckverband darüber anlegen',
+            minLevel: 'SanH',
+          },
+        ],
+      },
+      {
+        heading: 'Dreiecktuch-Anwendungen',
+        facts: [
+          { text: 'Armtragetuch: Ruhigstellung von Verletzungen an Arm oder Schulter', minLevel: 'SanH' },
+          { text: 'Kopfverband: Fixierung von Wundauflagen am Kopf', minLevel: 'SanH' },
+          { text: 'Fixierbinde-Ersatz: kann großflächige Wundauflagen provisorisch fixieren', minLevel: 'SanH' },
+        ],
+      },
+      {
+        heading: 'Schienung',
+        facts: [
+          { text: 'Vakuumschiene: formbar anlegen, dann Luft absaugen — wird dadurch stabil/starr', minLevel: 'RS' },
+          { text: 'Grundsatz: immer ein Gelenk oberhalb und unterhalb der Verletzung mit ruhigstellen', minLevel: 'SanH' },
+        ],
+      },
+    ],
+    notes: [
+      'Laut Roadmap als nächster Ausbaustand geeignet für einen interaktiven „Übungsmodus" im Stil des ' +
+        'Elektroden-Trainers (Schritt-für-Schritt mit Feedback) — aktuell als Referenztext hinterlegt.',
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'wirbelsaeulentrauma',
+    title: 'Wirbelsäulentrauma & Immobilisation',
+    category: 'Schwere Verletzungen',
+    minLevel: 'RS',
+    summary: 'Verdachtsmomente für ein Wirbelsäulentrauma und die gängigen Immobilisationstechniken.',
+    sections: [
+      {
+        heading: 'Verdachtsmomente',
+        facts: [
+          { text: 'Unfallmechanismus: Sturz aus der Höhe, Hochrasanztrauma, Kopfsprung ins Wasser', minLevel: 'RS' },
+          { text: 'Rückenschmerz im Bereich der Wirbelsäule', minLevel: 'SanH' },
+          { text: 'Neurologische Ausfälle: Kribbeln, Lähmungserscheinungen, Sensibilitätsverlust', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Immobilisationstechniken',
+        facts: [
+          { text: 'Manuelle Inline-Stabilisation des Kopfes: als erste Maßnahme und durchgehend bis zur Übergabe', minLevel: 'RS' },
+          { text: 'Zervikalstütze (HWS-Immobilisationskragen) zur Unterstützung der manuellen Stabilisation', minLevel: 'RS' },
+          {
+            text: 'Log-Roll-Manöver: achsengerechte 90°-en-bloc-Drehung mit mindestens 3 Helfenden, u. a. zur Rückenuntersuchung',
+            minLevel: 'RS',
+          },
+          { text: 'Schaufeltrage zum schonenden Umlagern', minLevel: 'RS' },
+          { text: 'Vakuummatratze zur Ganzkörperimmobilisation für den Transport', minLevel: 'RS' },
+        ],
+      },
+    ],
+    notes: [
+      'Aktuelle Leitlinien differenzieren zunehmend, wann eine vollständige Immobilisation tatsächlich ' +
+        'erforderlich ist — nicht jeder Verdachtsfall braucht das volle Programm. Vorgehen ist regional/' +
+        'schulungsabhängig unterschiedlich geregelt.',
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'thorax-abdominaltrauma',
+    title: 'Thorax- und Abdominaltrauma',
+    category: 'Schwere Verletzungen',
+    minLevel: 'RS',
+    summary: 'Der offene Pneumothorax, Warnzeichen für einen Spannungspneumothorax und das offene Abdominaltrauma.',
+    sections: [
+      {
+        heading: 'Offener Pneumothorax',
+        facts: [
+          {
+            text: 'Durchgängige Verletzung der Thoraxwand — bei Einatmung strömt Luft hörbar in den Pleuraspalt ("saugende Wunde")',
+            minLevel: 'RS',
+          },
+          {
+            text: 'Versorgung: dreiseitig okklusiver Verband (eine Seite offen lässt Luft beim Ausatmen entweichen, verhindert Ventilmechanismus)',
+            minLevel: 'RS',
+          },
+          { text: 'Nach Anlage weiter auf Zeichen eines Spannungspneumothorax beobachten', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Spannungspneumothorax – Warnzeichen',
+        facts: [
+          { text: 'Zunehmende, schwere Atemnot', minLevel: 'RS' },
+          { text: 'Einseitig fehlendes oder abgeschwächtes Atemgeräusch', minLevel: 'RS' },
+          { text: 'Gestaute Halsvenen, (spät) Verlagerung der Luftröhre zur Gegenseite', minLevel: 'RS' },
+          { text: 'Kreislaufinstabilität bis zum Kreislaufstillstand', minLevel: 'RS' },
+          { text: 'Zeitkritisch — Therapie (Entlastungspunktion) ist NotSan-Kompetenz nach Delegation', minLevel: 'NotSan' },
+        ],
+      },
+      {
+        heading: 'Abdominaltrauma',
+        facts: [
+          { text: 'Verdacht bei stumpfem oder penetrierendem Bauchtrauma, Abwehrspannung, sichtbaren Prellmarken', minLevel: 'RS' },
+          {
+            text: 'Bei offener Bauchdecke mit Organvorfall: Organe NICHT zurückverlagern, nur feucht und steril abdecken',
+            minLevel: 'RS',
+          },
+        ],
+      },
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'verbrennungen',
+    title: 'Verbrennungen',
+    category: 'Verbrennungen',
+    minLevel: 'SanH',
+    summary: 'Gradeinteilung von Verbrennungen und die wichtigsten Erstmaßnahmen.',
+    sections: [
+      {
+        heading: 'Gradeinteilung',
+        facts: [
+          { text: 'Grad 1: Rötung, schmerzhaft, keine Blasen (z. B. Sonnenbrand) — heilt folgenlos ab', minLevel: 'SanH' },
+          { text: 'Grad 2a: Blasenbildung, Wundgrund rosig, sehr schmerzhaft', minLevel: 'RS' },
+          { text: 'Grad 2b: Blasenbildung, Wundgrund blasser, weniger schmerzhaft — tiefere Schädigung', minLevel: 'RS' },
+          { text: 'Grad 3: weißlich-lederartig oder verkohlt, schmerzlos (Nervenenden zerstört)', minLevel: 'RS' },
+          { text: 'Grad 4: Verkohlung auch tieferer Strukturen (Muskeln, Knochen)', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Erstmaßnahmen',
+        facts: [
+          { text: 'Brandursache stoppen: Kleidung löschen, aus dem Gefahrenbereich bringen (Eigenschutz beachten)', minLevel: 'SanH' },
+          {
+            text: 'Nur kleinflächige Verbrennungen zeitnah kühlen — bei großflächigen Verbrennungen und bei Kindern Auskühlung (Hypothermie) vermeiden!',
+            minLevel: 'SanH',
+          },
+          { text: 'Steril bzw. keimarm abdecken (z. B. Brandwundenverbandtuch)', minLevel: 'SanH' },
+          { text: 'Keine Hausmittel verwenden (Mehl, Öl, Zahnpasta o. Ä.)', minLevel: 'SanH' },
+          { text: 'Schmuck/Kleidung im betroffenen Bereich entfernen, solange nicht festgeklebt', minLevel: 'SanH' },
+        ],
+      },
+    ],
+    notes: ['Zur Flächenabschätzung siehe Werkzeuge & Scores: Neuner-Regel.'],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+  {
+    id: 'polytrauma-blutstillung',
+    title: 'Polytrauma & kritische Blutungen (Tourniquet)',
+    category: 'Polytrauma & Blutstillung',
+    minLevel: 'RS',
+    summary: 'Definition Polytrauma, das Stufenschema der Blutstillung und die korrekte Tourniquet-Anwendung.',
+    sections: [
+      {
+        heading: 'Polytrauma',
+        facts: [
+          {
+            text: 'Mehrere gleichzeitige Verletzungen, von denen mindestens eine oder deren Kombination lebensbedrohlich ist',
+            minLevel: 'RS',
+          },
+          { text: 'Versorgung nach cABCDE-Schema — kritische Blutung (c) wird zuerst behandelt', minLevel: 'RS' },
+          { text: 'Load-and-go-Prinzip: kurze Versorgungszeit vor Ort bei zeitkritischen Verletzungen anstreben', minLevel: 'RS' },
+        ],
+      },
+      {
+        heading: 'Stufenschema der Blutstillung',
+        facts: [
+          { text: '1. Manuelle Kompression der Blutungsquelle', minLevel: 'SanH' },
+          { text: '2. Wunddruckverband', minLevel: 'SanH' },
+          {
+            text: '3. Bei unstillbarer Extremitätenblutung (z. B. Amputationsverletzung): Tourniquet',
+            minLevel: 'RS',
+          },
+        ],
+      },
+      {
+        heading: 'Tourniquet-Anwendung',
+        facts: [
+          { text: 'So weit proximal wie nötig, so distal wie möglich anlegen', minLevel: 'RS' },
+          {
+            text: 'Straff genug anziehen, bis die Blutung sicher sistiert — nur venöse Stauung verschlimmert die Blutung',
+            minLevel: 'RS',
+          },
+          { text: 'Anlagezeitpunkt (Uhrzeit) gut sichtbar dokumentieren (z. B. auf dem Tourniquet selbst)', minLevel: 'RS' },
+          { text: 'Kein routinemäßiges Öffnen/Lockern durch nachfolgendes Personal ohne ärztliche Rücksprache', minLevel: 'RS' },
+        ],
+      },
+    ],
+    sourceNote: GENERAL_SOURCE_NOTE,
+  },
+];
+
+export function getTraumaTopicById(id: string): TraumaTopic | undefined {
+  return TRAUMA_THEMEN.find((t) => t.id === id);
+}

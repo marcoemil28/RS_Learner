@@ -42,6 +42,7 @@ function AppShell() {
         <div className="app-brand">
           <span className="app-brand-icon">🚑</span>
           <span>SanWissen</span>
+          <span className="app-brand-version">v{__APP_VERSION__}</span>
         </div>
 
         <GlobalSearch onNavigate={setActiveId} />

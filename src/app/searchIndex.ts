@@ -3,6 +3,7 @@ import { MEDIKAMENTE } from '../modules/medikamente/data';
 import { ALGORITHMEN } from '../modules/algorithmen/data';
 import { ANATOMIE_THEMEN } from '../modules/anatomie/data';
 import { TOOLS } from '../modules/werkzeuge/data';
+import { TRAUMA_THEMEN } from '../modules/traumatologie/data';
 import type { QualificationLevel } from './levels';
 
 export interface SearchItem {
@@ -77,6 +78,18 @@ const INDEX: SearchItem[] = [
       itemId: t.id,
       minLevel: t.minLevel,
       haystack: [t.title, t.description, t.category].join(' ').toLowerCase(),
+    })
+  ),
+  ...TRAUMA_THEMEN.map(
+    (t): SearchItem => ({
+      key: `traumatologie:${t.id}`,
+      title: t.title,
+      moduleId: 'traumatologie',
+      moduleTitle: 'Traumatologie & Verbandslehre',
+      icon: '🩹',
+      itemId: t.id,
+      minLevel: t.minLevel,
+      haystack: [t.title, t.summary, ...t.sections.flatMap((s) => s.facts.map((f) => f.text))].join(' ').toLowerCase(),
     })
   ),
 ];
