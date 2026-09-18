@@ -27,6 +27,7 @@ Accounts, keine Cloud.
 - [Eigene Inhalte einpflegen](#eigene-inhalte-einpflegen--korrigieren)
 - [Neues Lernmodul hinzufügen](#neues-lernmodul-hinzufügen-zb-saabpr)
 - [Builds für macOS & Windows](#builds-für-macos--windows)
+- [Mobile (iOS & Android)](#mobile-ios--android)
 - [Fehlerbehebung](#fehlerbehebung)
 - [Roadmap](#roadmap)
 
@@ -392,6 +393,10 @@ Ebenfalls fest oben in der Sidebar angepinnt.
 Aktuell keine Platzhalter-Module offen. Aus `docs/vorgaben_und_inhalte.txt`
 bleibt noch aus Abschnitt 3: eigene Notizen zu Einträgen.
 
+Mobile-Version: iOS in Arbeit (Swift/Xcode-Projekt via Tauri), Android
+noch offen — siehe Abschnitt [Mobile (iOS & Android)](#mobile-ios--android)
+für den Umsetzungsweg.
+
 ## Architektur
 
 ```
@@ -614,6 +619,75 @@ einmal bestätigen reicht. Für eine unauffällige Installation später wäre
 ein Apple Developer Account (99 $/Jahr, für Code-Signing + Notarisierung)
 und ein Windows-Codesigning-Zertifikat nötig — für eine erste Testversion
 nicht notwendig.
+
+## Mobile (iOS & Android)
+
+Tauri 2 unterstützt iOS und Android nativ aus derselben Codebasis wie
+Desktop — kein separates Rewrite nötig. Der Mobile-Entry-Point
+(`#[cfg_attr(mobile, tauri::mobile_entry_point)]` in
+`src-tauri/src/lib.rs`) und das passende `crate-type` in
+`src-tauri/Cargo.toml` sind aus dem Standard-Tauri-Template bereits
+vorhanden.
+
+### iOS
+
+Wird aktuell von einem Kollegen umgesetzt: Tauri generiert dafür per
+`npm run tauri ios init` ein natives Xcode/Swift-Projekt unter
+`src-tauri/gen/apple/`, das mit `npm run tauri ios dev` bzw.
+`npm run tauri ios build` bespielt wird (Xcode + Apple Developer Account
+für Gerätetests/Signing nötig).
+
+### Android
+
+Läuft analog zu iOS, nur mit Android-Studio/Kotlin/Gradle statt
+Xcode/Swift:
+
+**Voraussetzungen:**
+
+- [Android Studio](https://developer.android.com/studio) (inkl. Android
+  SDK, empfohlen aktuelles API-Level)
+- Android NDK (über Android Studio → SDK Manager → SDK Tools installierbar)
+- JDK 17+
+- Umgebungsvariablen `ANDROID_HOME` und `NDK_HOME` gesetzt (Android
+  Studio zeigt die passenden Pfade unter SDK Manager an)
+
+**Einmalig initialisieren:**
+
+```bash
+npm run tauri android init
+```
+
+Generiert `src-tauri/gen/android/` (Gradle-Projekt) — das Android-Pendant
+zu `src-tauri/gen/apple/`.
+
+**Entwickeln** (Hot-Reload auf Emulator oder angeschlossenem Gerät):
+
+```bash
+npm run tauri android dev
+```
+
+**Release-Build** (APK/AAB):
+
+```bash
+npm run tauri android build
+```
+
+Ergebnis liegt unter
+`src-tauri/gen/android/app/build/outputs/apk/` bzw. `.../bundle/`.
+
+**Signing:** Für eine erste Testversion reicht die unsignierte/
+Debug-APK zum direkten Sideload (z. B. per Link teilen, „Installation aus
+unbekannten Quellen" auf dem Testgerät erlauben) — analog zu den
+unsignierten macOS/Windows-Testbuilds oben. Für eine Play-Store-
+Veröffentlichung später braucht es einen Keystore zum Signieren (siehe
+[Tauri-Doku: Android Signing](https://tauri.app/distribute/sign/android/)).
+
+**CI:** `.github/workflows/release.yml` deckt bisher nur macOS/Windows
+ab. Ein Android-Build ließe sich als zusätzlicher Job (`runs-on:
+ubuntu-latest`, plus Android-SDK/NDK-Setup-Action und
+`npm run tauri android build` statt `tauri-apps/tauri-action`, da dessen
+Mobile-Unterstützung noch eingeschränkter ist als für Desktop) ergänzen,
+sobald der Android-Teil so weit ist.
 
 ## Fehlerbehebung
 

@@ -7,7 +7,9 @@ Versionierung angelehnt an [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unreleased]
 
-Nichts geplant Offenes aktuell außerhalb der Roadmap in der README.
+- **README**: neuer Abschnitt „Mobile (iOS & Android)" mit dem
+  Umsetzungsweg für native Mobile-Builds über Tauri 2 (iOS in Arbeit,
+  Android-Vorgehen dokumentiert, CI aktuell nur macOS/Windows).
 
 ## [1.0.0] – 2026-09-17
 
