@@ -6,7 +6,7 @@ import { KopfverbandIllustration } from './illustrations/KopfverbandIllustration
 const GENERAL_SOURCE_NOTE =
   'Allgemeines rettungsdienstliches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). ' +
   'Konkrete Vorgehensweisen (z. B. Immobilisationsumfang, Tourniquet-Freigabe) können je nach ' +
-  'Rettungsdienstbereich/aktueller Leitlinie variieren — es gilt deine lokale Ausbildungs-/Dienstordnung.';
+  'Rettungsdienstbereich/aktueller Leitlinie variieren. Es gilt deine lokale Ausbildungs-/Dienstordnung.';
 
 const DLRG_SOURCE_NOTE =
   'Abbildungen und Handlungsabläufe aus den DLRG-Teilnehmerunterlagen Sanitätsausbildung A (2021) und B (2021). ' +
@@ -210,7 +210,7 @@ export const TRAUMA_THEMEN: TraumaTopic[] = [
     ],
     notes: [
       'Aktuelle Leitlinien differenzieren zunehmend, wann eine vollständige Immobilisation tatsächlich ' +
-        'erforderlich ist — nicht jeder Verdachtsfall braucht das volle Programm. Vorgehen ist regional/' +
+        'erforderlich ist. Nicht jeder Verdachtsfall braucht das volle Programm. Vorgehen ist regional/' +
         'schulungsabhängig unterschiedlich geregelt.',
     ],
     sourceNote: GENERAL_SOURCE_NOTE,

@@ -2,9 +2,9 @@ import type { InternistischeNotfaelleTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
   'Allgemeines rettungsdienstliches Grundlagenwissen zur Erkennung und Erstversorgung internistischer ' +
-  'Notfälle — keine SAA/BPR-Quelle. Medikamentöse Therapie (z. B. ASS/Nitro bei ACS, Glucose i.v. bei ' +
+  'Notfälle. Keine SAA/BPR-Quelle. Medikamentöse Therapie (z. B. ASS/Nitro bei ACS, Glucose i.v. bei ' +
   'Hypoglykämie, Adrenalin bei Anaphylaxie, Naloxon bei Opioid-Überdosierung) ist, sofern invasiv oder ' +
-  'verschreibungspflichtig, ärztlich delegierte NotSan-Kompetenz — siehe Medikamente-Modul.';
+  'verschreibungspflichtig, ärztlich delegierte NotSan-Kompetenz, siehe Medikamente-Modul.';
 
 /** Zuletzt inhaltlich geprüft/aktualisiert. */
 export const CONTENT_STAND = '2026-09-17';
@@ -119,7 +119,7 @@ export const INTERNISTISCHE_NOTFAELLE_THEMEN: InternistischeNotfaelleTopic[] = [
         ],
       },
     ],
-    notes: ['"Time is brain" — jede Verzögerung verschlechtert die Prognose, daher zügiges, aber sicheres Vorgehen.'],
+    notes: ['"Time is brain". Jede Verzögerung verschlechtert die Prognose, daher zügiges, aber sicheres Vorgehen.'],
     sourceNote: GENERAL_SOURCE_NOTE,
   },
   {

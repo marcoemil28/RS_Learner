@@ -38,7 +38,7 @@
           "text": "Inventarliste mit Ist-Bestand abgeglichen?"
         }
       ],
-      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Rettungstechnik-Modul: „Notfallrucksack & Checkliste\"."
+      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Rettungstechnik-Modul: „Notfallrucksack & Checkliste\"."
     },
     {
       "id": "reanimation-erwachsene-ablauf",
@@ -78,7 +78,7 @@
           "text": "AED sobald verfügbar angelegt?"
         }
       ],
-      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Algorithmen-Modul: „Reanimation Erwachsene (BLS → ALS)\"."
+      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Algorithmen-Modul: „Reanimation Erwachsene (BLS → ALS)\"."
     },
     {
       "id": "manv-sichtung-ablauf",
@@ -118,7 +118,7 @@
           "text": "Nachsichtung eingeplant?"
         }
       ],
-      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Sanitätsdienst-Modul: „MANV & Sichtung (Triage)\"."
+      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Sanitätsdienst-Modul: „MANV & Sichtung (Triage)\"."
     },
     {
       "id": "notgeburt-ablauf-checkliste",
@@ -170,7 +170,7 @@
           "text": "Fundusstand/Blutungsmenge der Mutter beobachtet?"
         }
       ],
-      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Pädiatrie-Modul: „Notgeburt — Ablauf für den Sanitätsdienst\"."
+      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Pädiatrie-Modul: „Notgeburt — Ablauf für den Sanitätsdienst\"."
     },
     {
       "id": "uebergabe-sinnhaft-checkliste",
@@ -210,7 +210,7 @@
           "text": "T – Raum für Teamfragen gegeben?"
         }
       ],
-      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Algorithmen-Modul: „Übergabe – SINNHAFT\"."
+      "sourceNote": "Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort. Siehe Algorithmen-Modul: „Übergabe – SINNHAFT\"."
     }
   ]
 }

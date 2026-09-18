@@ -26,7 +26,7 @@
       "besonderheiten": "• Wirkeintritt: nach 10 - 15 min\n• Wirkdauer: Tage (Lebensdauer der Thrombozyten)",
       "besondereHinweise": "• für die i.v.-Gabe Herstellerangaben beachten",
       "page": 43,
-      "wirkung": "Hemmt die Verklumpung der Blutplättchen (Thrombozytenaggregation) und wirkt dadurch gerinnungshemmend – verhindert, dass ein Blutgerinnsel im Herzkranzgefäß weiterwächst.",
+      "wirkung": "Hemmt die Verklumpung der Blutplättchen (Thrombozytenaggregation) und wirkt dadurch gerinnungshemmend. Verhindert, dass ein Blutgerinnsel im Herzkranzgefäß weiterwächst.",
       "minLevel": "NotSan"
     },
     {
@@ -146,7 +146,7 @@
       "besonderheiten": "• sehr kurze Halbwertszeit\n• Interaktionen: Abschwächung der Epinephrin-Wirkung durch NaHCO3\n• nicht gleichzeitig mit NaHCO3 über einen Zugang geben",
       "besondereHinweise": null,
       "page": 49,
-      "wirkung": "Wirkt an Alpha- und Beta-Rezeptoren: verengt Blutgefäße, steigert Herzfrequenz und -kraft und erweitert die Bronchien – zentrales Medikament bei Reanimation, Anaphylaxie und instabiler Bradykardie.",
+      "wirkung": "Wirkt an Alpha- und Beta-Rezeptoren: verengt Blutgefäße, steigert Herzfrequenz und -kraft und erweitert die Bronchien. Zentrales Medikament bei Reanimation, Anaphylaxie und instabiler Bradykardie.",
       "minLevel": "NotSan"
     },
     {
@@ -166,7 +166,7 @@
       "besonderheiten": "• Cave: Ampullen mit unterschiedlichen Konzentrationen verfügbar\n• hohe Geräusch- und Lichtempfindlichkeit\n• Wirkeintritt nach ca. 1 min, Wirkdauer ca. 20 min\n• bei Verwendung von Ketamin: Dosisverdoppelung",
       "besondereHinweise": null,
       "page": 50,
-      "wirkung": "Wirkt stark schmerzstillend (niedrig dosiert) bis narkotisierend (höher dosiert) und regt dabei – anders als viele andere Narkosemittel – den Kreislauf eher an, statt ihn zu dämpfen.",
+      "wirkung": "Wirkt stark schmerzstillend (niedrig dosiert) bis narkotisierend (höher dosiert) und regt dabei. Anders als viele andere Narkosemittel. Den Kreislauf eher an, statt ihn zu dämpfen.",
       "minLevel": "NotSan"
     },
     {
@@ -206,7 +206,7 @@
       "besonderheiten": "• Cave: Inkompatibilitäten (pH) →  keine Mischung und / oder gleichzeitige Injektion mit anderen\nSubstanzen\n• Wirkeintritt nach 2 - 15 min",
       "besondereHinweise": null,
       "page": 52,
-      "wirkung": "Schleifendiuretikum, entwässert stark und schnell über die Niere – entlastet das Herz bei Lungenödem durch Volumenreduktion.",
+      "wirkung": "Schleifendiuretikum, entwässert stark und schnell über die Niere. Entlastet das Herz bei Lungenödem durch Volumenreduktion.",
       "minLevel": "NotSan"
     },
     {
@@ -226,7 +226,7 @@
       "besonderheiten": "• Dokumentation der Charge erforderlich",
       "besondereHinweise": null,
       "page": 53,
-      "wirkung": "Körpereigenes Hormon, setzt Zuckerreserven aus der Leber frei (Glykogenolyse) und hebt dadurch den Blutzucker an – Alternative zu Glucose i.v., z. B. wenn kein venöser Zugang gelingt.",
+      "wirkung": "Körpereigenes Hormon, setzt Zuckerreserven aus der Leber frei (Glykogenolyse) und hebt dadurch den Blutzucker an. Alternative zu Glucose i.v., z. B. wenn kein venöser Zugang gelingt.",
       "minLevel": "NotSan"
     },
     {
@@ -246,7 +246,7 @@
       "besonderheiten": "• Cave: unterschiedliche Konzentrationen verfügbar\n• Alternativen lt. BPR „Hypoglykämie“ prüfen (Glucagon)",
       "besondereHinweise": null,
       "page": 54,
-      "wirkung": "Führt dem Körper direkt Traubenzucker zu und hebt den Blutzucker unmittelbar an – Therapie der Hypoglykämie.",
+      "wirkung": "Führt dem Körper direkt Traubenzucker zu und hebt den Blutzucker unmittelbar an. Therapie der Hypoglykämie.",
       "minLevel": "NotSan"
     },
     {
@@ -266,7 +266,7 @@
       "besonderheiten": "• Interaktionen: verstärkter Blutdruckabfall bei Vormedikation mit Antihypertensiva möglich\n• Cave: Reflextachykardie",
       "besondereHinweise": null,
       "page": 55,
-      "wirkung": "Organisches Nitrat, erweitert vor allem die venösen Gefäße, senkt dadurch die Vorlast des Herzens und den Blutdruck – entlastet das Herz bei Lungenödem/Angina pectoris.",
+      "wirkung": "Organisches Nitrat, erweitert vor allem die venösen Gefäße, senkt dadurch die Vorlast des Herzens und den Blutdruck. Entlastet das Herz bei Lungenödem/Angina pectoris.",
       "minLevel": "NotSan"
     },
     {
@@ -286,7 +286,7 @@
       "besonderheiten": null,
       "besondereHinweise": null,
       "page": 56,
-      "wirkung": "Verstärkt die Wirkung von Antithrombin und hemmt dadurch die Blutgerinnung – verhindert das Weiterwachsen von Blutgerinnseln, z. B. beim akuten Koronarsyndrom.",
+      "wirkung": "Verstärkt die Wirkung von Antithrombin und hemmt dadurch die Blutgerinnung. Verhindert das Weiterwachsen von Blutgerinnseln, z. B. beim akuten Koronarsyndrom.",
       "minLevel": "NotSan"
     },
     {
@@ -326,7 +326,7 @@
       "besonderheiten": "• unterschiedliche Konzentrationen verfügbar\nKeine Anwendung, wenn:\n• Überempfindlichkeit gegen den Wirkstoff, Atropin oder andere Atropinderivate\n• symptomatische Tachykardie / Tachyarrhythmie\n• Engwinkelglaukom",
       "besondereHinweise": null,
       "page": 58,
-      "wirkung": "Blockiert Acetylcholin-Rezeptoren in den Bronchien und wirkt dadurch bronchienerweiternd – ergänzt Salbutamol bei Atemwegsverengung.",
+      "wirkung": "Blockiert Acetylcholin-Rezeptoren in den Bronchien und wirkt dadurch bronchienerweiternd. Ergänzt Salbutamol bei Atemwegsverengung.",
       "minLevel": "NotSan"
     },
     {
@@ -346,7 +346,7 @@
       "besonderheiten": "• Cave: unterschiedliche Konzentrationen verfügbar",
       "besondereHinweise": null,
       "page": 59,
-      "wirkung": "Stabilisiert die Zellmembranen der Herzmuskelzellen (Klasse-Ib-Antiarrhythmikum) – Alternative zu Amiodaron bei defibrillierbaren Rhythmen.",
+      "wirkung": "Stabilisiert die Zellmembranen der Herzmuskelzellen (Klasse-Ib-Antiarrhythmikum). Alternative zu Amiodaron bei defibrillierbaren Rhythmen.",
       "minLevel": "NotSan"
     },
     {
@@ -366,7 +366,7 @@
       "besonderheiten": "• beide beim ACS fakultativ indizierte Medikamente Metoprolol und Glyceroltrinitrat sind hypotensiv\nwirksam, daher keine zeitgleiche Gabe",
       "besondereHinweise": null,
       "page": 60,
-      "wirkung": "Betablocker, senkt Herzfrequenz und myokardialen Sauerstoffbedarf – bei bestimmten tachykarden Rhythmusstörungen im Rahmen eines Herzinfarkts.",
+      "wirkung": "Betablocker, senkt Herzfrequenz und myokardialen Sauerstoffbedarf. Bei bestimmten tachykarden Rhythmusstörungen im Rahmen eines Herzinfarkts.",
       "minLevel": "NotSan"
     },
     {
@@ -386,7 +386,7 @@
       "besonderheiten": "• unterschiedliche Konzentrationen verfügbar",
       "besondereHinweise": null,
       "page": 61,
-      "wirkung": "Benzodiazepin, wirkt beruhigend, angstlösend und krampflösend über GABA-Rezeptoren im Gehirn – u. a. bei Krampfanfällen und zur Sedierung.",
+      "wirkung": "Benzodiazepin, wirkt beruhigend, angstlösend und krampflösend über GABA-Rezeptoren im Gehirn. U. a. bei Krampfanfällen und zur Sedierung.",
       "minLevel": "NotSan"
     },
     {
@@ -466,7 +466,7 @@
       "besonderheiten": "• Zeitabstand zur letzten Gabe > 6 Stunden beachten",
       "besondereHinweise": null,
       "page": 65,
-      "wirkung": "Wirkt zentral schmerzstillend und fiebersenkend (genauer Mechanismus nicht vollständig geklärt) – Alternative zu NSAR ohne deren Magen-/Blutungsrisiko.",
+      "wirkung": "Wirkt zentral schmerzstillend und fiebersenkend (genauer Mechanismus nicht vollständig geklärt). Alternative zu NSAR ohne deren Magen-/Blutungsrisiko.",
       "minLevel": "NotSan"
     },
     {
@@ -486,7 +486,7 @@
       "besonderheiten": "• Wirkeintritt verzögert, unspezifische frühzeitige Effekte nach 10 - 20 min\n• Wirkdauer 4 - 6 Stunden",
       "besondereHinweise": null,
       "page": 66,
-      "wirkung": "Glukokortikoid, dämpft überschießende Immun- und Entzündungsreaktionen – bei Anaphylaxie und Bronchialobstruktion, Wirkung setzt verzögert ein.",
+      "wirkung": "Glukokortikoid, dämpft überschießende Immun- und Entzündungsreaktionen. Bei Anaphylaxie und Bronchialobstruktion, Wirkung setzt verzögert ein.",
       "minLevel": "NotSan"
     },
     {
@@ -526,7 +526,7 @@
       "besonderheiten": "• Explosionsgefahr bei entsprechendem Konzentrationsverhältnis gegeben, CAVE bei Defibrillation",
       "besondereHinweise": null,
       "page": 68,
-      "wirkung": "Erhöht den Sauerstoffpartialdruck im Blut und verbessert die Gewebeoxygenierung – Basistherapie bei Hypoxämie.",
+      "wirkung": "Erhöht den Sauerstoffpartialdruck im Blut und verbessert die Gewebeoxygenierung. Basistherapie bei Hypoxämie.",
       "minLevel": "NotSan"
     },
     {

@@ -134,7 +134,7 @@ export const RETTUNGSTECHNIK_THEMEN: RettungstechnikTopic[] = [
         ],
       },
     ],
-    notes: ['Sauerstoff ist ein Medikament — Gabe orientiert sich an SpO2-Messung/Klinik, nicht an einer routinemäßigen Gabe bei jedem Patienten.'],
+    notes: ['Sauerstoff ist ein Medikament. Gabe orientiert sich an SpO2-Messung/Klinik, nicht an einer routinemäßigen Gabe bei jedem Patienten.'],
     sourceNote: GENERAL_SOURCE_NOTE,
   },
   {

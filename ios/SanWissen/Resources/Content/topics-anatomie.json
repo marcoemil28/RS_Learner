@@ -19,7 +19,7 @@
       "summary": "Aufbau des Herzens, Erregungsleitungssystem (Grundlage für das EKG-Modul) und die beiden Kreislaufsysteme.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.",
+      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.",
       "notes": [],
       "sections": [
         {
@@ -115,7 +115,7 @@
       "summary": "Aufbau der Atemwege, Gasaustausch und Atemmechanik. Grundlage für Atemwegsmanagement und Sauerstoffgabe.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.",
+      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.",
       "notes": [],
       "sections": [
         {
@@ -201,7 +201,7 @@
       "summary": "Grundzüge des Skeletts und der Muskulatur. Grundlage für Traumatologie und Verbandslehre.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.",
+      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.",
       "notes": [],
       "sections": [
         {
@@ -277,7 +277,7 @@
       "summary": "Grobgliederung des Nervensystems, vegetatives Nervensystem (Grundlage für viele Medikamentenwirkungen) und Pupillenkontrolle.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.",
+      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.",
       "notes": [
         "Siehe auch Algorithmen: „Beurteilung der Bewusstseinslage (WASB & GCS)\" für die strukturierte Bewusstseinsprüfung."
       ],
@@ -345,9 +345,9 @@
       "summary": "Orientierungswerte für Herzfrequenz, Atemfrequenz und Blutdruck nach Altersgruppe. Als Nachschlagetabelle, keine exakten Grenzwerte.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.",
+      "sourceNote": "Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.",
       "notes": [
-        "Diese Werte sind grobe Orientierung für den Rettungsdienstalltag, keine exakten Grenzwerte — verschiedene Quellen/Lehrbücher geben teils leicht abweichende Bereiche an. Für Instabilitätskriterien bei Erwachsenen siehe Algorithmen: „cABCDE – Instabilitäten\"."
+        "Diese Werte sind grobe Orientierung für den Rettungsdienstalltag, keine exakten Grenzwerte, verschiedene Quellen/Lehrbücher geben teils leicht abweichende Bereiche an. Für Instabilitätskriterien bei Erwachsenen siehe Algorithmen: „cABCDE – Instabilitäten\"."
       ],
       "sections": [
         {

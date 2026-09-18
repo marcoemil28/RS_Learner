@@ -1,7 +1,7 @@
 import type { SanitaetsdienstTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
-  'Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe ' +
+  'Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe ' +
   '(Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; ' +
   'es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.';
 

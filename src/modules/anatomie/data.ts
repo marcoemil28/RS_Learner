@@ -2,7 +2,7 @@ import type { AnatomieTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
   'Allgemeines anatomisch-physiologisches Grundlagenwissen (keine bestimmte Quelle wie beim SAA/BPR-PDF). ' +
-  'Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript — Normwerte und Detailtiefe können dort abweichen.';
+  'Für Prüfungsdetails gilt dein Kurs-Lehrbuch/Skript. Normwerte und Detailtiefe können dort abweichen.';
 
 /** Zuletzt inhaltlich geprüft/aktualisiert. */
 export const CONTENT_STAND = '2026-09-17';
@@ -294,7 +294,7 @@ export const ANATOMIE_THEMEN: AnatomieTopic[] = [
       },
     ],
     notes: [
-      'Diese Werte sind grobe Orientierung für den Rettungsdienstalltag, keine exakten Grenzwerte — verschiedene ' +
+      'Diese Werte sind grobe Orientierung für den Rettungsdienstalltag, keine exakten Grenzwerte, verschiedene ' +
         'Quellen/Lehrbücher geben teils leicht abweichende Bereiche an. Für Instabilitätskriterien bei Erwachsenen ' +
         'siehe Algorithmen: „cABCDE – Instabilitäten".',
     ],

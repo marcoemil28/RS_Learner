@@ -1,7 +1,7 @@
 import type { RechtlicheGrundlagenTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
-  'Allgemeines rechtliches Grundlagenwissen für den Rettungsdienst — keine SAA/BPR-Quelle und keine ' +
+  'Allgemeines rechtliches Grundlagenwissen für den Rettungsdienst. Keine SAA/BPR-Quelle und keine ' +
   'Rechtsberatung. Konkrete Rechtsvorschriften (Rettungsdienstgesetze, Delegationsumfang, ' +
   'Dokumentationsvorgaben) sind bundeslandspezifisch geregelt; im Einzelfall zählt immer die aktuelle ' +
   'Gesetzeslage bzw. lokale Dienstanweisung.';

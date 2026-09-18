@@ -1,7 +1,7 @@
 import type { PaediatrieTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
-  'Allgemeines rettungsdienstliches Grundlagenwissen zu pädiatrischen Notfällen und Geburtshilfe — keine ' +
+  'Allgemeines rettungsdienstliches Grundlagenwissen zu pädiatrischen Notfällen und Geburtshilfe, keine ' +
   'SAA/BPR-Quelle. Konkrete Vorgehensweisen können je nach Ausbildungsstand/lokaler Vorgabe variieren.';
 
 /** Zuletzt inhaltlich geprüft/aktualisiert. */
@@ -135,7 +135,7 @@ export const PAEDIATRIE_THEMEN: PaediatrieTopic[] = [
         ],
       },
     ],
-    notes: ['Eine Notgeburt ist ein Ausnahmefall — bei jeder Möglichkeit hat der zügige, sichere Transport in eine Geburtsklinik Vorrang.'],
+    notes: ['Eine Notgeburt ist ein Ausnahmefall. Bei jeder Möglichkeit hat der zügige, sichere Transport in eine Geburtsklinik Vorrang.'],
     sourceNote: GENERAL_SOURCE_NOTE,
   },
   {

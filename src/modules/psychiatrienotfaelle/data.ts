@@ -2,7 +2,7 @@ import type { PsychiatrieNotfaelleTopic } from './types';
 
 const GENERAL_SOURCE_NOTE =
   'Allgemeines rettungsdienstliches Grundlagenwissen zu psychiatrischen Notfällen, Gesprächsführung und ' +
-  'Sterbebegleitung — keine SAA/BPR-Quelle. Rechtliche Rahmenbedingungen (z. B. Unterbringung gegen den ' +
+  'Sterbebegleitung. Keine SAA/BPR-Quelle. Rechtliche Rahmenbedingungen (z. B. Unterbringung gegen den ' +
   'eigenen Willen, Todesfeststellung) sind bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale ' +
   'Dienstanweisung bzw. Gesetzeslage.';
 

@@ -1,7 +1,7 @@
 import type { Checklist } from './types';
 
 const GENERAL_SOURCE_NOTE =
-  'Abgeleitet aus den entsprechenden Themenmodulen dieser App — als praktische Checkliste für den echten ' +
+  'Abgeleitet aus den entsprechenden Themenmodulen dieser App. Als praktische Checkliste für den echten ' +
   'Dienst gedacht, nicht als vollständiger Ersatz für die ausführliche Handlungsanweisung dort.';
 
 export const CHECKLISTEN: Checklist[] = [

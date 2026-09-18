@@ -17,7 +17,7 @@
       "summary": "Wie eine Sanitätswache bei einer Veranstaltung aufgebaut ist und welche Rollen es gibt.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
+      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
       "notes": [],
       "sections": [
         {
@@ -109,7 +109,7 @@
       "summary": "Grundprinzip der Sichtung bei einem Massenanfall von Verletzten (MANV): Ziel ist die größtmögliche Anzahl Überlebender, nicht die optimale Einzelbehandlung.",
       "minLevel": "RS",
       "page": null,
-      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
+      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
       "notes": [
         "Das genaue Ampelschema und die Kriterien-Schwellenwerte können je nach Bundesland/Landesrettungsdienstplan variieren. Maßgeblich ist immer die lokale Vorgabe/SOP."
       ],
@@ -207,7 +207,7 @@
       "summary": "Das international genormte Buchstabieralphabet, die FMS-Statusmeldungen und Grundregeln für klaren, kurzen Sprechfunkverkehr.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
+      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
       "notes": [
         "Konkrete Kanalzuteilung und Rufnamen sind organisationsspezifisch (BOS-Funk-Richtlinien, lokale Dienstanweisung).",
         "Die Statusmeldungen 0–6 sind bundesweit weitgehend einheitlich. Bei 7, 8 und 9 weichen einzelne Leitstellen ab. Vor dem Dienst die eigene Statusliste prüfen, nicht auf diese Liste verlassen."
@@ -326,7 +326,7 @@
       "summary": "Wiederkehrende Beschwerdebilder bei Menschenansammlungen, Festivals und Sportveranstaltungen.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
+      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
       "notes": [],
       "sections": [
         {
@@ -410,7 +410,7 @@
       "summary": "Basishygiene, persönliche Schutzausrüstung und Vorgehen nach Blutkontakt/Nadelstichverletzung.",
       "minLevel": "SanH",
       "page": null,
-      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst — keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
+      "sourceNote": "Allgemeines Grundlagenwissen zum Sanitäts-/Veranstaltungsdienst. Keine SAA/BPR-Quelle. Konkrete Abläufe (Funkkanäle/Rufnamen, Sichtungsschema, Hygieneplan) sind organisations- und bundeslandspezifisch geregelt; es gilt immer die aktuelle, lokale Dienstanweisung bzw. der Hygieneplan des Trägers.",
       "notes": [
         "Hygienevorgaben richten sich nach dem Hygieneplan des Trägers und aktuellen RKI-Empfehlungen."
       ],
