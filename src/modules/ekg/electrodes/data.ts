@@ -12,11 +12,12 @@ export const MONITORING_SET: ElectrodeSet = {
   title: 'Monitoring-EKG (3-/4-Kanal, „Ampelschema“)',
   intro:
     'Für die kontinuierliche Rhythmusüberwachung reichen 3 (bzw. 4) Elektroden am Rumpf. ' +
-    'Eselsbrücke „Ampelschema“: wie eine Ampel von oben nach unten und von rechts nach links – Rot, Gelb, Grün (, Schwarz). ' +
+    'Eselsbrücke „Ampelschema“: wie eine Ampel von oben nach unten und von rechts nach links, also Rot, Gelb, Grün. ' +
+    'Bei vier Elektroden kommt Schwarz als Erdung dazu. ' +
     'Im Rettungsdienst wird bewusst auf Schultern und Leisten geklebt, damit die Flächen unterhalb des rechten ' +
     'Schlüsselbeins und auf dem linken Rippenbogen für Defibrillations-Pads frei bleiben. In Klinik und Intensivmedizin ' +
     'ist stattdessen die Mason-Likar-Position üblich (Armelektroden ca. 2 cm unterhalb des Schlüsselbeins, Beinelektrode ' +
-    'in der vorderen Axillarlinie zwischen Beckenkamm und unterster Rippe) — die belegt aber genau die Defi-Flächen.',
+    'in der vorderen Axillarlinie zwischen Beckenkamm und unterster Rippe). Die belegt aber genau die Defi-Flächen.',
   bodyType: 'full',
   imageName: 'koerper-vorderansicht',
   viewBox: { w: 669, h: 1200 },
@@ -28,7 +29,7 @@ export const MONITORING_SET: ElectrodeSet = {
       color: '#e5484d',
       x: 214,
       y: 262,
-      description: 'Rechte Schulter, über dem Schultergelenk — „rot = rechts, oben“',
+      description: 'Rechte Schulter, über dem Schultergelenk. „rot = rechts, oben“',
     },
     {
       id: 'gelb',
@@ -44,7 +45,7 @@ export const MONITORING_SET: ElectrodeSet = {
       color: '#3ddc84',
       x: 424,
       y: 516,
-      description: 'Linke Leiste, Höhe Beckenkamm — die Ampel endet unten links bei Grün',
+      description: 'Linke Leiste, Höhe Beckenkamm. Die Ampel endet unten links bei Grün',
     },
     {
       id: 'schwarz',
@@ -63,7 +64,7 @@ export const TWELVE_LEAD_SET: ElectrodeSet = {
   intro:
     'Für ein vollständiges 12-Kanal-EKG (z. B. bei V. a. ACS/STEMI) braucht es 4 Extremitäten- und ' +
     '6 Brustwandelektroden (V1–V6) nach Wilson. Gezählt wird vom Angulus sterni: dort setzt die 2. Rippe an, ' +
-    'darunter liegt der 2. Interkostalraum — von da zwei Räume weiter nach unten sitzt V1/V2 im 4. ICR. ' +
+    'darunter liegt der 2. Interkostalraum. Von da zwei Räume weiter nach unten sitzt V1/V2 im 4. ICR. ' +
     'Bei V1, V2 und V4–V6 zählt hier sowohl der richtige Interkostalraum als auch die richtige Linie.',
   bodyType: 'thorax',
   imageName: 'thorax-vorderansicht',

@@ -35,7 +35,7 @@ export interface ElectrodeSet {
    * die App den Körper nicht selbst, sondern legt die Elektroden auf dieses
    * Bild — die Koordinaten beziehen sich dann auf dessen Pixelmaße.
    */
-  imageName?: string;
+  imageName: string;
   viewBox: { w: number; h: number };
   /** Elektroden legen ist überwiegend eine technische Fertigkeit, keine Kompetenzfrage — daher niedrig angesetzt. */
   minLevel: QualificationLevel;

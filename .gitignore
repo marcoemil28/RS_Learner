@@ -33,3 +33,6 @@ xcuserdata/
 # Signierung: Team-ID und Bundle-ID bleiben lokal.
 # Vorlage: ios/Signing.local.xcconfig.example
 ios/Signing.local.xcconfig
+
+# Claude-Code-Arbeitsverzeichnis
+.claude/
